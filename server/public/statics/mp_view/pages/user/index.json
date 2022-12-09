@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tab-bar": "/pages/index/visualization/components/tabBar",
+    "page-footer": "/components/pageFooter/index"
+  }
+}

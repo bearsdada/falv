@@ -1,0 +1,16 @@
+/.git
+/.idea
+*.log
+/server/runtime/cache
+/server/runtime/log
+/server/runtime/session
+/server/runtime/temp
+/server/public/install.lock
+/server/public/uploads
+/admin/dist/
+/admin/.idea/
+/admin/node_modules/
+/uni-法律服务小程序/unpackage/
+/uni-法律服务小程序/.hbuilderx/
+*.zip
+*.rar
