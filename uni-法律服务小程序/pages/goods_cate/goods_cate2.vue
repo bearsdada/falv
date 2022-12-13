@@ -9,7 +9,7 @@
 			</navigator>
 			<navigator url="/pages/goods/goods_search/index" class="search acea-row row-center-wrapper" hover-class="none">
 				<text class="iconfont icon-xiazai5"></text>
-				{{$t(`搜索商品名称`)}}
+				{{$t(`搜索服务名称`)}}
 			</navigator>
 		</view>
 		<view class="conter">
@@ -417,7 +417,7 @@
 			ChangeCartNumDuo(changeValue) {
 				//获取当前变动属性
 				let productSelect = this.productValue[this.attrValue];
-				//如果没有属性,赋值给商品默认库存
+				//如果没有属性,赋值给服务服务默认库存
 				if (productSelect === undefined && !this.attr.productAttr.length)
 					productSelect = this.attr.productSelect;
 				//无属性值即库存为0；不存在加减；
@@ -591,7 +591,7 @@
 			getIsLogin() {
 				toLogin();
 			},
-			// 商品详情接口；
+			// 服务服务详情接口；
 			getAttrs(id) {
 				let that = this;
 				getAttr(id, 0).then(res => {

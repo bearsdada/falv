@@ -27,7 +27,7 @@
 					<view class="refund-address">
 						{{orderInfo._status.refund_address}}
 					</view>
-					<view class="refund-tip"><text class="iconfont icon-zhuyi-copy"></text>{{$t(`请按以上退货信息将商品退回`)}}
+					<view class="refund-tip"><text class="iconfont icon-zhuyi-copy"></text>{{$t(`请按以上退货信息将服务服务退回`)}}
 					</view>
 				</view>
 				<view v-else>
@@ -292,7 +292,7 @@
 			</view>
 			<view class='wrapper'>
 				<view class='item acea-row row-between'>
-					<view>{{$t(`商品总价`)}}：</view>
+					<view>{{$t(`服务服务总价`)}}：</view>
 					<view class='conter'>
 						{{$t(`￥`)}}{{(parseFloat(orderInfo.total_price)+parseFloat(orderInfo.vip_true_price)).toFixed(2)}}
 					</view>
@@ -302,7 +302,7 @@
 					<view class='conter'>{{$t(`￥`)}}{{parseFloat(orderInfo.pay_postage).toFixed(2)}}</view>
 				</view>
 				<view v-if="orderInfo.vip_true_price > 0" class='item acea-row row-between'>
-					<view>{{$t(`会员商品优惠`)}}：</view>
+					<view>{{$t(`会员服务服务优惠`)}}：</view>
 					<view class='conter'>-{{$t(`￥`)}}{{parseFloat(orderInfo.vip_true_price).toFixed(2)}}</view>
 				</view>
 				<view class='item acea-row row-between' v-if='orderInfo.coupon_price > 0'>
@@ -493,7 +493,7 @@
 				evaluate: 0,
 				cartInfo: [], //购物车产品
 				pid: 0, //上级订单ID
-				split: [], //分单商品
+				split: [], //分单服务服务
 				orderInfo: {
 					help_info: {},
 					system_store: {},

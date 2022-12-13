@@ -3,16 +3,16 @@
 		<view class="item acea-row row-between-wrapper" v-for="(item,index) in tempArr" :key='index'
 			@click="goDetail(item)">
 			<view class="pictrue">
-				<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">{{$t(`秒杀`)}}</span>
-				<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">{{$t(`砍价`)}}</span>
-				<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">{{$t(`拼团`)}}</span>
+				<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">秒杀</span>
+				<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">砍价</span>
+				<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">拼团</span>
 				<image :src="item.image" mode=""></image>
 			</view>
 			<view class="pictxt">
 				<view class="text line2">{{item.store_name}}</view>
 				<view class="bottom acea-row row-between-wrapper">
 					<view class="money font-color">
-						<text class="sign">{{$t(`￥`)}}</text>{{item.price}}
+						<text class="sign">￥</text>{{item.price}}
 						<!-- <span class="vip" v-if="item.vip_price">
 							<image src="../../static/images/vip01.png"></image>
 							￥{{item.vip_price}}
@@ -27,7 +27,7 @@
 							<!-- 多规格 -->
 							<view class="bnt acea-row row-center-wrapper" @click.stop="goCartDuo(item)"
 								v-if="item.spec_type">
-								{{$t(`选规格`)}}
+								选规格
 								<text class="num" v-if="isLogin && item.cart_num">{{item.cart_num}}</text>
 							</view>
 							<!-- 单规格 -->
@@ -42,7 +42,7 @@
 							</view>
 						</view>
 					</view>
-					<view class="bnt acea-row row-center-wrapper end" v-else>{{$t(`已售罄`)}}</view>
+					<view class="bnt acea-row row-center-wrapper end" v-else>已售罄</view>
 				</view>
 			</view>
 		</view>

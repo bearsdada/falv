@@ -10,7 +10,7 @@
 		</view>
 		<!-- #endif -->
 		<view class="broadcast-details_order">
-			<!-- 商品信息 -->
+			<!-- 服务服务信息 -->
 			<view class="broadcast-details_box" v-if="productId && productInfo.id">
 				<view class="broadcast_details_img">
 					<image class="goods-img" :src="productInfo.image" />
@@ -19,35 +19,35 @@
 					<view class="broadcast_details_tit" v-text="productInfo.store_name"></view>
 					<view class="acea-row row-between">
 						<view class="broadcast_details_pic">
-							{{$t(`￥`)}}{{ productInfo.price }}
+							￥{{ productInfo.price }}
 							<text class="broadcast_details_pic_num"
-								v-if="productInfo.ot_price">{{$t(`￥`)}}{{ productInfo.ot_price }}</text>
+								v-if="productInfo.ot_price">￥{{ productInfo.ot_price }}</text>
 						</view>
-						<view class="broadcast_details_btn" @click="sendProduct">{{$t(`发送客服`)}}</view>
+						<view class="broadcast_details_btn" @click="sendProduct">发送客服</view>
 					</view>
 				</view>
 			</view>
 			<!-- 订单信息 -->
 			<view class="broadcast_box" v-if="orderId && orderInfo.id">
 				<view class="broadcast-details_num broadcast_num">
-					<text>{{$t(`订单号`)}}：{{ orderInfo.order_id }}</text>
+					<text>订单号：{{ orderInfo.order_id }}</text>
 					<text>{{ orderInfo.add_time_y }} {{ orderInfo.add_time_h }}</text>
 				</view>
 				<view class="broadcast-details_box">
 					<view class="broadcast_details_img">
 						<image class="goods-img" :src="orderInfo.cartInfo[0].productInfo.image" />
 						<view class="broadcast_details_model">
-							{{ orderInfo.cartInfo ? orderInfo.cartInfo.length : 0 }}{{$t(`件商品`)}}
+							{{ orderInfo.cartInfo ? orderInfo.cartInfo.length : 0 }}件服务服务
 						</view>
 					</view>
 					<view class="broadcast_details_picBox">
 						<view class="broadcast_details_tit">{{ orderInfo.cartInfo[0].productInfo.store_name }}</view>
 						<view class="acea-row row-between">
 							<view class="broadcast_details_pic">
-								{{$t(`￥`)}}{{ orderInfo.cartInfo[0].productInfo.price }}
-								<text class="broadcast_details_pic_num">{{$t(`￥`)}}{{ orderInfo.cartInfo[0].costPrice }}</text>
+								￥{{ orderInfo.cartInfo[0].productInfo.price }}
+								<text class="broadcast_details_pic_num">￥{{ orderInfo.cartInfo[0].costPrice }}</text>
 							</view>
-							<view class="broadcast_details_btn" @click="sendOrder">{{$t(`发送客服`)}}</view>
+							<view class="broadcast_details_btn" @click="sendOrder">发送客服</view>
 						</view>
 					</view>
 				</view>
@@ -62,17 +62,19 @@
 						<view class="chat-item" :class="{ 'right-box': item.uid == myUid }">
 							<image class="avatar" :src="item.avatar" mode=""></image>
 							<!-- 消息 -->
-							<view class="msg-box" v-if="item.msn_type <= 2" v-html="item.msn"></view>
+							<view class="msg-box" v-if="item.msn_type <= 2">
+								<rich-text :nodes="item.msn"></rich-text>
+							</view>
 							<!-- 图片 -->
 							<view class="img-box" v-if="item.msn_type == 3">
 								<image :src="item.msn" mode="widthFix" @tap="previewImage(item.msn)"></image>
 							</view>
-							<!-- 商品 -->
+							<!-- 服务服务 -->
 							<view class="product-box" v-if="item.msn_type == 5" @click="goProduct(item)">
 								<image :src="item.productInfo.image" mode="widthFix"></image>
 								<view class="info">
 									<view class="price">
-										<text>{{$t(`￥`)}}</text>
+										<text>￥</text>
 										{{ item.productInfo.price }}
 									</view>
 									<view class="name line2">{{ item.productInfo.store_name }}</view>
@@ -80,13 +82,13 @@
 							</view>
 							<!-- 订单 -->
 							<view class="order-box" v-if="item.msn_type == 6" @click="goOrder(item)">
-								<view class="title">{{$t(`订单号`)}}: {{ item.orderInfo.order_id }}</view>
+								<view class="title">订单号: {{ item.orderInfo.order_id }}</view>
 								<view class="info">
 									<image :src="item.orderInfo.cartInfo[0].productInfo.image"></image>
 									<view class="product-info">
 										<view class="name line2">{{ item.orderInfo.cartInfo[0].productInfo.store_name }}
 										</view>
-										<view class="price">{{$t(`￥`)}}{{ item.orderInfo.cartInfo[0].productInfo.price }}</view>
+										<view class="price">￥{{ item.orderInfo.cartInfo[0].productInfo.price }}</view>
 									</view>
 								</view>
 							</view>
@@ -98,7 +100,7 @@
 		<view class="footer-box">
 			<view class="words" @click="uploadImg"><text class="iconfont icon-tupian"></text></view>
 			<view class="input-box">
-				<input type="text" :placeholder="$t(`请输入内容`)" v-model="con" confirm-type="send" @confirm="sendText" />
+				<input type="text" placeholder="请输入内容" v-model="con" confirm-type="send" @confirm="sendText" />
 				<text class="iconfont icon-fasong" @click="sendText" :class="{ isSend: isSend }"></text>
 			</view>
 			<view class="emoji" @click="isSwiper = !isSwiper"><span class="iconfont icon-biaoqing"></span></view>
@@ -218,7 +220,7 @@
 		},
 		onLoad(options) {
 			uni.showLoading({
-				title: this.$t(`客服连接中`)
+				title: '客服连接中'
 			});
 			this.myUid = this.$store.state.app.uid;
 			this.toUid = options.to_uid
@@ -312,7 +314,7 @@
 			});
 			uni.$on('socket_error', () => {
 				this.$util.Tips({
-					title: this.$t(`连接失败`)
+					title: '连接失败'
 				});
 			});
 			uni.$on('err_tip', (e) => {
@@ -323,8 +325,8 @@
 			uni.$on('online', data => {
 				if (data.online == 0) {
 					uni.showModal({
-						title: this.$t(`提示`),
-						content: this.$t(`客服已下线，是否需要反馈？`),
+						title: '提示',
+						content: '客服已下线，是否需要反馈？',
 						success: function(res) {
 							if (res.confirm) {
 								uni.redirectTo({
@@ -349,7 +351,7 @@
 			goBack() {
 				uni.navigateBack();
 			},
-			// 商品信息
+			// 服务服务信息
 			getproductInfo() {
 				let that = this;
 				if (!this.productId) return;
@@ -357,7 +359,7 @@
 					that.productInfo = res.data.storeInfo;
 				});
 			},
-			// 商品信息
+			// 服务服务信息
 			goProduct(item) {
 				uni.navigateTo({
 					url: `/pages/goods_details/index?id=${item.msn}`
@@ -476,7 +478,7 @@
 			sendText() {
 				if (!this.isSend) {
 					return this.$util.Tips({
-						title: this.$t(`请输入内容`)
+						title: '请输入内容'
 					});
 				}
 				this.sendMsg(this.con, 1);
@@ -513,7 +515,7 @@
 					this.canvasHeight = res.h
 				});
 			},
-			// 发送商品
+			// 发送服务服务
 			sendProduct() {
 				this.sendMsg(this.productId, 5);
 				this.productId = 0;

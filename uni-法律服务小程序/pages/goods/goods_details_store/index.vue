@@ -21,8 +21,8 @@
 						<!-- #endif -->
 					</div>
 					<div class="store-distance" @click.stop="showMaoLocation(item)">
-						<span class="addressTxt" v-if="item.range">{{ item.range }}{{$t(`千米距离`)}}</span>
-						<span class="addressTxt" v-else>{{$t(`查看地图`)}}</span>
+						<span class="addressTxt" v-if="item.range">{{ item.range }}千米距离</span>
+						<span class="addressTxt" v-else>查看地图</span>
 						<span class="iconfont icon-youjian"></span>
 					</div>
 				</div>

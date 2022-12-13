@@ -324,9 +324,9 @@ export default {
 				let pricey = 0.180 //价格x
 				let codex = 0.385 //二维码
 				let codey = 0.77
-				let picturex = 0.1571 //商品图左上点
+				let picturex = 0.1571 //服务服务图左上点
 				let picturey = 0.2916
-				let picturebx = 0.6857 //商品图右下点
+				let picturebx = 0.6857 //服务服务图右下点
 				let pictureby = 0.4316
 				let msgx = 0.1036 //msg
 				let msgy = 0.2306

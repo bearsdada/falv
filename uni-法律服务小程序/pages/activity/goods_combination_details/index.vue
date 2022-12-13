@@ -45,20 +45,20 @@
 					<view class='wrapper'>
 						<view class='share acea-row row-between row-bottom'>
 							<view class='money font-color'>
-								{{$t(`￥`)}}<text class='num'>{{storeInfo.price || 0}}</text>
+								￥<text class='num'>{{storeInfo.price || 0}}</text>
 								<text
 									v-if="attribute.productAttr.length && (attribute.productAttr.length?attribute.productAttr[0].attr_values.length:0) > 1">{{$t(`起`)}}</text>
-								<text class='y-money'>{{$t(`￥`)}}{{storeInfo.product_price || 0}}</text>
+								<text class='y-money'>￥{{storeInfo.product_price || 0}}</text>
 							</view>
 							<view class='iconfont icon-fenxiang' @click="listenerActionSheet"></view>
 						</view>
 						<view class='introduce'>{{storeInfo.title}}</view>
 						<view class='label acea-row row-between-wrapper'>
-							<view class='stock'>{{$t(`类型`)}}：{{storeInfo.people || 0}}{{$t(`人团`)}}</view>
-							<view>{{$t(`累计销量`)}}：{{storeInfo.total?storeInfo.total:0}} {{$t(storeInfo.unit_name) || ''}}
+							<view class='stock'>类型：{{storeInfo.people || 0}}人团</view>
+							<view>累计销量：{{storeInfo.total?storeInfo.total:0}} {{storeInfo.unit_name || ''}}
 							</view>
-							<view>{{$t(`限购`)}}: {{ storeInfo.quota ? storeInfo.quota : 0 }}
-								{{$t(storeInfo.unit_name) || ''}}
+							<view>限购: {{ storeInfo.quota ? storeInfo.quota : 0 }}
+								{{storeInfo.unit_name || ''}}
 							</view>
 						</view>
 					</view>
@@ -81,14 +81,14 @@
 								<image :src="item.image" v-for="(item, index) in skuArr.slice(0, 4)" :key="index"
 									class="attrImg"></image>
 							</view>
-							<view class="switchTxt">{{$t(`共`)}}{{ skuArr.length }}{{$t(`种规格可选`)}}</view>
+							<view class="switchTxt">共{{ skuArr.length }}种规格可选</view>
 						</view>
 					</view>
 					<view class="bg-color">
 						<view class='notice acea-row row-middle'>
 							<view class='num font-num'>
 								<text class='iconfont icon-laba'></text>
-								{{$t(`已拼`)}}{{pink_ok_sum}}{{$t(`件`)}}<text class='line'>|</text>
+								已拼{{pink_ok_sum}}件<text class='line'>|</text>
 							</view>
 							<view class='swiper'>
 								<swiper :indicator-dots="indicatorDots" :autoplay="autoplay" interval="2500"
@@ -113,7 +113,7 @@
 							</view>
 							<view class='right acea-row row-middle'>
 								<view>
-									<view class='lack'>{{$t(`还差`)}}<text class='font-num'>{{item.count}}</text>{{$t(`人成团`)}}</view>
+									<view class='lack'>还差<text class='font-num'>{{item.count}}</text>人成团</view>
 									<view class='time'>
 										<count-down :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="':'"
 											:minute-text="':'" :second-text="' '" :datatime="item.stop_time">
@@ -123,55 +123,55 @@
 								<navigator hover-class='none'
 									:url="'/pages/activity/goods_combination_status/index?id='+item.id"
 									class='spellBnt'>
-									{{$t(`去拼单`)}}
+									去拼单
 									<!-- <text class='iconfont icon-jiantou'></text> -->
 								</navigator>
 							</view>
 						</view>
 						<template v-if="pink.length">
-							<view class='more' @tap='showAll' v-if="pink.length > AllIndex">{{$t(`查看更多`)}}<text
+							<view class='more' @tap='showAll' v-if="pink.length > AllIndex">查看更多<text
 									class='iconfont icon-xiangxia'></text></view>
 							<view class='more' @tap='hideAll'
-								v-else-if="pink.length === AllIndex && pink.length !== AllIndexDefault">{{$t(`收起`)}}<text
+								v-else-if="pink.length === AllIndex && pink.length !== AllIndexDefault">收起<text
 									class='iconfont icon-xiangshang'></text></view>
 						</template>
 					</view>
 					<view class='playWay'>
 						<view class='title acea-row row-between-wrapper'>
-							<view>{{$t(`拼团玩法`)}}</view>
+							<view>拼团玩法</view>
 						</view>
 						<view class='way acea-row row-middle'>
 							<view class='item'>
 								<text class='num'>①</text>
-								<text>{{$t(`开团/参团`)}}</text>
+								<text>开团/参团</text>
 							</view>
 							<view class='iconfont icon-arrow'></view>
 							<view class='item'>
 								<text class='num'>②</text>
-								<text>{{$t(`邀请好友`)}}</text>
+								<text>邀请好友</text>
 							</view>
 							<view class='iconfont icon-arrow'></view>
 							<view class='item'>
 								<text class='num'>③</text>
-								<text>{{$t(`满员发货`)}}</text>
+								<text>满员发货</text>
 							</view>
 						</view>
 					</view>
 				</view>
 				<view class='userEvaluation' id="past1" v-if="replyCount">
 					<view class='title acea-row row-between-wrapper'>
-						<view>{{$t(`用户评价`)}}({{replyCount}})</view>
+						<view>用户评价({{replyCount}})</view>
 						<navigator class='praise' hover-class='none'
 							:url='"/pages/goods/goods_comment_list/index?product_id="+storeInfo.product_id'>
 							<text class='font-num'>{{replyChance || 0}}%</text>
-							{{$t(`好评率`)}}
+							好评率
 							<text class='iconfont icon-jiantou'></text>
 						</navigator>
 					</view>
 					<userEvaluation :reply="reply"></userEvaluation>
 				</view>
 				<view class='product-intro' id="past2">
-					<view class='title'>{{$t(`产品介绍`)}}</view>
+					<view class='title'>产品介绍</view>
 					<view class='conter'>
 						<!-- <view class="" v-html="storeInfo.description"></view> -->
 						<parser :html="storeInfo.description" ref="article" :tag-style="tagStyle"></parser>
@@ -181,25 +181,25 @@
 			<view class='footer acea-row row-between-wrapper'>
 				<navigator hover-class="none" class="item" open-type="switchTab" url="/pages/index/index">
 					<view class="iconfont icon-shouye6"></view>
-					<view class="p_center">{{$t(`首页`)}}</view>
+					<view class="p_center">首页</view>
 				</navigator>
 				<view @tap='setCollect' class='item'>
 					<view class='iconfont icon-shoucang1' v-if="storeInfo.userCollect"></view>
 					<view class='iconfont icon-shoucang' v-else></view>
-					<view class="p_center">{{$t(`收藏`)}}</view>
+					<view class="p_center">收藏</view>
 				</view>
 				<view class="bnt acea-row">
-					<view class="joinCart bnts" @tap="goProduct">{{$t(`单独购买`)}}</view>
+					<view class="joinCart bnts" @tap="goProduct">单独购买</view>
 					<view class="buy bnts" @tap="goCat"
 						v-if='attribute.productSelect.product_stock>0&&attribute.productSelect.quota>0'>
-						{{$t(`立即开团`)}}
+						立即开团
 					</view>
 					<view class="buy bnts bg-color-hui" v-if="!dataShow">
-						{{$t(`立即开团`)}}
+						立即开团
 					</view>
 					<view class="buy bnts bg-color-hui"
 						v-if='attribute.productSelect.quota <= 0 || attribute.productSelect.product_stock <= 0'>
-						{{$t(`已售罄`)}}
+						已售罄
 					</view>
 				</view>
 			</view>
@@ -211,28 +211,28 @@
 			<button class="item" hover-class='none' v-if="weixinStatus === true" @click="H5ShareBox = true">
 				<!-- <button class="item" hover-class='none' v-if="weixinStatus === true" @click="setShareInfoStatus"> -->
 				<view class="iconfont icon-weixin3"></view>
-				<view class="">{{$t(`发送给朋友`)}}</view>
+				<view class="">发送给朋友</view>
 			</button>
 			<!-- #endif -->
 			<!-- #ifdef MP -->
 			<button class="item" open-type="share" hover-class='none' @click="goFriend">
 				<view class="iconfont icon-weixin3"></view>
-				<view class="">{{$t(`发送给朋友`)}}</view>
+				<view class="">发送给朋友</view>
 			</button>
 			<!-- #endif -->
 			<!-- #ifdef APP-PLUS -->
 			<view class="item" @click="appShare('WXSceneSession')">
 				<view class="iconfont icon-weixin3"></view>
-				<view class="">{{$t(`微信好友`)}}</view>
+				<view class="">微信好友</view>
 			</view>
 			<view class="item" @click="appShare('WXSenceTimeline')">
 				<view class="iconfont icon-pengyouquan"></view>
-				<view class="">{{$t(`微信朋友圈`)}}</view>
+				<view class="">微信朋友圈</view>
 			</view>
 			<!-- #endif -->
 			<button class="item" hover-class='none' @tap="goPoster('scombination')">
 				<view class="iconfont icon-haibao"></view>
-				<view class="">{{$t(`生成海报`)}}</view>
+				<view class="">生成海报</view>
 			</button>
 		</view>
 		<view class="mask" v-if="posters" @click="listenerActionClose"></view>
@@ -242,10 +242,10 @@
 			<image src='/static/images/poster-close.png' class='close' @click="posterImageClose"></image>
 			<image :src='posterImage'></image>
 			<!-- #ifndef H5  -->
-			<view class='save-poster' @click="savePosterPath">{{$t(`保存到手机`)}}</view>
+			<view class='save-poster' @click="savePosterPath">保存到手机</view>
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
-			<view class="keep">{{$t(`长按图片可以保存到手机`)}}</view>
+			<view class="keep">长按图片可以保存到手机</view>
 			<!-- #endif -->
 		</view>
 		<view class='mask1' v-if="posterImageStatus"></view>
@@ -359,7 +359,7 @@
 				},
 				productValue: [],
 				isOpen: false,
-				attr: this.$t(`请选择`),
+				attr: '请选择',
 				attrValue: '',
 				AllIndex: 2,
 				maxAllIndex: 0,
@@ -367,7 +367,7 @@
 				limitNum: 1,
 				timeer: null,
 				iSplus: false,
-				navList: [ this.$t(`商品`), this.$t(`评价`), this.$t(`详情`)],
+				navList: [ '服务服务', '评价', '详情'],
 				opacity: 0,
 				scrollY: 0,
 				topArr: [],
@@ -450,7 +450,7 @@
 			// #ifdef APP-PLUS
 			that.navH = 30;
 			// #endif
-			//设置商品列表高度
+			//设置服务服务列表高度
 			uni.getSystemInfo({
 				success: function(res) {
 					that.height = res.windowHeight
@@ -467,7 +467,7 @@
 				if (value.pid) app.globalData.spid = value.pid;
 			}
 			if (!options.id && !options.scene) return this.$util.Tips({
-				title: this.$t(`缺少参数无法查看商品`)
+				title: '缺少参数无法查看服务服务'
 			}, {
 				tab: 3,
 				url: 1
@@ -499,7 +499,7 @@
 					}
 				} catch (e) {
 					uni.showToast({
-						title: this.$t(`参数错误`),
+						title: '参数错误',
 						icon: 'none',
 						duration: 1000,
 						mask: true,
@@ -550,14 +550,14 @@
 					imageUrl: that.storeInfo.small_image,
 					success: function(res) {
 						uni.showToast({
-							title: this.$t(`分享成功`),
+							title: '分享成功',
 							icon: 'success'
 						})
 						that.posters = false;
 					},
 					fail: function(err) {
 						uni.showToast({
-							title: this.$t(`分享失败`),
+							title: '分享失败',
 							icon: 'none',
 							duration: 2000
 						})
@@ -631,9 +631,9 @@
 						that.skuArr.push(obj);
 					}
 					that.$set(that, "selectSku", that.skuArr[0]);
-					var navList = [that.$t(`商品`), that.$t(`详情`)];
+					var navList = ['服务服务', '详情'];
 					if (res.data.replyCount) {
-						navList.splice(1, 0, that.$t(`评价`));
+						navList.splice(1, 0, '评价');
 					}
 					that.$set(that, 'navList', navList);
 					that.storeImage = that.storeInfo.image
@@ -794,7 +794,7 @@
 					self.$set(self.attribute.productSelect, "unique", "");
 					self.$set(self.attribute.productSelect, "cart_num", 0);
 					self.$set(self, "attrValue", "");
-					self.$set(self, "attrTxt", this.$t(`请选择`));
+					self.$set(self, "attrTxt", '请选择');
 				} else if (!productSelect && !productAttr.length) {
 					self.$set(
 						self.attribute.productSelect,
@@ -813,7 +813,7 @@
 					);
 					self.$set(self.attribute.productSelect, "cart_num", 1);
 					self.$set(self, "attrValue", "");
-					self.$set(self, "attrTxt", this.$t(`请选择`));
+					self.$set(self, "attrTxt", '请选择');
 				}
 			},
 
@@ -866,7 +866,7 @@
 					productSelect.cart_num = this.cart_num;
 					this.attribute.productSelect.cart_num = this.cart_num;
 				}
-				//如果没有属性,赋值给商品默认库存
+				//如果没有属性,赋值给服务服务默认库存
 				if (productSelect === undefined && !this.attribute.productAttr.length)
 					productSelect = this.attribute.productSelect;
 				//无属性值即库存为0；不存在加减；
@@ -936,7 +936,7 @@
 					this.$set(this.attribute.productSelect, "quota_show", productSelect.quota_show);
 					this.$set(this, "attrValue", res);
 
-					this.attrTxt = this.$t(`已选择`)
+					this.attrTxt = '已选择'
 				} else {
 					this.$set(this.attribute.productSelect, "image", this.storeInfo.image);
 					this.$set(this.attribute.productSelect, "price", this.storeInfo.price);
@@ -946,7 +946,7 @@
 					this.$set(this.attribute.productSelect, "quota", 0);
 					this.$set(this.attribute.productSelect, "quota_show", 0);
 					this.$set(this, "attrValue", "");
-					this.attrTxt = this.$t(`已选择`)
+					this.attrTxt = '已选择'
 				}
 			},
 			// 单独购买
@@ -970,7 +970,7 @@
 				//如果有属性,没有选择,提示用户选择
 				if (this.attribute.productAttr.length && productSelect === undefined && this.isOpen == true) return that
 					.$util.Tips({
-						title: this.$t(`请选择`)
+						title: '请选择'
 					});
 				var data = {
 					productId: that.storeInfo.product_id,
@@ -994,7 +994,7 @@
 				})
 			},
 			/**
-			 * 收藏商品
+			 * 收藏服务服务
 			 */
 			setCollect: function() {
 				var that = this;
@@ -1096,13 +1096,13 @@
 										success: function(res) {
 											that.posterImageClose();
 											that.$util.Tips({
-												title: this.$t(`保存成功`),
+												title: '保存成功',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: this.$t(`保存失败`)
+												title: '保存失败'
 											});
 										}
 									})
@@ -1114,13 +1114,13 @@
 								success: function(res) {
 									that.posterImageClose();
 									that.$util.Tips({
-										title: this.$t(`保存成功`),
+										title: '保存成功',
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: this.$t(`保存失败`)
+										title: '保存失败'
 									});
 								},
 							})
@@ -1137,13 +1137,13 @@
 					success: function(res) {
 						that.posterImageClose();
 						that.$util.Tips({
-							title: this.$t(`保存成功`),
+							title: '保存成功',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: this.$t(`保存失败`)
+							title: '保存失败'
 						});
 					}
 				});
@@ -1211,7 +1211,7 @@
 			showImg(index) {
 				this.$refs.cusPreviewImg.open(this.selectSku.suk);
 			},
-			//滑动轮播图选择商品
+			//滑动轮播图选择服务服务
 			changeSwitch(e) {
 				let productSelect = this.skuArr[e];
 				this.$set(this, "selectSku", productSelect);
@@ -1236,7 +1236,7 @@
 					this.$set(this.attribute.productSelect, "stock", productSelect.stock);
 					this.$set(this.attribute.productSelect, "unique", productSelect.unique);
 					this.$set(this.attribute.productSelect, "vipPrice", productSelect.vipPrice);
-					this.$set(this, "attrTxt", this.$t(`已选择`));
+					this.$set(this, "attrTxt", '已选择');
 					this.$set(this, "attrValue", productSelect.suk);
 				}
 			},

@@ -60,7 +60,7 @@
 						<view class='pictrue'>
 							<image src='../static/score.png'></image>
 						</view>
-						<view class='name'>{{$t(`购买商品可获得积分奖励`)}}</view>
+						<view class='name'>{{$t(`购买服务服务可获得积分奖励`)}}</view>
 						<view class='earn'>{{$t(`赚积分`)}}</view>
 					</navigator>
 					<navigator class='item acea-row row-between-wrapper' hover-class='none'

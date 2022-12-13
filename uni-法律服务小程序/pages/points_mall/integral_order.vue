@@ -23,7 +23,7 @@
 				</view>
 			</view>
 			<view class="orderGoods">
-				<view class='total'>{{$t(`共`)}}{{resData.num}}{{$t(`件商品`)}}</view>
+				<view class='total'>{{$t(`共`)}}{{resData.num}}{{$t(`件服务服务`)}}</view>
 				<view class='goodWrapper'>
 					<view class='item acea-row row-between-wrapper' @click="jumpCon(cartInfo.product_id)">
 						<view class='pictrue'>
@@ -236,7 +236,7 @@
 			this.from = 'routine'
 			// #endif
 			if (!options.unique) return this.$util.Tips({
-				title: this.$t(`请选择要购买的商品`)
+				title: this.$t(`请选择要购买的服务服务`)
 			}, {
 				tab: 3,
 				url: 1

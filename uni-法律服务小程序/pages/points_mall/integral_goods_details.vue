@@ -193,7 +193,7 @@
 				reply: [], //评论列表
 				replyChance: 0,
 				navH: "",
-				navList: [this.$t(`商品`), this.$t(`详情`)],
+				navList: [this.$t(`服务服务`), this.$t(`详情`)],
 				opacity: 0,
 				scrollY: 0,
 				topArr: [],
@@ -259,7 +259,7 @@
 			let statusBarHeight = ''
 			var pages = getCurrentPages();
 			that.returnShow = pages.length === 1 ? false : true;
-			//设置商品列表高度
+			//设置服务服务列表高度
 			uni.getSystemInfo({
 				success: function(res) {
 					that.height = res.windowHeight
@@ -286,7 +286,7 @@
 					this.id = value.id;
 				} else {
 					return this.$util.Tips({
-						title: this.$t(`缺少参数无法查看商品`)
+						title: this.$t(`缺少参数无法查看服务服务`)
 					}, {
 						tab: 3,
 						url: 1
@@ -535,7 +535,7 @@
 					productSelect.cart_num = this.cart_num;
 					this.attribute.productSelect.cart_num = this.cart_num;
 				}
-				//如果没有属性,赋值给商品默认库存
+				//如果没有属性,赋值给服务服务默认库存
 				if (productSelect === undefined && !this.attribute.productAttr.length)
 					productSelect = this.attribute.productSelect;
 				//无属性值即库存为0；不存在加减；
@@ -665,7 +665,7 @@
 					this.posters = true;
 				}
 			},
-			//滑动轮播图选择商品
+			//滑动轮播图选择服务服务
 			changeSwitch(e) {
 				let productSelect = this.skuArr[e];
 				this.$set(this, "selectSku", productSelect);

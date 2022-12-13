@@ -157,7 +157,7 @@
 		data() {
 			return {
 				firstList: [],
-				firstInfo: this.$t(`多个优质商品最新上架`),
+				firstInfo: this.$t(`多个优质服务服务最新上架`),
 				name: this.$options.name,
 				isShow: true,
 				isIframe: app.globalData.isIframe,

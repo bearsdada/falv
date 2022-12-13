@@ -1,9 +1,9 @@
 <template>
 	<view class="order-details pos-order-details">
 		<view class="header acea-row row-middle">
-			<view class="state">{{ $t(title) }}</view>
+			<view class="state">title</view>
 			<view class="data">
-				<view class="order-num">{{$t(`订单号`)}}：{{ orderInfo.order_id }}</view>
+				<view class="order-num">订单号：{{ orderInfo.order_id }}</view>
 				<view>
 					<span class="time">{{ orderInfo._add_time }}</span>
 				</view>
@@ -37,43 +37,43 @@
 					</view>
 				</view>
 				<view class="money">
-					<view class="x-money">{{$t(`￥`)}}{{ item.productInfo.attrInfo.price }}</view>
+					<view class="x-money">￥{{ item.productInfo.attrInfo.price }}</view>
 					<view class="num">x{{ item.cart_num }}</view>
-					<view class="y-money">{{$t(`￥`)}}{{ item.productInfo.attrInfo.ot_price }}</view>
+					<view class="y-money">￥{{ item.productInfo.attrInfo.ot_price }}</view>
 				</view>
 			</navigator>
 		</view>
 		<view class="public-total">
-			{{$t(`共`)}}{{ orderInfo.total_num }}{{$t(`件商品`)}}
-			<span class="money">{{$t(`￥`)}}{{ orderInfo.pay_price }}</span> ( {{$t(`邮费`)}} {{$t(`￥`)}}{{
+			共{{ orderInfo.total_num }}件服务服务
+			<span class="money">￥{{ orderInfo.pay_price }}</span> ( 邮费￥{{
         orderInfo.pay_postage
       }}
 			)
 		</view>
 		<view class="wrapper">
 			<view class="item acea-row row-between">
-				<view>{{$t(`订单号`)}}：</view>
+				<view>订单号：</view>
 				<view class="conter acea-row row-middle row-right">
 					{{ orderInfo.order_id
           }}
 				</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`下单时间`)}}：</view>
+				<view>下单时间：</view>
 				<view class="conter">{{ orderInfo._add_time }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`支付状态`)}}：</view>
+				<view>支付状态：</view>
 				<view class="conter">
-					{{ orderInfo.paid == 1 ? $t(`已支付`) : $t(`未支付`) }}
+					{{ orderInfo.paid == 1 ? '已支付' : '未支付' }}
 				</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`支付方式`)}}：</view>
+				<view>'支付方式：</view>
 				<view class="conter">{{ payType }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`买家留言`)}}：</view>
+				<view>买家留言：</view>
 				<view class="conter">{{ orderInfo.mark }}</view>
 			</view>
 		</view>
@@ -91,43 +91,43 @@
 		</view>
 		<view class="wrapper">
 			<view class="item acea-row row-between">
-				<view>{{$t(`支付金额`)}}：</view>
-				<view class="conter">{{$t(`￥`)}}{{ orderInfo.total_price }}</view>
+				<view>支付金额：</view>
+				<view class="conter">￥{{ orderInfo.total_price }}</view>
 			</view>
 			<view class='item acea-row row-between' v-if='orderInfo.coupon_id'>
-				<view>{{$t(`优惠券抵扣`)}}：</view>
-				<view class='conter'>-{{$t(`￥`)}}{{orderInfo.coupon_price}}</view>
+				<view>优惠券抵扣：</view>
+				<view class='conter'>-￥{{orderInfo.coupon_price}}</view>
 			</view>
 			<view class='item acea-row row-between' v-if="orderInfo.use_integral > 0">
-				<view>{{$t(`积分抵扣`)}}：</view>
-				<view class='conter'>-{{$t(`￥`)}}{{orderInfo.deduction_price}}</view>
+				<view>积分抵扣：</view>
+				<view class='conter'>-￥{{orderInfo.deduction_price}}</view>
 			</view>
 			<view class='item acea-row row-between' v-if="orderInfo.pay_postage > 0">
-				<view>{{$t(`运费`)}}：</view>
-				<view class='conter'>{{$t(`￥`)}}{{orderInfo.pay_postage}}</view>
+				<view>运费：</view>
+				<view class='conter'>￥{{orderInfo.pay_postage}}</view>
 			</view>
 			<view class="actualPay acea-row row-right">
-				{{$t(`real_payment`)}}：<span class="money">{{$t(`￥`)}}{{ orderInfo.pay_price }}</span>
+				{{$t(`real_payment`)}}：<span class="money">￥{{ orderInfo.pay_price }}</span>
 			</view>
 		</view>
 		<view class="wrapper" v-if="
         orderInfo.delivery_type != 'fictitious' && orderInfo._status._type === 2
       ">
 			<view class="item acea-row row-between">
-				<view>{{$t(`配送方式`)}}：</view>
+				<view>配送方式：</view>
 				<view class="conter" v-if="orderInfo.delivery_type === 'express'">
-					{{$t(`快递`)}}
+					快递
 				</view>
-				<view class="conter" v-if="orderInfo.delivery_type === 'send'">{{$t(`送货`)}}</view>
+				<view class="conter" v-if="orderInfo.delivery_type === 'send'">送货</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view v-if="orderInfo.delivery_type === 'express'">{{$t(`快递公司`)}}：</view>
-				<view v-if="orderInfo.delivery_type === 'send'">{{$t(`送货人`)}}：</view>
+				<view v-if="orderInfo.delivery_type === 'express'">快递公司：</view>
+				<view v-if="orderInfo.delivery_type === 'send'">送货人：</view>
 				<view class="conter">{{ orderInfo.delivery_name }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view v-if="orderInfo.delivery_type === 'express'">{{$t(`快递单号`)}}：</view>
-				<view v-if="orderInfo.delivery_type === 'send'">{{$t(`送货人电话`)}}：</view>
+				<view v-if="orderInfo.delivery_type === 'express'">快递单号：</view>
+				<view v-if="orderInfo.delivery_type === 'send'">送货人电话：</view>
 				<view class="conter">
 					{{ orderInfo.delivery_id}}
 				</view>

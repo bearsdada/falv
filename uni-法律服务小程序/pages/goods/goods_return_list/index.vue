@@ -2,7 +2,7 @@
 	<view :style="colorStyle">
 		<view class='apply-return'>
 			<splitOrder :splitGoods="returnGoodsList" @getList="getCheckList" :select_all="false"></splitOrder>
-			<button class='returnBnt bg-color' @click="subRefund">{{$t(`申请退款`)}}</button>
+			<button class='returnBnt bg-color' @click="subRefund">申请退款</button>
 		</view>
 	</view>
 </template>
@@ -44,7 +44,7 @@
 		},
 		onLoad(options) {
 			if (!options.id) return this.$util.Tips({
-				title: this.$t(`缺少参数`)
+				title: '缺少参数'
 			}, {
 				tab: 3,
 				url: 1
@@ -64,7 +64,7 @@
 		},
 		methods: {
 			/**
-			 * 获取商品列表
+			 * 获取服务服务列表
 			 */
 			getGoodsList() {
 				let that = this;
@@ -98,7 +98,7 @@
 				let that = this
 				//收集form表单
 				if (!this.cartList.length) return this.$util.Tips({
-					title: this.$t(`请先选择退货商品`)
+					title: '请先选择退货服务服务'
 				});
 				let obj = JSON.stringify(this.cartList);
 				uni.navigateTo({

@@ -11,7 +11,7 @@
 					<image class="" :src="resData.avatar" mode=""></image>
 				</view>
 				<view class="order-status">
-					{{$t(`谢谢你为我付款，还可以再去看看其他商品哟~`)}}
+					{{$t(`谢谢你为我付款，还可以再去看看其他服务服务哟~`)}}
 				</view>
 			</view>
 		</view>

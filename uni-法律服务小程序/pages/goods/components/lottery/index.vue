@@ -8,7 +8,7 @@
 						<view :class="{in_line:index != 8 }" class="lottery-msg">
 							<image v-if="index != 8" class="grid_img" mode='aspectFit' :src="item.image" alt="" />
 							<text v-if="index !=8" class="name">
-								{{ index == 8 ? $t(`抽奖`) : item.name }}
+								{{ index == 8 ? '抽奖' : item.name }}
 							</text>
 							<image v-else class="lottery-click" src="../../static/lottery-click.png" mode="">
 							</image>

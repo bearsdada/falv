@@ -3,7 +3,7 @@
 		<view class='shoppingCart copy-data' v-if="canShow">
 			<view class='labelNav acea-row row-around row-middle'>
 				<view class='item'><text class='iconfont icon-xuanzhong'></text>{{$t(`100%正品保证`)}}</view>
-				<view class='item'><text class='iconfont icon-xuanzhong'></text>{{$t(`所有商品精挑细选`)}}</view>
+				<view class='item'><text class='iconfont icon-xuanzhong'></text>{{$t(`所有服务服务精挑细选`)}}</view>
 				<view class='item'><text class='iconfont icon-xuanzhong'></text>{{$t(`售后无忧`)}}</view>
 			</view>
 			<view class='nav acea-row row-between-wrapper'>
@@ -43,7 +43,7 @@
 										</view>
 										<view class='money' v-if="item.attrStatus">{{$t(`￥`)}}{{item.truePrice}}</view>
 										<view class="reElection acea-row row-between-wrapper" v-else>
-											<view class="title">{{$t(`请重新选择商品规格`)}}</view>
+											<view class="title">{{$t(`请重新选择服务服务规格`)}}</view>
 											<view class="reBnt cart-color acea-row row-center-wrapper"
 												@click.stop="reElection(item)">{{$t(`重选`)}}</view>
 										</view>
@@ -67,7 +67,7 @@
 				<view class='invalidGoods' v-if="cartList.invalid.length > 0">
 					<view class='goodsNav acea-row row-between-wrapper'>
 						<view @click='goodsOpen'><text class='iconfont'
-								:class='goodsHidden==true?"icon-xiangxia":"icon-xiangshang"'></text>{{$t(`失效商品`)}}
+								:class='goodsHidden==true?"icon-xiangxia":"icon-xiangshang"'></text>{{$t(`失效服务服务`)}}
 						</view>
 						<view class='del' @click='unsetCart'><text class='iconfont icon-shanchu1'></text>{{$t(`清空`)}}
 						</view>
@@ -88,7 +88,7 @@
 									</view>
 									<view class='acea-row row-between-wrapper'>
 										<!-- <view>￥{{item.truePrice}}</view> -->
-										<view class='end'>{{$t(`该商品已失效`)}}</view>
+										<view class='end'>{{$t(`该服务服务已失效`)}}</view>
 									</view>
 								</view>
 							</view>
@@ -106,7 +106,7 @@
 			<view class='noCart' v-if="cartList.valid.length == 0 && cartList.invalid.length == 0 && canShow">
 				<view class='emptyBox'>
 					<image :src="imgHost + '/statics/images/no-thing.png'"></image>
-					<view class="tips">{{$t(`暂无商品`)}}</view>
+					<view class="tips">{{$t(`暂无服务服务`)}}</view>
 				</view>
 				<recommend v-if="hostProduct.length" :hostProduct='hostProduct'></recommend>
 			</view>
@@ -462,7 +462,7 @@
 				//changeValue:是否 加|减
 				//获取当前变动属性
 				let productSelect = this.productValue[this.attrValue];
-				//如果没有属性,赋值给商品默认库存
+				//如果没有属性,赋值给服务服务默认库存
 				if (productSelect === undefined && !this.attr.productAttr.length)
 					productSelect = this.attr.productSelect;
 				//无属性值即库存为0；不存在加减；

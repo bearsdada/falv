@@ -3,8 +3,8 @@
 		<view class='payment-status'>
 			<!--失败时： 用icon-iconfontguanbi fail替换icon-duihao2 bg-color-->
 			<view class='iconfont icons icon-duihao2 bg-color'></view>
-			<!-- 失败时：商品兑换失败 -->
-			<view class='status' v-if="order_pay_info.pay_type != 'offline'">{{$t(`商品兑换成功`)}}
+			<!-- 失败时：服务服务兑换失败 -->
+			<view class='status' v-if="order_pay_info.pay_type != 'offline'">{{$t(`服务服务兑换成功`)}}
 			</view>
 			<view class='status' v-else>{{$t(`订单创建成功`)}}</view>
 			<view class='wrapper'>

@@ -160,10 +160,10 @@
 				type: this.dataConfig.tabConfig.tabVal || 0,
 				selectId: this.dataConfig.selectConfig.activeValue,
 				productIds: this.dataConfig.goodsList.ids || [],
-				opriceShow: this.dataConfig.opriceShow.val, //商品原价
-				priceShow: this.dataConfig.priceShow.val, //商品价格
-				titleShow: this.dataConfig.titleShow.val, //商品名称
-				couponShow: this.dataConfig.couponShow.val, //商品优惠券
+				opriceShow: this.dataConfig.opriceShow.val, //服务服务原价
+				priceShow: this.dataConfig.priceShow.val, //服务服务价格
+				titleShow: this.dataConfig.titleShow.val, //服务服务名称
+				couponShow: this.dataConfig.couponShow.val, //服务服务优惠券
 				prConfig: this.dataConfig.prConfig.val, //左右边距
 				bgStyle: this.dataConfig.bgStyle.type, //背景样式
 				conStyle: this.dataConfig.conStyle.type, //内容样式

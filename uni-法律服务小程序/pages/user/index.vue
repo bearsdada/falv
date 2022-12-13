@@ -268,7 +268,6 @@
 						</block>
 					</view>
 				</view>
-				<image :src="copyRightPic" alt="" class='support'></image>
 				<view class="uni-p-b-98"></view>
 			</scroll-view>
 		</view>

@@ -168,7 +168,7 @@
 				goodType: 3,
 				loading: false,
 				loadend: false,
-				loadTitle: this.$t(`加载更多`), //提示语
+				loadTitle: '加载更多', //提示语
 				page: 1,
 				limit: this.$config.LIMIT,
 				iSshowH: false,
@@ -211,7 +211,7 @@
 			}
 			// #endif
 			uni.setNavigationBarTitle({
-				title: this.$t(`专题栏`)
+				title: '专题栏'
 			});
 
 			// #ifdef APP-PLUS
@@ -362,7 +362,7 @@
 					let data = res.data;
 					if (res.data.length == 0) {
 						return this.$util.Tips({
-							title: this.$t(`暂无数据`)
+							title: '暂无数据'
 						}, {
 							tab: 3
 						})
@@ -439,13 +439,13 @@
 						let tempArr = that.$util.SplitArray(list, that.tempArr);
 						that.$set(that, 'tempArr', tempArr.slice(0, this.numConfig));
 						that.loadend = loadend;
-						that.loadTitle = loadend ? that.$t(`没有更多内容啦~`) : that.$t(`加载更多`);
+						that.loadTitle = loadend ? '没有更多内容啦~' : '加载更多';
 						that.page = that.page + 1;
 						that.loading = false;
 					})
 					.catch(res => {
 						that.loading = false;
-						that.loadTitle = that.$t(`加载更多`);
+						that.loadTitle = '加载更多';
 					});
 			},
 			goDetail(item) {

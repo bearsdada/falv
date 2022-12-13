@@ -5,11 +5,11 @@
 			<view class="ChangePassword">
 				<view class="list">
 					<view class="item">
-						<input type='number' :placeholder='$t(`请输入手机号`)' placeholder-class='placeholder'
+						<input type='number' placeholder='请输入手机号' placeholder-class='placeholder'
 							v-model="phone"></input>
 					</view>
 					<view class="item acea-row row-between-wrapper">
-						<input type='number' :placeholder='$t(`填写验证码`)' placeholder-class='placeholder' class="codeIput"
+						<input type='number' placeholder='填写验证码' placeholder-class='placeholder' class="codeIput"
 							v-model="captcha"></input>
 						<button class="code font-color" :class="disabled === true ? 'on' : ''" :disabled='disabled'
 							@click="code">
@@ -17,7 +17,7 @@
 						</button>
 					</view>
 				</view>
-				<button form-type="submit" class="confirmBnt bg-color">{{$t(`确认绑定`)}}</button>
+				<button form-type="submit" class="confirmBnt bg-color">确认绑定</button>
 			</view>
 		</form>
 		<Verify @success="success" :captchaType="'blockPuzzle'" :imgSize="{ width: '330px', height: '155px' }"
@@ -121,17 +121,17 @@
 				let that = this;
 				if (!that.phone) {
 					return that.$util.Tips({
-						title: that.$t(`请输入手机号`)
+						title: '请输入手机号'
 					});
 				}
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) {
 					return that.$util.Tips({
-						title: that.$t(`请输入正确的手机号码`)
+						title: '请输入正确的手机号码'
 					});
 				}
 				if (!that.captcha) {
 					return that.$util.Tips({
-						title: that.$t(`填写验证码`)
+						title: '填写验证码'
 					});
 				}
 				bindingPhone({
@@ -148,7 +148,7 @@
 						location.href = this.url;
 					} else {
 						return that.$util.Tips({
-							title: this.$t(`绑定成功`),
+							title: '绑定成功',
 							icon: 'success'
 						}, {
 							tab: 4,
@@ -168,10 +168,10 @@
 			code() {
 				let that = this;
 				if (!that.phone) return that.$util.Tips({
-					title: that.$t(`请输入手机号`)
+					title: '请输入手机号'
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
 				this.$refs.verify.show()
 			},

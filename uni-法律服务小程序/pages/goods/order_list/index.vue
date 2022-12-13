@@ -98,7 +98,7 @@
 							</view>
 						</view>
 						<view class="totalPrice">
-							{{$t(`共`)}}{{ item.total_num || 0 }}{{$t(`件商品，总金额`)}}
+							{{$t(`共`)}}{{ item.total_num || 0 }}{{$t(`件服务服务，总金额`)}}
 							<text class="money">{{$t(`￥`)}}{{ item.pay_price }}</text>
 						</view>
 					</view>

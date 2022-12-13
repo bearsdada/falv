@@ -2,7 +2,7 @@
 	<view :style="colorStyle">
 		<view class="payment" :class="pay_close ? 'on' : ''">
 			<view class="title acea-row row-center-wrapper">
-				{{$t(`选择付款方式`)}}<text class="iconfont icon-guanbi" @click='close'></text>
+				选择付款方式<text class="iconfont icon-guanbi" @click='close'></text>
 			</view>
 			<view class="item acea-row row-between-wrapper" v-for="(item,index) in payMode" :key="index"
 				v-if='item.payStatus' @click="payType(item.number || 0 , item.value,index)">
@@ -11,15 +11,15 @@
 					<view class="text">
 						<view class="name">{{item.name}}</view>
 						<view class="info" v-if="item.value == 'yue'">
-							{{item.title}} <span class="money">{{$t(`￥`)}}{{ item.number }}</span>
+							{{item.title}} <span class="money">￥{{ item.number }}</span>
 						</view>
 						<view class="info" v-else>{{item.title}}</view>
 					</view>
 				</view>
 				<view class="iconfont" :class="active==index?'icon-xuanzhong11 font-num':'icon-weixuan'"></view>
 			</view>
-			<view class="payMoney">{{$t(`支付`)}}<span class="font-color">{{$t(`￥`)}}<span class="money">{{totalPrice}}</span></span></view>
-			<view class="button bg-color acea-row row-center-wrapper" @click='goPay(number, paytype)'>{{$t(`去付款`)}}</view>
+			<view class="payMoney">支付<span class="font-color">￥<span class="money">{{totalPrice}}</span></span></view>
+			<view class="button bg-color acea-row row-center-wrapper" @click='goPay(number, paytype)'>去付款</view>
 		</view>
 		<view class="mask" @click='close' v-if="pay_close"></view>
 		<view v-show="false" v-html="formContent"></view>
@@ -108,13 +108,13 @@
 				}
 				let that = this;
 				if (!that.order_id) return that.$util.Tips({
-					title: that.$t(`请选择要支付的订单`)
+					title: '请选择要支付的订单'
 				});
 				if (paytype == 'yue' && parseFloat(number) < parseFloat(that.totalPrice)) return that.$util.Tips({
-					title: that.$t(`余额不足`)
+					title: '余额不足'
 				});
 				uni.showLoading({
-					title: that.$t(`支付中`)
+					title: '支付中'
 				});
 				if (paytype == 'friend' && that.order_id) {
 					return uni.navigateTo({
@@ -150,7 +150,7 @@
 					switch (paytype) {
 						case 'weixin':
 							if (res.data.result === undefined) return that.$util.Tips({
-								title: that.$t(`缺少支付参数`)
+								title: '缺少支付参数'
 							});
 
 							// #ifdef MP
@@ -180,7 +180,7 @@
 								fail: function(e) {
 									uni.hideLoading();
 									return that.$util.Tips({
-										title: that.$t(`取消支付`)
+										title: '取消支付'
 									}, () => {
 										that.$emit('onChangeFun', {
 											action: 'pay_fail'
@@ -191,7 +191,7 @@
 									uni.hideLoading();
 									if (e.errMsg == 'requestPayment:cancel' || e.errMsg == 'requestOrderPayment:cancel') return that.$util
 										.Tips({
-											title: that.$t(`取消支付`)
+											title: '取消支付'
 										}, () => {
 											that.$emit('onChangeFun', {
 												action: 'pay_fail'
@@ -206,7 +206,7 @@
 								uni.hideLoading();
 								location.replace(data.result.jsConfig.mweb_url);
 								return that.$util.Tips({
-									title: that.$t(`支付成功`),
+									title: '支付成功',
 									icon: 'success'
 								}, () => {
 									that.$emit('onChangeFun', {
@@ -217,7 +217,7 @@
 								that.$wechat.pay(data.result.jsConfig)
 									.then(() => {
 										return that.$util.Tips({
-											title: that.$t(`支付成功`),
+											title: '支付成功',
 											icon: 'success'
 										}, () => {
 											that.$emit('onChangeFun', {
@@ -227,7 +227,7 @@
 									})
 									.catch(()=> {
 										return that.$util.Tips({
-											title: that.$t(`支付失败`),
+											title: '支付失败',
 										}, () => {
 											that.$emit('onChangeFun', {
 												action: 'pay_fail'
@@ -244,7 +244,7 @@
 									let url = '/pages/goods/order_pay_status/index?order_id=' + orderId +
 										'&msg=支付成功';
 									uni.showToast({
-										title: that.$t(`支付成功`)
+										title: '支付成功'
 									})
 									setTimeout(res => {
 										that.$emit('onChangeFun', {
@@ -254,7 +254,7 @@
 								},
 								fail: (e) => {
 									uni.showModal({
-										content: that.$t(`支付失败`),
+										content: '支付失败',
 										showCancel: false,
 										success: function(res) {
 											if (res.confirm) {
@@ -330,7 +330,7 @@
 								orderInfo: jsConfig,
 								success: (e) => {
 									uni.showToast({
-										title: that.$t(`支付成功`)
+										title: '支付成功'
 									})
 									setTimeout(res => {
 										that.$emit('onChangeFun', {
@@ -341,7 +341,7 @@
 								},
 								fail: (e) => {
 									uni.showModal({
-										content: that.$t(`支付失败`),
+										content: '支付失败',
 										showCancel: false,
 										success: function(res) {
 											if (res.confirm) {

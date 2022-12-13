@@ -243,7 +243,7 @@ export function getAttr(id, type) {
 	return request.get("v2/get_attr/" + id + "/" + type);
 }
 /**
- * 获取首页商品列表（所有活动的）
+ * 获取首页服务服务列表（所有活动的）
  * @param object data
  */
 export function getHomeProducts(data) {

@@ -262,7 +262,7 @@ export function getIntegralProductDetail(id) {
 }
 
 /**
- * 积分商城商品列表
+ * 积分商城服务服务列表
  * @param object data
  */
 export function getStoreIntegralList(data) {
@@ -301,7 +301,7 @@ export function orderDel(data) {
 }
 
 /**
- * 预售商品列表
+ * 预售服务服务列表
  */
 export function getPresellList(data) {
 	return request.get("advance/list", data);

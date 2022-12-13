@@ -49,7 +49,7 @@
 									</view>
 								</block>
 								<block v-if="item.goods.length == 0">
-									<view class="empty-goods" >{{$t(`暂无商品`)}}</view>
+									<view class="empty-goods" >{{$t(`暂无服务服务`)}}</view>
 								</block>
 							</view>
 						</view>

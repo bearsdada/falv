@@ -104,7 +104,7 @@
 		mounted() {},
 		data() {
 			return {
-				fastInfo: this.$t(`上百种商品分类任您选择`),
+				fastInfo: this.$t(`上百种服务服务分类任您选择`),
 				fastList: [],
 				name: this.$options.name,
 				isShow: true,

@@ -324,21 +324,21 @@ export function vcartList() {
 }
 
 /**
- * 退款商品列表
+ * 退款服务服务列表
  */
 export function refundGoodsList(orderId) {
 	return request.get(`order/refund/cart_info/${orderId}`);
 }
 
 /**
- * 申请退款商品列表
+ * 申请退款服务服务列表
  */
 export function postRefundGoods(data) {
 	return request.post(`order/refund/cart_info`, data);
 }
 
 /**
- * 退款商品提交
+ * 退款服务服务提交
  */
 export function returnGoodsSubmit(id, data) {
 	return request.post(`order/refund/apply/${id}`, data);

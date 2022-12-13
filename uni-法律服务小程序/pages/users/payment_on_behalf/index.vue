@@ -21,7 +21,7 @@
 					{{resData.paid && !resData.type && resData.pay_uid === $store.state.app.uid ? resData.pay_nickname : resData.nickname}}
 				</view>
 				<view class="head-other-trip" v-if="!resData.paid && resData.type">
-					{{$t(`帮我付一下这件商品了，谢谢~`)}}
+					{{$t(`帮我付一下这件服务服务了，谢谢~`)}}
 				</view>
 				<view class="head-other-trip"
 					v-if="resData.pay_uid !== $store.state.app.uid && resData.paid && resData.type">
@@ -210,7 +210,7 @@
 				let href = location.href;
 				if (this.$wechat.isWeixin()) {
 					let configAppMessage = {
-						desc: this.$t(`帮我付一下这件商品了，谢谢~`),
+						desc: this.$t(`帮我付一下这件服务服务了，谢谢~`),
 						title: this.$t(`好友代付`),
 						link: href,
 						imgUrl: data.avatar,
@@ -241,7 +241,7 @@
 					type: 0,
 					href: `${HTTP_REQUEST_URL}${curRoute}`,
 					title: that.$t(`好友代付`),
-					summary: that.$t(`帮我付一下这件商品了，谢谢~`),
+					summary: that.$t(`帮我付一下这件服务服务了，谢谢~`),
 					imageUrl: that.resData.paid && !that.resData.type && that.resData.pay_uid === that.$store.state
 						.app.uid ? that.resData.pay_avatar : that.resData.avatar,
 					success: function(res) {

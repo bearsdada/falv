@@ -3,7 +3,7 @@
 		<view class="all" v-if="select_all">
 			<checkbox-group @change="checkboxAllChange">
 				<checkbox value="all" :checked="isAllSelect" />
-				<text class='checkAll'>{{$t(`全选`)}}</text>
+				<text class='checkAll'>全选</text>
 			</checkbox-group>
 		</view>
 		<checkbox-group @change="checkboxChange">
@@ -25,8 +25,8 @@
 								<view>×{{item.cart_num}}</view>
 							</view>
 							<view class='infor line1'>
-								{{$t(`属性`)}}：{{item.cart_info.productInfo.attrInfo.suk || $t(`默认`)}}</view>
-							<view class='money'>{{$t(`￥`)}}{{item.cart_info.truePrice}}</view>
+								属性：{{item.cart_info.productInfo.attrInfo.suk || '默认'}}</view>
+							<view class='money'>￥{{item.cart_info.truePrice}}</view>
 						</view>
 						<view class='carnum acea-row row-center-wrapper'>
 							<view class="reduce" :class="item.surplus_num == 1 ? 'on' : ''"

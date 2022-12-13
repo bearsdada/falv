@@ -11,8 +11,8 @@
 						<view class="item">
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-qiye"></i> -->
-								<text class="item-name">{{$t(`代理商名称`)}}</text>
-								<input type="text" maxlength="30" :placeholder="$t(`请输入代理商名称`)"
+								<text class="item-name">代理商名称</text>
+								<input type="text" maxlength="30" placeholder="请输入代理商名称"
 									v-model="merchantData.agent_name" @input="validateBtn"
 									placeholder-class='placeholder' />
 							</view>
@@ -20,24 +20,24 @@
 						<view class="item">
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-yonghu3"></i> -->
-								<text class="item-name">{{$t(`用户姓名`)}}</text>
-								<input type="text" :placeholder="$t(`请输入姓名`)" v-model="merchantData.name"
+								<text class="item-name">用户姓名</text>
+								<input type="text" placeholder="请输入姓名" v-model="merchantData.name"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view>
 						<view class="item">
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-shoujihao"></i> -->
-								<text class="item-name">{{$t(`联系电话`)}}</text>
-								<input type="text" :placeholder="$t(`请输入手机号`)" v-model="merchantData.phone"
+								<text class="item-name">联系电话</text>
+								<input type="text" placeholder="请输入手机号" v-model="merchantData.phone"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view>
 						<view class="item rel">
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-yanzhengma"></i> -->
-								<text class="item-name">{{$t(`验证码`)}}</text>
-								<input type="text" :placeholder="$t(`填写验证码`)" v-model="merchantData.code"
+								<text class="item-name">验证码</text>
+								<input type="text" placeholder="填写验证码" v-model="merchantData.code"
 									@input="validateBtn" class="codeIput" placeholder-class='placeholder' />
 								<button class="code" :disabled="disabled" :class="disabled === true ? 'on' : ''"
 									@click="code">
@@ -49,15 +49,15 @@
 						<view class="item">
 							<view class="acea-row row-middle">
 								<!-- <i class="icon iconfont icon-shoujihao"></i> -->
-								<text class="item-name">{{$t(`邀请码`)}}</text>
-								<input type="text" :placeholder="$t(`请输入代理商邀请码`)" v-model="merchantData.division_invite"
+								<text class="item-name">邀请码</text>
+								<input type="text" placeholder="请输入代理商邀请码" v-model="merchantData.division_invite"
 									@input="validateBtn" placeholder-class='placeholder' />
 							</view>
 						</view>
 						<view class="item no-border">
 							<view class='acea-row row-middle'>
-								<text class="item-title">{{$t(`请上传营业执照及行业相关资质证明图片`)}}</text>
-								<text class="item-desc">({{$t(`图片最多可上传10张,图片格式支持JPG、PNG、JPEG`)}})</text>
+								<text class="item-title">请上传营业执照及行业相关资质证明图片</text>
+								<text class="item-desc">(图片最多可上传10张,图片格式支持JPG、PNG、JPEG)</text>
 								<view class="upload">
 									<view class='pictrue' v-for="(item,index) in images" :key="index"
 										:data-index="index" @click="getPhotoClickIdx">
@@ -67,7 +67,7 @@
 									<view class='pictrue acea-row row-center-wrapper row-column' @click='uploadpic'
 										v-if="images.length < 10">
 										<text class='iconfont icon-icon25201'></text>
-										<view>{{$t(`上传图片`)}}</view>
+										<view>上传图片</view>
 									</view>
 								</view>
 							</view>
@@ -75,12 +75,12 @@
 
 						<view class="item no-border">
 							<checkbox-group @change='ChangeIsAgree'>
-								<checkbox class="checkbox" :checked="isAgree ? true : false" />{{$t(`已阅读并同意`)}}
+								<checkbox class="checkbox" :checked="isAgree ? true : false" />已阅读并同意
 							</checkbox-group>
-							<button class="settleAgree" @click="getAgentAgreement">《{{$t(`代理商协议`)}}》</button>
+							<button class="settleAgree" @click="getAgentAgreement">《代理商协议》</button>
 						</view>
 						<button class='submitBtn' :class="isAgree === true ? 'on':''"
-							@click="formSubmit">{{$t(`提交申请`)}}</button>
+							@click="formSubmit">提交申请</button>
 
 					</view>
 			</view>
@@ -90,7 +90,7 @@
 		<view class="settlementAgreement" v-if="showProtocol">
 			<view class="setAgCount">
 				<i class="icon iconfont icon-cha" @click="showProtocol = false"></i>
-				<div class="title">{{$t(`代理商入驻协议`)}}</div>
+				<div class="title">代理商入驻协议</div>
 				<view class="content">
 					<jyf-parser :html="protocol" ref="article" :tag-style="tagStyle"></jyf-parser>
 					<!-- <view v-html="protocol"></view> -->
@@ -108,31 +108,31 @@
 	<view class="settledSuccessMain" v-else-if='status == 0'>
 		<view class="settledSuccessful">
 			<image class="image" src="../static/success.png" alt="">
-				<view class="title">{{$t(`恭喜，您的资料提交成功！`)}}</view>
+				<view class="title">恭喜，您的资料提交成功！</view>
 				<view class="goHome" hover-class="none" @click="goHome">
-					{{$t(`返回首页`)}}
+					返回首页
 				</view>
 		</view>
 	</view>
 	<view class="settledSuccessMain" v-else-if='status == 1'>
 		<view class="settledSuccessful">
 			<image class="image" src="../static/success.png" alt="">
-				<view class="title">{{$t(`恭喜，您的资料通过审核！`)}}</view>
+				<view class="title">恭喜，您的资料通过审核！</view>
 				<view class="goHome" hover-class="none" @click="goHome">
-					{{$t(`返回首页`)}}
+					返回首页
 				</view>
 		</view>
 	</view>
 	<view class="settledSuccessMain" v-else-if='status == 2'>
 		<view class="settledSuccessful">
 			<image class="image" src="../static/error.png" alt="">
-				<view class="title">{{$t(`您的申请未通过！`)}}</view>
+				<view class="title">您的申请未通过！</view>
 				<view class="info" v-if="refusal_reason">{{refusal_reason}}</view>
 				<view class="again" hover-class="none" @click="applyAgain">
-					{{$t(`重新申请`)}}
+					重新申请
 				</view>
 				<view class="goHome" hover-class="none" @click="goHome">
-					{{$t(`返回首页`)}}
+					返回首页
 				</view>
 		</view>
 
@@ -179,7 +179,7 @@
 				status: -1,
 				isAuto: false, //没有授权的不会自动授权
 				isShowAuth: false, //是否隐藏授权
-				text: this.$t(`获取验证码`),
+				text: '获取验证码',
 				codeUrl: "",
 				disabled: false,
 				isAgree: false,
@@ -238,7 +238,7 @@
 			if (options.id) {
 				this.id = id
 				uni.showLoading({
-					title: this.$t(`正在加载中`),
+					title: '正在加载中',
 				});
 			}
 		},
@@ -256,10 +256,10 @@
 			code() {
 				let that = this
 				if (!that.merchantData.phone) return that.$util.Tips({
-					title: that.$t(`请填写手机号码`)
+					title: '请填写手机号码'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.merchantData.phone)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
 				this.$refs.verify.show()
 			},
@@ -440,7 +440,7 @@
 					this.text = n + "s";
 					if (this.text < 0 + "s") {
 						this.disabled = false;
-						this.text = this.$t(`重新获取`);
+						this.text = '重新获取';
 					}
 				}, 1000);
 			},
@@ -506,28 +506,28 @@
 					value = that.merchantData;
 
 				if (!value.agent_name) return that.$util.Tips({
-					title: that.$t(`请输入代理商名称`)
+					title: '请输入代理商名称'
 				});
 				if (!value.name) return that.$util.Tips({
-					title: that.$t(`请输入姓名`)
+					title: '请输入姓名'
 				});
 				if (!value.phone) return that.$util.Tips({
-					title: that.$t(`请输入手机号`)
+					title: '请输入手机号'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
 				if (!value.code) return that.$util.Tips({
-					title: that.$t(`填写验证码`)
+					title: '填写验证码'
 				});
 				if (that.isShowCode && !that.codeVal) return that.$util.Tips({
-					title: that.$t(`请填写图片验证码`)
+					title: '请填写图片验证码'
 				});
 				if (!that.images.length) return that.$util.Tips({
-					title: that.$t(`请上传营业执照`)
+					title: '请上传营业执照'
 				});
 				if (!that.isAgree) return that.$util.Tips({
-					title: that.$t(`请勾选并同意入驻协议`)
+					title: '请勾选并同意入驻协议'
 				});
 				that.validate = true;
 				return true;

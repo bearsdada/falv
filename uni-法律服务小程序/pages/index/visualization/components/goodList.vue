@@ -66,7 +66,7 @@
 				</view>
 			</block>
 		</view>
-		<view class="empty-img" v-if="!bastList.length && isIframe">{{$t(`商品列表，暂无数据`)}}</view>
+		<view class="empty-img" v-if="!bastList.length && isIframe">{{$t(`服务服务列表，暂无数据`)}}</view>
 	</view>
 </template>
 

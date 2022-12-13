@@ -4,15 +4,15 @@
 			<text class="iconfont icon-fapiao2"
 				:style="invoiceData.is_invoice?'background-color: var(--view-theme)':'background-color: #999'"></text>
 			<view class="bill">
-				{{invoiceData.is_invoice?$t(`已开票`): $t(`未开票`)}}
+				{{invoiceData.is_invoice?'已开票': '未开票'}}
 			</view>
 		</view>
 
 		<view class="aleart-body">
-			<view class="body-head">{{$t(`发票信息`)}}</view>
+			<view class="body-head">’发票信息</view>
 			<view class="label">
 				<view class="">
-					{{$t(`发票抬头`)}}
+					发票抬头
 				</view>
 				<view class="label-value">
 					{{invoiceData.name}}
@@ -20,33 +20,33 @@
 			</view>
 			<view class="label">
 				<view class="">
-					{{$t(`发票抬头类型`)}}
+					发票抬头类型
 				</view>
 				<view class="label-value">
-					{{invoiceData.header_type == 1?$t(`个人`):$t(`企业`)}}
+					{{invoiceData.header_type == 1?'个人':'企业'}}
 				</view>
 			</view>
 			<view class="label">
 				<view class="">
-					{{$t(`发票类型`)}}
+					发票类型
 				</view>
 				<view class="label-value">
-					{{invoiceData.type==1?$t(`电子普通发票`):$t(`电子专用发票`)}}
+					{{invoiceData.type==1?'电子普通发票':'电子专用发票'}}
 				</view>
 			</view>
 			<view class="label" v-if="invoiceData.duty_number">
 				<view class="">
-					{{$t(`企业税号`)}}
+					企业税号
 				</view>
 				<view class="label-value">
 					{{invoiceData.duty_number}}
 				</view>
 			</view>
 
-			<view class="body-head">{{$t(`联系信息`)}}</view>
+			<view class="body-head">联系信息</view>
 			<view class="label">
 				<view class="">
-					{{$t(`真实姓名`)}}
+					真实姓名
 				</view>
 				<view class="label-value">
 					{{invoiceData.name}}
@@ -54,7 +54,7 @@
 			</view>
 			<view class="label">
 				<view class="">
-					{{$t(`联系电话`)}}
+					联系电话
 				</view>
 				<view class="label-value">
 					{{invoiceData.drawer_phone}}
@@ -62,7 +62,7 @@
 			</view>
 			<view class="label">
 				<view class="">
-					{{$t(`联系邮箱`)}}
+					联系邮箱
 				</view>
 				<view class="label-value">
 					{{invoiceData.email}}
@@ -70,7 +70,7 @@
 			</view>
 		</view>
 		<view class="btn" @click="close">
-{{$t(`确认`)}}
+			确认
 		</view>
 	</view>
 </template>
@@ -152,6 +152,7 @@
 				border: 4rpx solid #fff;
 				margin-top: -40rpx;
 			}
+
 			.bill {
 				width: 172rpx;
 				text-align: center;

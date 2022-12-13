@@ -11,7 +11,7 @@ import {
 	imageBase64
 } from "@/api/public";
 import {
-	getProductCode, // 普通商品小程序code
+	getProductCode, // 普通服务服务小程序code
 } from "@/api/store.js";
 import {
 	scombinationCode, // 拼团code

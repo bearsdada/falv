@@ -22,7 +22,7 @@
 		</div>
 		<view class="wrapper">
 			<GoodList :bastList="goodsList" :is-sort="false"></GoodList>
-			<emptyPage v-if="goodsList.length == 0 && !isScroll" :title="$t(`暂无数据`)"></emptyPage>
+			<emptyPage v-if="goodsList.length == 0 && !isScroll" title="暂无数据"></emptyPage>
 		</view>
 		<!-- #ifndef MP -->
 		<home></home>
@@ -59,9 +59,7 @@
 				name: '',
 				icon: '',
 				type: 0,
-				typeName: ['', this.$t(`精品推荐`), this.$t(`热门榜单`), this.$t(`首发新品`),
-					this.$t(`促销单品`)
-				],
+				typeName: ['', '精品推荐', '热门榜单', '首发新品', '促销单品'],
 				autoplay: true,
 				circular: true,
 				interval: 3000,
@@ -188,6 +186,7 @@
 		color: #666;
 		background-color: #f5f5f5;
 	}
+
 	.acea-row {
 		flex-wrap: nowrap !important;
 	}

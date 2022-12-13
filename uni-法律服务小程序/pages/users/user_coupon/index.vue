@@ -22,7 +22,7 @@
 							<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'"
 								v-else-if="item.applicable_type === 1">{{$t(`品类券`)}}</view>
 							<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'"
-								v-else>{{$t(`商品券`)}}</view>
+								v-else>{{$t(`服务服务券`)}}</view>
 							<image src="../../../static/images/fvip.png" class="pic" v-if="item.receive_type===4">
 							</image>
 							<text>{{$t(item.coupon_title)}}</text>

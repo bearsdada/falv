@@ -7,16 +7,16 @@
 				hover-class="none" :style="[{'background':bg},{'box-shadow':`0px 1px 20px ${boxShadow}`}]">
 				<view class="img-box">
 					<view class="label bgblue" v-if="item.live_status == 102">
-						<view class="txt">{{$t(`预告`)}}</view>
+						<view class="txt">预告</view>
 						<view class="msg">{{item.show_time}}</view>
 					</view>
 					<view class="label bggary" v-if="item.live_status==103">
 						<image src="/static/images/live-02.png" mode="" style="width: 20rpx; height: 20rpx;"></image>
-						<text>{{$t(`回放`)}}</text>
+						<text>回放</text>
 					</view>
 					<view class="label bgred" v-if="item.live_status==101">
 						<image src="/static/images/live-01.png" mode="" style="width: 21rpx; height: 22rpx;"></image>
-						<text>{{$t(`进行中`)}}</text>
+						<text>进行中</text>
 					</view>
 					<image :src="item.share_img"></image>
 				</view>

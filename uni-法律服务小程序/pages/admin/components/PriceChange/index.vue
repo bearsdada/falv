@@ -2,7 +2,7 @@
   <view>
     <view class="priceChange" :class="change === true ? 'on' : ''">
       <view class="priceTitle">
-        {{ status == 0 ? $t(`一键改价`) : status == 1 ? $t(`订单备注`) : $t(`立即退款`) }}
+        {{ status == 0 ? '一键改价' : status == 1 ? '订单备注' : '立即退款' }}
         <span class="iconfont icon-guanbi" @click="close"></span>
       </view>
       <view class="listChange" v-if="status == 0 || status == 2">
@@ -10,7 +10,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 0"
         >
-          <view>{{$t(`商品总价`)}}({{$t(`￥`)}})</view>
+          <view>服务服务总价(￥)</view>
           <view class="money">
             {{ orderInfo.total_price }}<span class="iconfont icon-suozi"></span>
           </view>
@@ -19,7 +19,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 0"
         >
-          <view>{{$t(`原始邮费`)}}({{$t(`￥`)}})</view>
+          <view>原始邮费(￥)</view>
           <view class="money">
             {{ orderInfo.pay_postage }}<span class="iconfont icon-suozi"></span>
           </view>
@@ -28,7 +28,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 0"
         >
-          <view>{{$t(`实际支付`)}}({{$t(`￥`)}})</view>
+          <view>实际支付(￥)</view>
           <view class="money">
             <input
               type="text"
@@ -42,7 +42,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 1"
         >
-          <view>{{$t(`实际支付`)}}({{$t(`￥`)}})</view>
+          <view>实际支付(￥)</view>
           <view class="money">
             {{ orderInfo.pay_price }}<span class="iconfont icon-suozi"></span>
           </view>
@@ -51,7 +51,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 1"
         >
-          <view>{{$t(`退款金额`)}}({{$t(`￥`)}})</view>
+          <view>退款金额(￥)</view>
           <view class="money">
             <input
               type="text"
@@ -65,14 +65,14 @@
       <view class="listChange" v-else>
         <textarea
           :placeholder="
-            orderInfo.remark ? orderInfo.remark : $t(`请填写备注信息`)
+            orderInfo.remark ? orderInfo.remark : '请填写备注信息'
           "
           v-model="remark"
         ></textarea>
       </view>
       <view class="modify" @click="save">
         {{
-          status == 1 || orderInfo.refund_status == 0 ? $t(`立即修改`) : $t(`确认退款`)
+          status == 1 || orderInfo.refund_status == 0 ? '立即修改' : '确认退款'
         }}
       </view>
       <view
@@ -80,7 +80,7 @@
         @click="refuse"
         v-if="orderInfo.refund_status == 1 && status == 0"
       >
-        {{$t(`拒绝退款`)}}
+        拒绝退款
       </view>
     </view>
     <view class="mask" @touchmove.prevent v-show="change === true"></view>

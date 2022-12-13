@@ -1,7 +1,7 @@
 <template>
 	<view class="empty-box">
 		<image :src="imgHost + '/statics/images/empty-box.png'"></image>
-		<view class="txt">{{title || $t(`暂无记录`)}}</view>
+		<view class="txt">{{title || '暂无记录'}}</view>
 	</view>
 </template>
 

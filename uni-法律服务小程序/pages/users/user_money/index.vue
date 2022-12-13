@@ -86,7 +86,7 @@
 							<view class='iconfont icon-hebingxingzhuang'></view>
 							<view class='text'>
 								<view class='line1'>{{$t(`最新拼团活动`)}}</view>
-								<view class='infor line1'>{{$t(`最新的优惠商品上架拼团`)}}</view>
+								<view class='infor line1'>{{$t(`最新的优惠服务服务上架拼团`)}}</view>
 							</view>
 						</view>
 						<navigator hover-class='none' url='/pages/activity/goods_combination/index' class='bnt'
@@ -98,7 +98,7 @@
 							<view class='iconfont icon-miaosha yellow'></view>
 							<view class='text'>
 								<view class='line1'>{{$t(`当前限时秒杀`)}}</view>
-								<view class='infor line1'>{{$t(`最新商品秒杀进行中`)}}</view>
+								<view class='infor line1'>{{$t(`最新服务服务秒杀进行中`)}}</view>
 							</view>
 						</view>
 						<navigator hover-class='none' url='/pages/activity/goods_seckill/index' class='bnt'

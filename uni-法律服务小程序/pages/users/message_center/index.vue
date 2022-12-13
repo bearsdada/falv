@@ -26,7 +26,7 @@
 						<view v-if="item.message_type === 2" class="info" v-html="item.message"></view>
 						<view v-if="item.message_type === 3" class="info">{{$t(`[图片]`)}}</view>
 						<view v-if="item.message_type === 4" class="info">{{$t(`[语音]`)}}</view>
-						<view v-if="item.message_type === 5" class="info">{{$t(`[商品]`)}}</view>
+						<view v-if="item.message_type === 5" class="info">{{$t(`[服务服务]`)}}</view>
 						<view v-if="item.message_type === 6" class="info">{{$t(`[订单]`)}}</view>
 						<view class="num" v-if="item.mssage_num">{{ item.mssage_num }}</view>
 					</view>

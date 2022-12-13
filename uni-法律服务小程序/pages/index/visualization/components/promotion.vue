@@ -88,7 +88,7 @@
 		data() {
 			return {
 				benefit: [],
-				salesInfo: this.$t(`库存商品优惠促销活动`),
+				salesInfo: this.$t(`库存服务服务优惠促销活动`),
 				name: this.$options.name,
 				isShow: true,
 				isIframe: app.globalData.isIframe,

@@ -55,7 +55,7 @@ export function transferList(data) {
 }
 
 /**
- * 商品购买记录
+ * 服务服务购买记录
  * @constructor
  */
 export function productCart(id, data) {
@@ -66,7 +66,7 @@ export function productCart(id, data) {
 }
 
 /**
- * 热销商品
+ * 热销服务服务
  * @constructor
  */
 export function productHot(id, data) {
@@ -77,7 +77,7 @@ export function productHot(id, data) {
 }
 
 /**
- * 商品足记
+ * 服务服务足记
  * @constructor
  */
 export function productVisit(id, data) {

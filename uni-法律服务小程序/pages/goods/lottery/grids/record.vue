@@ -8,34 +8,34 @@
 						{{item.prize.name}}
 					</view>
 					<view class="goods-msg">
-						{{$t(`奖品类型`)}}：
+						奖品类型：
 						<text class="num">
 							{{item.prize.type | typeName}}
 						</text>
 					</view>
 					<view class="goods-msg exchange" v-if="item.type == 6 &&  !item.receive_time"
 						@click="fromAddress(item)">
-						{{$t(`立即兑换`)}}
+						立即兑换
 					</view>
 					<view class="goods-msg" v-else>
-						{{$t(`兑换时间`)}}：
+						兑换时间：
 						{{item.receive_time || '--'}}
 					</view>
 
 					<view class="goods-msg" v-if="item.deliver_info.deliver_name">
-						{{$t(`快递公司`)}}：
+						快递公司：
 						{{item.deliver_info.deliver_name || '--'}}
 					</view>
 					<view class="goods-msg" v-if="item.deliver_info.deliver_number">
-						{{$t(`快递单号`)}}：
+						快递单号：
 						{{item.deliver_info.deliver_number || '--'}}
 						<!-- #ifndef H5 -->
 						<view v-if="item.deliver_info.deliver_number" class='copy'
-							@tap='copyOrderId(item.deliver_info.deliver_number)'>{{$t(`复制`)}}</view>
+							@tap='copyOrderId(item.deliver_info.deliver_number)'>复制</view>
 						<!-- #endif -->
 						<!-- #ifdef H5 -->
 						<view v-if="item.deliver_info.deliver_number" class='copy copy-data'
-							:data-clipboard-text="item.deliver_info.deliver_number">{{$t(`复制`)}}</view>
+							:data-clipboard-text="item.deliver_info.deliver_number">复制</view>
 						<!-- #endif -->
 						<!-- <view v-if="item.deliver_info.deliver_number" class='copy' @tap='copyOrderId(item.deliver_info.deliver_number)'>复制</view> -->
 					</view>
@@ -46,7 +46,7 @@
 			</view>
 		</view>
 		<block v-if="lotteryList.length === 0 && !loading">
-			<emptyPage :title="$t(`暂无中奖记录`)"></emptyPage>
+			<emptyPage title="暂无中奖记录"></emptyPage>
 		</block>
 		<userAddress :aleartStatus="addressModel" @getAddress="getAddress" @close="()=>{addressModel = false}">
 		</userAddress>
@@ -96,7 +96,7 @@
 				} else if (type == 5) {
 					return '优惠券'
 				} else if (type == 6) {
-					return '商品'
+					return '服务服务'
 				}
 			}
 		},
@@ -106,7 +106,7 @@
 				const clipboard = new ClipboardJS(".copy-data");
 				clipboard.on("success", () => {
 					this.$util.Tips({
-						title: this.$t(`复制成功`)
+						title: '复制成功'
 					});
 				});
 			});
@@ -119,7 +119,7 @@
 				addData.address = data.address.province + data.address.city + data.address.district + data.detail
 				receiveLottery(addData).then(res => {
 					this.$util.Tips({
-						title: this.$t(`领取成功`)
+						title: '领取成功'
 					});
 					this.addressModel = false
 				}).catch(err => {
@@ -152,12 +152,12 @@
 					let loadend = list.length < this.where.limit;
 					this.loadend = loadend;
 					this.loading = false;
-					this.loadTitle = loadend ? that.$t(`没有更多内容啦~`) : that.$t(`加载更多`);
+					this.loadTitle = loadend ? '没有更多内容啦~' : '加载更多';
 					this.$set(this, 'lotteryList', lotteryList);
 					this.$set(this.where, 'page', this.where.page + 1);
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = that.$t(`加载更多`);
+					that.loadTitle = '加载更多';
 				});
 			}
 		},

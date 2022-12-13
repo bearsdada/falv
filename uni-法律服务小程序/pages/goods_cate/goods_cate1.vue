@@ -6,7 +6,7 @@
 		<view class='header acea-row row-center-wrapper'>
 			<view class='acea-row row-between-wrapper input'>
 				<text class='iconfont icon-sousuo'></text>
-				<input type='text' :placeholder="$t('搜索商品名称')" @confirm="searchSubmitValue" confirm-type='search'
+				<input type='text' :placeholder="$t('搜索服务名称')" @confirm="searchSubmitValue" confirm-type='search'
 					name="search" placeholder-class='placeholder'></input>
 			</view>
 		</view>
@@ -149,7 +149,7 @@
 				let that = this;
 				let len = that.productList.length;
 				this.number = that.productList[len - 1].children.length;
-				//设置商品列表高度
+				//设置服务服务列表高度
 				uni.getSystemInfo({
 					success: function(res) {
 						that.height = (res.windowHeight) * (750 / res.windowWidth) - 98;
@@ -208,7 +208,7 @@
 					})
 				else
 					return this.$util.Tips({
-						title: this.$t(`搜索商品名称`)
+						title: this.$t(`搜索服务名称`)
 					});
 			},
 		}

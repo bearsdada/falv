@@ -9,7 +9,7 @@
 					<view class='text acea-row row-between'>
 						<view class='name line3'>{{productInfo.store_name}}</view>
 						<view class='money'>
-							<view>{{$t(`￥`)}}{{productInfo.price}}</view>
+							<view>￥{{productInfo.price}}</view>
 							<view class='num'>x{{cart_num}}</view>
 						</view>
 					</view>
@@ -25,7 +25,7 @@
 						<text class='evaluate'>{{item.index === -1 ? "" : item.index + 1 + $t(`星`)}}</text>
 					</view>
 					<view class='textarea'>
-						<textarea :placeholder='$t(`商品满足你的期待么？说说你的想法，分享给想买的他们吧`)' name="comment"
+						<textarea placeholder='服务服务满足你的期待么？说说你的想法，分享给想买的他们吧' name="comment"
 							placeholder-class='placeholder'></textarea>
 						<view class='list acea-row row-middle'>
 							<view class='pictrue' v-for="(item,index) in pics" :key="index">
@@ -35,11 +35,11 @@
 							<view class='pictrue acea-row row-center-wrapper row-column' @click='uploadpic'
 								v-if="pics.length < 8">
 								<text class='iconfont icon-icon25201'></text>
-								<view>{{$t(`上传图片`)}}</view>
+								<view>上传图片</view>
 							</view>
 						</view>
 					</view>
-					<button class='evaluateBnt bg-color' formType="submit">{{$t(`立即评价`)}}</button>
+					<button class='evaluateBnt bg-color' formType="submit">立即评价</button>
 				</view>
 			</view>
 		</form>
@@ -77,12 +77,12 @@
 			return {
 				pics: [],
 				scoreList: [{
-						name: this.$t(`商品质量`),
+						name: '服务服务质量',
 						stars: ["", "", "", "", ""],
 						index: -1
 					},
 					{
-						name: this.$t(`服务态度`),
+						name: '服务态度',
 						stars: ["", "", "", "", ""],
 						index: -1
 					}
@@ -111,7 +111,7 @@
 		},
 		onLoad(options) {
 			if (!options.unique || !options.uni) return this.$util.Tips({
-				title: this.$t(`缺少参数`)
+				title: '缺少参数'
 			}, {
 				tab: 3,
 				url: 1
@@ -184,14 +184,14 @@
 					product_score = that.scoreList[0].index + 1 === 0 ? "" : that.scoreList[0].index + 1,
 					service_score = that.scoreList[1].index + 1 === 0 ? "" : that.scoreList[1].index + 1;
 				if (!value.comment) return that.$util.Tips({
-					title: that.$t(`请填写你对宝贝的心得`)
+					title: '请填写你对宝贝的心得'
 				});
 				value.product_score = product_score;
 				value.service_score = service_score;
 				value.pics = that.pics;
 				value.unique = that.unique;
 				uni.showLoading({
-					title: that.$t(`正在发布评论`)
+					title: '正在发布评论'
 				});
 				orderComment(value).then(res => {
 					uni.hideLoading();
@@ -199,12 +199,12 @@
 						let jumpPath = '/pages/goods/goods_comment_con/lottery_comment?type=4&order_id=' + that
 							.orderId + '&date=' + Date.parse(new Date())
 						that.$util.Tips({
-							title: that.$t(`感谢您的评价`),
+							title: '感谢您的评价',
 							icon: 'success'
 						}, jumpPath);
 					} else {
 						that.$util.Tips({
-							title: that.$t(`感谢您的评价`),
+							title: '感谢您的评价',
 							icon: 'success'
 						})
 						setTimeout(e => {

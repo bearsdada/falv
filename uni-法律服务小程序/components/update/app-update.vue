@@ -5,12 +5,12 @@
 				<view class="update-wrap">
 					<image src="./images/img.png" class="top-img"></image>
 					<view class="content">
-						<text class="title">{{$t(`发现新版本`)}}{{ update_info.version }}</text>
+						<text class="title">发现新版本{{ update_info.version }}</text>
 						<!-- 升级描述 -->
 						<view class="title-sub" v-html="update_info.info"></view>
 						<!-- 升级按钮 -->
 						<button class="btn" v-if="downstatus < 1" @click="nowUpdate()">
-							{{$t(`立即升级`)}}
+							立即升级
 						</button>
 						<!-- 下载进度 -->
 						<view class="sche-wrap" v-else>
@@ -18,7 +18,7 @@
 							<view class="sche-bg">
 								<view class="sche-bg-jindu" :style="lengthWidth"></view>
 							</view>
-							<text class="down-text">{{$t(`下载进度`)}}:{{ (downSize / 1024 / 1024).toFixed(2) }}M/{{
+							<text class="down-text">下载进度:{{ (downSize / 1024 / 1024).toFixed(2) }}M/{{
                   (fileSize / 1024 / 1024).toFixed(2)
                 }}M</text>
 						</view>

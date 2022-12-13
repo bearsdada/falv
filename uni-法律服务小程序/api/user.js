@@ -524,7 +524,7 @@ export function memberCouponsList() {
 }
 
 /**
- * svip推荐商品
+ * svip推荐服务服务
  * @param {Object} id
  */
 export function groomList(id, data) {

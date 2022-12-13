@@ -16,7 +16,7 @@
 							<view @tap='settimeList(item,index)' class='item' :class="active == index?'on':''"
 								:id='"sort"+index'>
 								<view class='time'>{{item.time}}</view>
-								<view class="state">{{$t(item.state)}}</view>
+								<view class="state">{{item.state}}</view>
 							</view>
 						</block>
 					</scroll-view>
@@ -30,20 +30,20 @@
 						</view>
 						<view class='text acea-row row-column-around'>
 							<view class='name line1'>{{item.title}}</view>
-							<view class='money'>{{$t(`￥`)}}
+							<view class='money'>￥
 								<text class='num font-color'>{{item.price}}</text>
-								<text class="y_money">{{$t(`￥`)}}{{item.ot_price}}</text>
+								<text class="y_money">￥{{item.ot_price}}</text>
 							</view>
-							<view class="limit">{{$t(`限量`)}} <text
-									class="limitPrice">{{item.quota_show}}{{$t(item.unit_name) || ''}}</text></view>
+							<view class="limit">限量 <text
+									class="limitPrice">{{item.quota_show}}{{item.unit_name || ''}}</text></view>
 							<view class="progress">
 								<view class='bg-reds' :style="'width:'+item.percent+'%;'"></view>
-								<view class='piece'>{{$t(`已抢`)}}{{item.percent}}%</view>
+								<view class='piece'>{{'已抢'}}{{item.percent}}%</view>
 							</view>
 						</view>
-						<view class='grab bg-color' v-if="status == 1">{{$t(`抢购中`)}}</view>
-						<view class='grab bg-color' v-else-if="status == 2">{{$t(`未开始`)}}</view>
-						<view class='grab bg-color-hui' v-else>{{$t(`已结束`)}}</view>
+						<view class='grab bg-color' v-if="status == 1">’抢购中</view>
+						<view class='grab bg-color' v-else-if="status == 2">未开始</view>
+						<view class='grab bg-color-hui' v-else>已结束</view>
 					</view>
 				</block>
 			</view>
@@ -51,7 +51,7 @@
 		<view class='noCommodity' v-if="seckillList.length == 0 && (page != 1 || active== 0)">
 			<view class='emptyBox'>
 				<image :src="imgHost + '/statics/images/no-thing.png'"></image>
-				<view class="tips">{{$t(`暂无商品，去看点别的吧`)}}</view>
+				<view class="tips">暂无服务服务，去看点别的吧</view>
 			</view>
 		</view>
 		<!-- #ifndef MP -->

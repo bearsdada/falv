@@ -50,7 +50,7 @@
 					<titles v-if="item.name == 'titles'" :dataConfig="item" :isSortType="isSortType"></titles>
 				</block>
 				<!-- #endif -->
-				<!-- 分类商品模块 -->
+				<!-- 分类服务服务模块 -->
 				<!-- #ifdef  APP-PLUS -->
 				<view class="sort-product" v-if="isSortType == 1" style="margin-top: 0;">
 					<scroll-view scroll-x="true" style="background: #fff;">
@@ -85,7 +85,7 @@
 					<view class="" v-if="goodList.length == 0 && loaded">
 						<view class="emptyBox">
 							<image :src="imgHost + '/statics/images/no-thing.png'"></image>
-							<view class="tips">{{$t(`暂无商品，去看点别的吧`)}}</view>
+							<view class="tips">{{$t(`暂无服务服务，去看点别的吧`)}}</view>
 						</view>
 						<recommend :hostProduct="hostProduct"></recommend>
 					</view>
@@ -488,7 +488,7 @@
 				uni.hideLoading();
 				this.domOffsetTop = data.top;
 			},
-			// 去商品详情
+			// 去服务服务详情
 			goGoodsDetail(item) {
 				goShopDetail(item, this.uid).then(res => {
 					uni.navigateTo({

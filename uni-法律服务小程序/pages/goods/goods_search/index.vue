@@ -4,14 +4,14 @@
 			<view class='search acea-row row-between-wrapper'>
 				<view class='input acea-row row-between-wrapper'>
 					<text class='iconfont icon-sousuo'></text>
-					<input type='text' v-model='searchValue' @confirm="inputConfirm" focus :placeholder='$t(`搜索商品名称`)'
+					<input type='text' v-model='searchValue' @confirm="inputConfirm" focus placeholder='搜索服务名称'
 						placeholder-class='placeholder' @input="setValue"></input>
 				</view>
-				<view class='bnt' @tap='searchBut'>{{$t(`搜索`)}}</view>
+				<view class='bnt' @tap='searchBut'>搜索</view>
 			</view>
 			<template v-if="history.length">
 				<view class='title acea-row row-between-wrapper'>
-					<view>{{$t(`搜索历史`)}}</view>
+					<view>搜索历史</view>
 					<view class="iconfont icon-shanchu" @click="clear"></view>
 				</view>
 				<view class='list acea-row'>
@@ -21,7 +21,7 @@
 					</block>
 				</view>
 			</template>
-			<view class='title'>{{$t(`热门搜索`)}}</view>
+			<view class='title'>热门搜索</view>
 			<view class='list acea-row'>
 				<block v-for="(item,index) in hotSearchList" :key="index">
 					<view class='item line1' @tap='setHotSearchValue(item.val)' v-if="item.val">{{item.val}}</view>
@@ -75,7 +75,7 @@
 				page: 1,
 				loading: false,
 				loadend: false,
-				loadTitle: this.$t(`加载更多`),
+				loadTitle: '加载更多',
 				hotPage: 1,
 				isScroll: true,
 				history: []
@@ -146,11 +146,11 @@
 					that.$set(that, 'bastList', that.bastList);
 					that.loading = false;
 					that.loadend = loadend;
-					that.loadTitle = loadend ? that.$t(`没有更多内容啦~`) : that.$t(`加载更多`);
+					that.loadTitle = loadend ? '没有更多内容啦~' : '加载更多';
 					that.page = that.page + 1;
 				}).catch(err => {
 					that.loading = false,
-						that.loadTitle = that.$t(`加载更多`)
+						that.loadTitle = '加载更多'
 				});
 			},
 			getHostProduct: function() {
@@ -175,7 +175,7 @@
 			searchBut: function() {
 				let that = this;
 				if (!that.searchValue.trim()) return this.$util.Tips({
-					title: that.$t(`请输入要搜索的商品`)
+					title: '请输入要搜索的服务服务'
 				});
 				that.focus = false;
 				// if (that.searchValue.length > 0) {
@@ -183,13 +183,13 @@
 				that.loadend = false;
 				that.$set(that, 'bastList', []);
 				uni.showLoading({
-					title: that.$t(`正在搜索中`)
+					title: '正在搜索中'
 				});
 				that.getProductList();
 				uni.hideLoading();
 				// } else {
 				// 	return this.$util.Tips({
-				// 		title: '请输入要搜索的商品',
+				// 		title: '请输入要搜索的服务服务',
 				// 		icon: 'none',
 				// 		duration: 1000,
 				// 		mask: true,

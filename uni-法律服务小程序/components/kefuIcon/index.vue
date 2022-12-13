@@ -1,20 +1,22 @@
 <template>
-	<!-- #ifdef APP-PLUS || H5 -->
-	<text class="acea-row row-center-wrapper cartf iconfont icon-kefu3" :style="{ top: top + 'px'}" @click="goCustomer"
-		@touchmove.stop.prevent="setTouchMove"></text>
-	<!-- #endif -->
-	<!-- #ifdef MP -->
-	<view v-if="routineContact == 0" class="acea-row row-center-wrapper cartf iconfont icon-kefu3"
-		:style="{ top: top + 'px'}" @touchmove.stop.prevent="setTouchMove" @click="goCustomer"></view>
-	<button class="acea-row row-center-wrapper cartf iconfont icon-kefu3" open-type='contact'
-		:style="{ top: top + 'px'}" @touchmove.stop.prevent="setTouchMove"
-		v-else-if="routineContact==1 && !goodsCon"></button>
-	<button class="acea-row row-center-wrapper cartf iconfont icon-kefu3" open-type='contact'
-		:send-message-title="storeInfo.store_name" :send-message-img="storeInfo.image"
-		:send-message-path="`/pages/goods_details/index?id=${storeInfo.id}`" show-message-card
-		:style="{ top: top + 'px'}" @touchmove.stop.prevent="setTouchMove"
-		v-else-if="routineContact==1 && goodsCon"></button>
-	<!-- #endif -->
+	<view v-if="false">
+		<!-- #ifdef APP-PLUS || H5 -->
+		<text class="acea-row row-center-wrapper cartf iconfont icon-kefu3" :style="{ top: top + 'px'}" @click="goCustomer"
+			@touchmove.stop.prevent="setTouchMove"></text>
+		<!-- #endif -->
+		<!-- #ifdef MP -->
+		<view v-if="routineContact == 0" class="acea-row row-center-wrapper cartf iconfont icon-kefu3"
+			:style="{ top: top + 'px'}" @touchmove.stop.prevent="setTouchMove" @click="goCustomer"></view>
+		<button class="acea-row row-center-wrapper cartf iconfont icon-kefu3" open-type='contact'
+			:style="{ top: top + 'px'}" @touchmove.stop.prevent="setTouchMove"
+			v-else-if="routineContact==1 && !goodsCon"></button>
+		<button class="acea-row row-center-wrapper cartf iconfont icon-kefu3" open-type='contact'
+			:send-message-title="storeInfo.store_name" :send-message-img="storeInfo.image"
+			:send-message-path="`/pages/goods_details/index?id=${storeInfo.id}`" show-message-card
+			:style="{ top: top + 'px'}" @touchmove.stop.prevent="setTouchMove"
+			v-else-if="routineContact==1 && goodsCon"></button>
+		<!-- #endif -->
+	</view>
 </template>
 
 <script>

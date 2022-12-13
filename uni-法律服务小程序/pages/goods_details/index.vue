@@ -266,14 +266,14 @@
 					<view class="iconfont icon-shoucang" v-else></view>
 					<view class="p_center">{{$t(`收藏`)}}</view>
 				</view>
-				<view class="animated item" :class="animated == true ? 'bounceIn' : ''" @click="goCart">
+				<!-- <view class="animated item" :class="animated == true ? 'bounceIn' : ''" @click="goCart">
 					<view class="iconfont icon-gouwuche1">
 						<text class="num bg-color" v-if="parseFloat(CartCount) > 0">{{
               CartCount || 0
             }}</text>
 					</view>
 					<view class="p_center">{{$t(`购物车`)}}</view>
-				</view>
+				</view> -->
 				<view v-if="noGoods" class="presale">
 					<view class="acea-row">
 						<form class=" bnts bg-color-hui"><button class=" bnts bg-color-hui"
@@ -284,12 +284,6 @@
 					<view v-if="!storeInfo.presale">
 						<view class="bnt acea-row" :class="!storeInfo.cart_button ? 'virbnt' : ''"
 							v-if="attr.productSelect.stock <= 0">
-							<form v-if="storeInfo.cart_button" @submit="joinCart" class="joinCart bnts"
-								:class="!storeInfo.cart_button ? 'virbnt' : ''">
-								<button class="joinCart bnts" form-type="submit">
-									{{$t(`加入购物车`)}}
-								</button>
-							</form>
 							<form class="buy bnts bg-color-hui">
 								<button class="buy bnts bg-color-hui" form-type="submit"
 									:class="!storeInfo.cart_button ? 'virbnt' : ''">
@@ -298,11 +292,6 @@
 							</form>
 						</view>
 						<view class="bnt acea-row" v-else>
-							<form v-if="storeInfo.cart_button" @submit="joinCart" class="joinCart bnts">
-								<button class="joinCart bnts" form-type="submit">
-									{{$t(`加入购物车`)}}
-								</button>
-							</form>
 							<form @submit="goBuy" class="buy bnts" :class="!storeInfo.cart_button ? 'virbnt' : ''">
 								<button class="buy bnts" :class="!storeInfo.cart_button ? 'virbnt' : ''"
 									form-type="submit">
@@ -525,10 +514,10 @@
 				attrTxt: this.$t(`请选择`), //属性页面提示
 				attrValue: "", //已选属性
 				animated: false, //购物车动画
-				id: 0, //商品id
+				id: 0, //服务服务id
 				replyCount: 0, //总评论数量
 				reply: [], //评论列表
-				storeInfo: {}, //商品详情
+				storeInfo: {}, //服务服务详情
 				productValue: [], //系统属性
 				couponList: [], //优惠券
 				cart_num: 1, //购买数量
@@ -650,7 +639,7 @@
 			if (!options.id) {
 				this.showSkeleton = false;
 				return that.$util.Tips({
-					title: that.$t(`缺少参数无法查看商品`),
+					title: that.$t(`缺少参数无法查看服务服务`),
 				}, {
 					tab: 3,
 					url: 1,
@@ -853,7 +842,7 @@
 				}
 			},
 			/*
-			 *去商品详情页
+			 *去服务服务详情页
 			 */
 			goDetail(item) {
 				if (item.activity.length == 0) {
@@ -910,7 +899,7 @@
 				//changeValue:是否 加|减
 				//获取当前变动属性
 				let productSelect = this.productValue[this.attrValue];
-				//如果没有属性,赋值给商品默认库存
+				//如果没有属性,赋值给服务服务默认库存
 				if (productSelect === undefined && !this.attr.productAttr.length)
 					productSelect = this.attr.productSelect;
 				//无属性值即库存为0；不存在加减；
@@ -1090,7 +1079,7 @@
 							"diff",
 							that.$util.$h.Sub(storeInfo.price, storeInfo.vip_price)
 						);
-						var navList = [that.$t(`商品`), that.$t(`详情`)];
+						var navList = [that.$t(`服务服务`), that.$t(`详情`)];
 						if (res.data.replyCount) {
 							navList.splice(1, 0, that.$t(`评价`));
 						}
@@ -1336,7 +1325,7 @@
 			/**
 			 *
 			 *
-			 * 收藏商品
+			 * 收藏服务服务
 			 */
 			setCollect: function() {
 				if (this.isLogin === false) {
@@ -1684,7 +1673,7 @@
 			showImg(index) {
 				this.$refs.cusPreviewImg.open(this.selectSku.suk);
 			},
-			//滑动轮播图选择商品
+			//滑动轮播图选择服务服务
 			changeSwitch(e) {
 				let productSelect = this.skuArr[e];
 				this.$set(this, "selectSku", productSelect);
@@ -1826,6 +1815,7 @@
 	.product-con .footer .item {
 		font-size: 18rpx;
 		color: #666;
+		padding: 0 20rpx;
 	}
 
 	.product-con .footer .item .iconfont {
@@ -1875,7 +1865,7 @@
 	}
 
 	.product-con .footer .bnt .bnts {
-		width: 222rpx;
+		width: 100%;
 		text-align: center;
 		line-height: 76rpx;
 		color: #fff;
@@ -1883,13 +1873,13 @@
 	}
 
 	.product-con .footer .bnt .joinCart {
-		border-radius: 50rpx 0 0 50rpx;
+		border-radius: 50rpx;
 		background-color: var(--view-bntColor);
 		// background-image: linear-gradient(to right, #fea10f 0%, #fa8013 100%);
 	}
 
 	.product-con .footer .bnt .buy {
-		border-radius: 0 50rpx 50rpx 0;
+		border-radius: 50rpx;
 		background-color: var(--view-theme);
 		// background-image: linear-gradient(to right, #fa6514 0%, #e93323 100%);
 	}
@@ -2390,7 +2380,7 @@
 	}
 
 	.presale .bnts {
-		width: 444rpx;
+		width: 100%;
 		height: 76rpx;
 		border-radius: 50rpx 50rpx;
 		background-color: var(--view-theme);

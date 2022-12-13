@@ -9,11 +9,11 @@
 				<view class='addAddress'>
 					<view class='list'>
 						<view class='item acea-row row-between-wrapper'>
-							<input type='text' :placeholder='$t(`请输入姓名`)' name='name' :value="userAddress.name"
+							<input type='text' placeholder='请输入姓名' name='name' :value="userAddress.name"
 								placeholder-class='placeholder'></input>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<input type='number' :placeholder='$t(`请输入手机号`)' name="phone" :value='userAddress.phone'
+							<input type='number' placeholder='请输入手机号' name="phone" :value='userAddress.phone'
 								placeholder-class='placeholder' pattern="\d*"></input>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
@@ -28,11 +28,11 @@
 							</view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<input type='text' :placeholder='$t(`请填写具体地址`)' name='detail' placeholder-class='placeholder'
+							<input type='text' placeholder='请填写具体地址' name='detail' placeholder-class='placeholder'
 								:value='userAddress.detail'></input>
 						</view>
 					</view>
-					<button class='keepBnt' form-type="submit">{{$t(`提交`)}}</button>
+					<button class='keepBnt' form-type="submit">提交</button>
 					<!-- #ifdef MP -->
 					<!-- <view class="wechatAddress" v-if="!id" @click="getWxAddress">导入微信地址</view> -->
 					<!-- #endif -->
@@ -84,7 +84,7 @@
 				userAddress: {
 					is_default: false
 				}, //地址详情
-				region: [this.$t(`省`), this.$t(`市`), this.$t(`区`)],
+				region: ['省', '市', '区'],
 				valueRegion: [0, 0, 0],
 				isAuto: false, //没有授权的不会自动授权
 				isShowAuth: false, //是否隐藏授权
@@ -287,7 +287,7 @@
 										}
 									}, 1000);
 									return that.$util.Tips({
-										title: that.$t(`添加成功`),
+										title: '添加成功',
 										icon: 'success'
 									});
 								}).catch(err => {
@@ -299,15 +299,15 @@
 							fail: function(res) {
 								if (res.errMsg == 'chooseAddress:cancel') return that.$util
 									.Tips({
-										title: that.$t(`取消`)
+										title: '取消'
 									});
 							},
 						})
 					},
 					fail: function(res) {
 						uni.showModal({
-							title: that.$t(`您已拒绝导入微信地址权限`),
-							content: that.$t(`是否进入权限管理，调整授权？`),
+							title: '您已拒绝导入微信地址权限',
+							content: '是否进入权限管理，调整授权？',
 							success(res) {
 								if (res.confirm) {
 									uni.openSetting({
@@ -315,7 +315,7 @@
 									});
 								} else if (res.cancel) {
 									return that.$util.Tips({
-										title: that.$t(`已取消`)
+										title: '已取消'
 									});
 								}
 							}
@@ -350,13 +350,13 @@
 							}, 1000);
 							// close();
 							that.$util.Tips({
-								title: that.$t(`添加成功`),
+								title: '添加成功',
 								icon: 'success'
 							});
 						})
 						.catch(err => {
 							return that.$util.Tips({
-								title: err || that.$t(`添加失败`)
+								title: err || '添加失败'
 							});
 						});
 				}).catch(err => {});
@@ -369,19 +369,19 @@
 				let that = this,
 					value = e.detail.value;
 				if (!value.name) return that.$util.Tips({
-					title: that.$t(`请填写收货人姓名`)
+					title: '请填写收货人姓名'
 				});
 				if (!value.phone) return that.$util.Tips({
-					title: that.$t(`请输入手机号`)
+					title: '请输入手机号'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
 				if (that.region[0] == '省') return that.$util.Tips({
-					title: that.$t(`请选择所在地区`)
+					title: '请选择所在地区'
 				});
 				if (!value.detail) return that.$util.Tips({
-					title: that.$t(`请填写详细地址`)
+					title:'请填写详细地址'
 				});
 				let regionArray = that.region;
 				value.address = {

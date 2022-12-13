@@ -9,7 +9,7 @@
 			</view>
 			<view class="input acea-row row-middle fillet skeleton-rect" hover-class="none" @click="goPage"><text
 					class="iconfont icon-sousuo"></text>
-				{{$t('搜索商品')}}</view>
+				{{$t('搜索服务')}}</view>
 		</view>
 	</view>
 	<view v-else-if="isIframe" class="header">
@@ -20,7 +20,7 @@
 			</view>
 			<view class="input acea-row row-middle fillet" hover-class="none" @click="goPage"><text
 					class="iconfont icon-sousuo"></text>
-				{{$t('搜索商品')}}</view>
+				{{$t('搜索服务')}}</view>
 		</view>
 	</view>
 	<!-- #endif -->
@@ -36,7 +36,7 @@
 					</view>
 					<navigator url="/pages/goods/goods_search/index" class="input acea-row row-middle fillet"
 						hover-class="none"><text class="iconfont icon-sousuo"></text>
-						{{$t('搜索商品')}}</navigator>
+						{{$t('搜索服务')}}</navigator>
 				</view>
 			</view>
 		</view>

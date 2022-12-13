@@ -33,7 +33,7 @@
 							{{$t(`￥`)}}{{items.productInfo.attrInfo?items.productInfo.attrInfo.price:items.productInfo.price}}</view>
 					</view>
 				</view>
-				<view class='totalSum'>{{$t(`共`)}} {{item.refund_num || 0}} {{$t(`件商品，总金额`)}} <text
+				<view class='totalSum'>{{$t(`共`)}} {{item.refund_num || 0}} {{$t(`件服务服务，总金额`)}} <text
 						class='font-color price'>{{$t(`￥`)}}{{item.refund_price}}</text></view>
 			</view>
 		</view>

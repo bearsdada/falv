@@ -10,14 +10,14 @@
 					<view class='text acea-row row-between'>
 						<view class='name line2'>{{item.productInfo.store_name}}</view>
 						<view class='money'>
-							<view>{{$t(`￥`)}}{{item.truePrice}}</view>
+							<view>￥{{item.truePrice}}</view>
 							<view class='num'>x{{item.cart_num}}</view>
 						</view>
 					</view>
 				</view>
 				<view class='list'>
 					<view class='item acea-row row-between-wrapper'>
-						<view>{{$t(`退货件数`)}}</view>
+						<view>退货件数</view>
 						<view class='num' v-if="refundCartInfo.length !== 1 || refund_total_num == 1">
 							{{refund_total_num}}
 						</view>
@@ -30,7 +30,7 @@
 						</picker>
 					</view>
 					<view class='item acea-row row-between-wrapper' v-if="status && status._type !== 1">
-						<view>{{$t(`退款类型`)}}</view>
+						<view>退款类型</view>
 						<picker class='num' @change="returnGoodsChange" :value="returnGoods" :range="returnGoodsData">
 							<view class="picker acea-row row-between-wrapper">
 								<view class='reason'>{{returnGoodsData[returnGoods]}}</view>
@@ -39,7 +39,7 @@
 						</picker>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>{{$t(`退款原因`)}}</view>
+						<view>退款原因</view>
 						<picker class='num' @change="bindPickerChange" :value="index" :range="RefundArray">
 							<view class="picker acea-row row-between-wrapper">
 								<view class='reason'>{{RefundArray[index]}}</view>
@@ -48,14 +48,14 @@
 						</picker>
 					</view>
 					<view class='item textarea acea-row row-between'>
-						<view>{{$t(`备注说明`)}}</view>
-						<textarea :placeholder='$t(`填写备注信息，100字以内`)' class='num' name="refund_reason_wap_explain"
-							:placeholder-class='$t(`填写备注信息，100字以内`)'></textarea>
+						<view>备注说明</view>
+						<textarea placeholder='填写备注信息，100字以内' class='num' name="refund_reason_wap_explain"
+							placeholder-class='填写备注信息，100字以内'></textarea>
 					</view>
 					<view class='item acea-row row-between upload'>
 						<view class='title acea-row row-between-wrapper'>
-							<view>{{$t(`上传图片`)}}</view>
-							<view class='tip'>{{$t(`上传图片`)}}</view>
+							<view>上传图片</view>
+							<view class='tip'>上传图片</view>
 						</view>
 						<view class='upload acea-row row-middle'>
 							<view class='pictrue' v-for="(item,index) in refund_reason_wap_img" :key="index">
@@ -65,12 +65,12 @@
 							<view class='pictrue acea-row row-center-wrapper row-column' @tap='uploadpic'
 								v-if="refund_reason_wap_img.length < 3">
 								<text class='iconfont icon-icon25201'></text>
-								<view>{{$t(`上传图片`)}}</view>
+								<view>上传图片</view>
 							</view>
 						</view>
 					</view>
 				</view>
-				<button class='returnBnt bg-color' form-type="submit">{{$t(`申请退款`)}}</button>
+				<button class='returnBnt bg-color' form-type="submit">申请退款</button>
 			</view>
 		</form>
 	</view>
@@ -108,7 +108,7 @@
 				status: {},
 				RefundArray: [],
 				refundCartInfo: [],
-				returnGoodsData: [this.$t(`仅退款`), this.$t(`退货并退款`)],
+				returnGoodsData: ['仅退款', '退货并退款'],
 				refund_total_num: 0,
 				index: 0,
 				returnGoods: 0,
@@ -201,13 +201,13 @@
 			 */
 			subRefund: function(e) {
 				uni.showLoading({
-					title: this.$t(`申请中`)
+					title: '申请中'
 				});
 				let that = this,
 					value = e.detail.value;
 				//收集form表单
 				if (!value.refund_reason_wap_explain) return this.$util.Tips({
-					title: this.$t(`请输入备注`)
+					title: '请输入备注'
 				});
 				let cartInfo = this.refundCartInfo;
 				if (cartInfo.length === 1) {
@@ -226,7 +226,7 @@
 				}).then(res => {
 					uni.hideLoading();
 					return this.$util.Tips({
-						title: this.$t(`申请成功`),
+						title: '申请成功',
 						icon: 'success'
 					}, {
 						tab: 5,

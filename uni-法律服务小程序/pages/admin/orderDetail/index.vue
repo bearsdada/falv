@@ -3,7 +3,7 @@
 		<view class="header acea-row row-middle">
 			<view class="state">{{ title }}</view>
 			<view class="data">
-				<view class="order-num">{{$t(`订单`)}}：{{ orderInfo.order_id }}</view>
+				<view class="order-num">'订单：{{ orderInfo.order_id }}</view>
 				<view>
 					<span class="time">{{ orderInfo._add_time }}</span>
 				</view>
@@ -12,7 +12,7 @@
 		<view class="remarks acea-row row-between-wrapper" v-if="goname != 'looks'">
 			<span class="iconfont icon-zhinengkefu-"></span>
 			<input class="line1" style="text-align: left;" :value="
-          orderInfo.remark ? orderInfo.remark : $t(`订单未备注，点击添加备注信息`)
+          orderInfo.remark ? orderInfo.remark : '订单未备注，点击添加备注信息'
         " disabled @click="modify('1')" />
 		</view>
 		<view class="orderingUser acea-row row-middle">
@@ -24,11 +24,11 @@
         }}<span class="phone">{{ orderInfo.user_phone }}</span>
 				<!-- #ifdef H5 -->
 				<span class="copy copy-data"
-					:data-clipboard-text="`${orderInfo.real_name} ${orderInfo.user_phone} ${orderInfo.user_address}`">{{$t(`复制`)}}</span>
+					:data-clipboard-text="`${orderInfo.real_name} ${orderInfo.user_phone} ${orderInfo.user_address}`">复制</span>
 				<!-- #endif -->
 				<!-- #ifndef H5 -->
 				<span class="copy copy-data"
-					@click="copyNum(`${orderInfo.real_name} ${orderInfo.user_phone} ${orderInfo.user_address}`)">{{$t(`复制`)}}</span>
+					@click="copyNum(`${orderInfo.real_name} ${orderInfo.user_phone} ${orderInfo.user_address}`)">复制</span>
 				<!-- #endif -->
 			</view>
 			<view>{{ orderInfo.user_address }}</view>
@@ -58,42 +58,42 @@
 			</navigator>
 		</view>
 		<view class="public-total">
-			{{$t(`共`)}}{{ orderInfo.total_num }}{{$t(`件商品，应支付`)}}
-			<span class="money">{{$t(`￥`)}}{{ orderInfo.pay_price }}</span> ( {{$t(`邮费`)}} {{$t(`￥`)}}{{
+			共{{ orderInfo.total_num }}件服务服务，应支付
+			<span class="money">￥{{ orderInfo.pay_price }}</span> ( 邮费 ￥{{
         orderInfo.pay_postage
       }}
 			)
 		</view>
 		<view class="wrapper">
 			<view class="item acea-row row-between">
-				<view>{{$t(`订单编号`)}}：</view>
+				<view>订单编号：</view>
 				<view class="conter acea-row row-middle row-right">
 					{{ orderInfo.order_id
           }}
 					<!-- #ifdef H5 -->
-					<span class="copy copy-data" :data-clipboard-text="orderInfo.order_id">{{$t(`复制`)}}</span>
+					<span class="copy copy-data" :data-clipboard-text="orderInfo.order_id">复制</span>
 					<!-- #endif -->
 					<!-- #ifndef H5 -->
-					<span class="copy copy-data" @click="copyNum(orderInfo.order_id)">{{$t(`复制`)}}</span>
+					<span class="copy copy-data" @click="copyNum(orderInfo.order_id)">复制</span>
 					<!-- #endif -->
 				</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`下单时间`)}}：</view>
+				<view>下单时间：</view>
 				<view class="conter">{{ orderInfo._add_time }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`支付状态`)}}：</view>
+				<view>支付状态：</view>
 				<view class="conter">
-					{{ orderInfo.paid == 1 ? $t(`已支付`) : $t(`未支付`) }}
+					{{ orderInfo.paid == 1 ? '已支付' : '未支付' }}
 				</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`支付方式`)}}：</view>
+				<view>支付方式：</view>
 				<view class="conter">{{ payType }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`买家留言`)}}：</view>
+				<view>买家留言：</view>
 				<view class="conter">{{ orderInfo.mark }}</view>
 			</view>
 		</view>
@@ -111,19 +111,19 @@
 		</view>
 		<view class="wrapper">
 			<view class="item acea-row row-between">
-				<view>{{$t(`支付金额`)}}：</view>
-				<view class="conter">{{$t(`￥`)}}{{ orderInfo.total_price }}</view>
+				<view>支付金额：</view>
+				<view class="conter">￥{{ orderInfo.total_price }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`优惠券抵扣`)}}：</view>
-				<view class="conter">-{{$t(`￥`)}}{{ orderInfo.coupon_price }}</view>
+				<view>优惠券抵扣：</view>
+				<view class="conter">-￥{{ orderInfo.coupon_price }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view>{{$t(`运费`)}}：</view>
-				<view class="conter">{{$t(`￥`)}}{{ orderInfo.pay_postage }}</view>
+				<view>运费：</view>
+				<view class="conter">￥{{ orderInfo.pay_postage }}</view>
 			</view>
 			<view class="actualPay acea-row row-right">
-				{{$t(`实付款`)}}：<span class="money">{{$t(`￥`)}}{{ orderInfo.pay_price }}</span>
+				实付款：<span class="money">￥{{ orderInfo.pay_price }}</span>
 			</view>
 		</view>
 
@@ -131,27 +131,27 @@
         orderInfo.delivery_type != 'fictitious' && orderInfo._status._type === 2
       ">
 			<view class="item acea-row row-between">
-				<view>{{$t(`配送方式`)}}：</view>
+				<view>配送方式：</view>
 				<view class="conter" v-if="orderInfo.delivery_type === 'express'">
-					{{$t(`快递`)}}
+					快递
 				</view>
-				<view class="conter" v-if="orderInfo.delivery_type === 'send'">{{$t(`送货`)}}</view>
+				<view class="conter" v-if="orderInfo.delivery_type === 'send'">送货</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view v-if="orderInfo.delivery_type === 'express'">{{$t(`快递公司`)}}：</view>
-				<view v-if="orderInfo.delivery_type === 'send'">{{$t(`送货人`)}}：</view>
+				<view v-if="orderInfo.delivery_type === 'express'">快递公司：</view>
+				<view v-if="orderInfo.delivery_type === 'send'">送货人：</view>
 				<view class="conter">{{ orderInfo.delivery_name }}</view>
 			</view>
 			<view class="item acea-row row-between">
-				<view v-if="orderInfo.delivery_type === 'express'">{{$t(`快递单号`)}}：</view>
-				<view v-if="orderInfo.delivery_type === 'send'">{{$t(`送货人电话`)}}：</view>
+				<view v-if="orderInfo.delivery_type === 'express'">快递单号：</view>
+				<view v-if="orderInfo.delivery_type === 'send'">送货人电话：</view>
 				<view class="conter">
 					{{ orderInfo.delivery_id}}
 					<!-- #ifdef H5 -->
-					<span class="copy copy-data" :data-clipboard-text="orderInfo.delivery_id">{{$t(`复制`)}}</span>
+					<span class="copy copy-data" :data-clipboard-text="orderInfo.delivery_id">复制</span>
 					<!-- #endif -->
 					<!-- #ifndef H5 -->
-					<span class="copy copy-data" @click="copyNum(orderInfo.delivery_id)">{{$t(`复制`)}}</span>
+					<span class="copy copy-data" @click="copyNum(orderInfo.delivery_id)">复制</span>
 					<!-- #endif -->
 				</view>
 			</view>
@@ -160,24 +160,24 @@
 		<view class="footer acea-row row-right row-middle" v-if="goname != 'looks'">
 			<view class="more"></view>
 			<view class="bnt cancel" @click="modify('0')" v-if="types == 0">
-				{{$t(`一键改价`)}}
+				一键改价
 			</view>
 			<view class="bnt cancel" @click="modify('2')" v-if="types == -1 && orderInfo.refund_type == 1">
-				{{$t(`立即退款`)}}
+				立即退款
 			</view>
 			<view class="bnt cancel" @click="agreeExpress(orderInfo.id)"
 				v-if="types == -1 && orderInfo.refund_type == 2">
-				{{$t(`同意退货`)}}
+				同意退货
 			</view>
-			<view class="wait" v-if="types == -1 && orderInfo.refund_type == 4">{{$t(`待用户发货`)}}</view>
-			<view class="bnt cancel" @click="modify('1')">{{$t(`订单备注`)}}</view>
+			<view class="wait" v-if="types == -1 && orderInfo.refund_type == 4">待用户发货</view>
+			<view class="bnt cancel" @click="modify('1')">订单备注</view>
 			<view class="bnt cancel" v-if="orderInfo.pay_type === 'offline' && orderInfo.paid === 0"
 				@click="offlinePay">
-				{{$t(`确认付款`)}}
+				确认付款
 			</view>
 			<navigator class="bnt delivery"
 				v-if="types == 1 && orderInfo.shipping_type === 1 && (orderInfo.pinkStatus === null || orderInfo.pinkStatus === 2)"
-				:url="'/pages/admin/delivery/index?id='+orderInfo.order_id">{{$t(`去发货`)}}</navigator>
+				:url="'/pages/admin/delivery/index?id='+orderInfo.order_id">去发货</navigator>
 		</view>
 		<PriceChange :change="change" :orderInfo="orderInfo" v-on:closechange="changeclose($event)"
 			v-on:savePrice="savePrice" :status="status"></PriceChange>
@@ -252,12 +252,12 @@
 				// var clipboard = new Clipboard(copybtn);
 				clipboard.on('success', function(e) {
 					self.$util.Tips({
-						title: self.$t(`复制成功`)
+						title: '复制成功'
 					})
 				});
 				clipboard.on('error', function(e) {
 					self.$util.Tips({
-						title: self.$t(`复制失败`)
+						title: '复制失败'
 					})
 				});
 			});
@@ -332,7 +332,7 @@
 				if (that.status == 0) {
 					if (!isMoney(price)) {
 						return that.$util.Tips({
-							title: that.$t(`请输入正确的金额`)
+							title: '请输入正确的金额'
 						});
 					}
 					data.price = price;
@@ -340,14 +340,14 @@
 						res => {
 							that.change = false;
 							that.$util.Tips({
-								title: that.$t(`改价成功`),
+								title: '改价成功',
 								icon: 'success'
 							}, '/pages/admin/orderDetail/index?id=' + res.data.order_id + '&types=0')
 						},
 						err => {
 							that.change = false;
 							that.$util.Tips({
-								title: that.$t(`改价失败`),
+								title: '改价失败',
 								icon: 'none'
 							})
 						}
@@ -355,7 +355,7 @@
 				} else if (that.status == 2) {
 					if (!isMoney(refund_price)) {
 						return that.$util.Tips({
-							title: that.$t(`请输入正确的金额`)
+							title: '请输入正确的金额'
 						});
 					}
 					data.price = refund_price;
@@ -378,7 +378,7 @@
 				} else {
 					if (!remark) {
 						return that.$util.Tips({
-							title: that.$t(`请输入备注`)
+							title: '请输入备注'
 						})
 					}
 					data.remark = remark;

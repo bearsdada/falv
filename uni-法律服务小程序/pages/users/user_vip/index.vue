@@ -98,8 +98,8 @@
 					</view>
 					<view class="item acea-row row-middle">
 						<view class="text">
-							<view class="title">{{$t(`购买商品`)}}<text class="mark">+{{taskInfo.order}}{{$t(`点经验/元`)}}</text></view>
-							<view class="info">{{$t(`购买商品可获得对应的经验值`)}}</view>
+							<view class="title">{{$t(`购买服务服务`)}}<text class="mark">+{{taskInfo.order}}{{$t(`点经验/元`)}}</text></view>
+							<view class="info">{{$t(`购买服务服务可获得对应的经验值`)}}</view>
 						</view>
 						<navigator class="link" open-type="switchTab" url="/pages/goods_cate/goods_cate"
 							hover-class="none">{{$t(`去购买`)}}</navigator>

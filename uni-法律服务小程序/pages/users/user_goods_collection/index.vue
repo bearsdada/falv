@@ -2,7 +2,7 @@
 	<view :style="colorStyle">
 		<view class='collectionGoods' v-if="collectProductList.length">
 			<view class="title-admin">
-				<view>{{$t(`当前共`)}} <text class="text"> {{count}} </text> {{$t(`件商品`)}}</view>
+				<view>{{$t(`当前共`)}} <text class="text"> {{count}} </text> {{$t(`件服务服务`)}}</view>
 				<view class="admin" @click="showRadio">{{checkbox_show?$t(`取消`):$t(`管理`)}}</view>
 			</view>
 			<checkbox-group @change="checkboxChange">
@@ -152,7 +152,7 @@
 					});
 				} else {
 					return that.$util.Tips({
-						title: that.$t(`请选择商品`)
+						title: that.$t(`请选择服务服务`)
 					});
 				}
 

@@ -3,34 +3,34 @@
 		<div class="navs">
 			<div class="list">
 				<div class="item" :class="time == 'today' ? 'on' : ''" @click="setTime('today')">
-					{{$t(`今天`)}}
+					今天
 				</div>
 				<div class="item" :class="time == 'yesterday' ? 'on' : ''" @click="setTime('yesterday')">
-					{{$t(`昨天`)}}
+					昨天
 				</div>
 				<div class="item" :class="time == 'seven' ? 'on' : ''" @click="setTime('seven')">
-					{{$t(`最近7天`)}}
+					最近7天
 				</div>
 				<div class="item" :class="time == 'month' ? 'on' : ''" @click="setTime('month')">
-					{{$t(`本月`)}}
+					本月
 				</div>
 				<div class="item" :class="time == 'date' ? 'on' : ''" @click="dateTitle">
 					<!-- <span class="iconfont icon-xiangxia"></span>
           <span v-for="(value, index) in renderValues" :key="index">
             {{ value }}</span
           > -->
-					{{$t(`自定义`)}}
+					自定义
 				</div>
 			</div>
 		</div>
 		<div class="wrapper">
 			<div class="title">
-				{{ time == 'date'?'':title }}{{ this.where.type == 1 ? $t(`营业额（元）`) : $t(`订单量（份）`) }}
+				{{ time == 'date'?'':title }}{{ this.where.type == 1 ? '营业额（元）' : '订单量（份）' }}
 			</div>
 			<div class="money">{{ time_price }}</div>
 			<div class="increase acea-row row-between-wrapper">
 				<div>
-					{{ time == 'date'?'':title }}{{$t(`增长率`)}}：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ growth_rate }}%
+					{{ time == 'date'?'':title }}增长率：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ growth_rate }}%
 						<span class="iconfont" :class="
                 increase_time_status === 1
                   ? 'icon-xiangshang1'
@@ -38,7 +38,7 @@
               "></span></span>
 				</div>
 				<div>
-					{{ time == 'date'?'':title }}{{$t(`增长`)}}：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ increase_time }}
+					{{ time == 'date'?'':title }}增长：<span :class="increase_time_status === 1 ? 'red' : 'green'">{{ increase_time_status === 1 ? "" : "-" }}{{ increase_time }}
 						<span class="iconfont" :class="
                 increase_time_status === 1
                   ? 'icon-xiangshang1'
@@ -49,7 +49,7 @@
 		</div>
 		<div class="chart">
 			<div class="chart-title">
-				{{$t(`单位`)}}（{{where.type == 1?$t(`元.`):$t(`分.`)}}）
+				单位（{{where.type == 1?'元.':'分.'}}）
 			</div>
 			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" disable-scroll=true @touchstart="touchLineA"
 			 @touchmove="moveLineA" @touchend="touchEndLineA">
@@ -57,12 +57,12 @@
 		</div>
 		<div class="public-wrapper">
 			<div class="title">
-				<span class="iconfont icon-xiangxishuju"></span>{{$t(`详细数据`)}}
+				<span class="iconfont icon-xiangxishuju"></span>详细数据
 			</div>
 			<div class="nav acea-row row-between-wrapper">
-				<div class="data">{{$t(`日期`)}}</div>
-				<div class="browse">{{$t(`订单数`)}}</div>
-				<div class="turnover">{{$t(`成交额`)}}</div>
+				<div class="data">日期</div>
+				<div class="browse">订单数</div>
+				<div class="turnover">成交额</div>
 			</div>
 			<div class="conter">
 				<div class="item acea-row row-between-wrapper" v-for="(item, index) in list" :key="index">
@@ -200,7 +200,7 @@
 		},
 		computed: {
 			monthRangeText() {
-				return this.monthRange.length ? this.$t(`固定`) : this.$t(`指定范围`);
+				return this.monthRange.length ? '固定' : '指定范围';
 			}
 		},
 		methods: {
@@ -257,7 +257,7 @@
 							1000 +
 							24 * 60 * 60 -
 							1;
-						this.title = this.$t(`今天`);
+						this.title = '今天';
 						this.getIndex();
 						this.getInfo();
 						break;
@@ -270,7 +270,7 @@
 							new Date(Date.parse(year + "/" + month + "/" + day)).getTime() /
 							1000 -
 							1;
-						this.title = this.$t(`昨天`);
+						this.title = '昨天';
 						this.getIndex();
 						this.getInfo();
 						break;
@@ -278,7 +278,7 @@
 						this.where.start =
 							new Date(year, new Date().getMonth(), 1).getTime() / 1000;
 						this.where.stop = new Date(year, month, 1).getTime() / 1000 - 1;
-						this.title = this.$t(`本月`);
+						this.title = '本月';
 						this.getIndex();
 						this.getInfo();
 						break;
@@ -293,7 +293,7 @@
 							1000 +
 							24 * 60 * 60 -
 							1;
-						this.title = this.$t(`最近7天`);
+						this.title = '最近7天';
 						this.getIndex();
 						this.getInfo();
 						break;

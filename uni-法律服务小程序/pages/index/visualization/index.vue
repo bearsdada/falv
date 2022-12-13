@@ -53,7 +53,7 @@
 			<recommend :dataConfig="goodList.aa" @click.native="bindEdit('goodList', 'aa')"></recommend>
 			<!-- 排行榜 -->
 			<popular :dataConfig="goodList.bb" @click.native="bindEdit('goodList', 'bb')"></popular>
-			<!-- 商品轮播 -->
+			<!-- 服务服务轮播 -->
 			<mBanner :dataConfig="swiperBg.aa" @click.native="bindEdit('swiperBg', 'aa')"></mBanner>
 			<!-- 首发新品 -->
 			<newGoods :dataConfig="goodList.cc" @click.native="bindEdit('goodList', 'cc')"></newGoods>
@@ -61,16 +61,16 @@
 			<!-- <mBanner :dataConfig="swiperBg.cc" @click.native="bindEdit('swiperBg','cc')"></mBanner> -->
 
 			<!-- <titles :dataConfig="titles.default" :sty="'off'" @click.native="bindEdit('titles','default')"></titles> -->
-			<!-- 商品轮播 -->
+			<!-- 服务服务轮播 -->
 
 			<!-- 		<customerService :dataConfig="customerService.default" @click.native="bindEdit('customerService','default')"></customerService> -->
 			<!-- 促销单品 -->
 			<promotion :dataConfig="goodList.dd" @click.native="bindEdit('goodList', 'dd')"></promotion>
-			<!-- 商品分类 -->
+			<!-- 服务服务分类 -->
 			<tabNav class="sticky-box" :style="'top:' + isTop + 'px;'" :dataConfig="tabNav.default"
 				@click.native="bindEdit('tabNav', 'default')" @bindSortId="bindSortId" @bindHeight="bindHeighta">
 			</tabNav>
-			<!-- 商品列表 -->
+			<!-- 服务服务列表 -->
 			<indexGoods v-if="!isIframe && tabNav.default && tabNav.default.isShow.val" :dataLists="goodLists"
 				@click.native="bindEdit('List')"></indexGoods>
 			<!-- <recommend :dataConfig="goodList.aa" @click.native="bindEdit('goodList','aa')"></recommend> -->
@@ -84,7 +84,7 @@
         ">
 				<view class='emptyBox'>
 					<image :src="imgHost + '/statics/images/no-thing.png'"></image>
-					<view class="tips">{{$t(`暂无商品，去看点别的吧`)}}</view>
+					<view class="tips">{{$t(`暂无服务服务，去看点别的吧`)}}</view>
 				</view>
 			</view>
 		</view>
@@ -264,7 +264,7 @@
 				alive: {},
 				scrollBox: {}, //快速选择分类
 				titles: {}, //标题
-				goodList: {}, //商品列表(商品列表、首发新品、热门榜单、促销单品、精品推荐)
+				goodList: {}, //服务服务列表(服务服务列表、首发新品、热门榜单、促销单品、精品推荐)
 				tabBar: {}, //导航
 				customerService: {}, //客服
 				picTxt: {}, //图文详情

@@ -39,7 +39,7 @@
 			</view>
 			<view v-else class="no-goods">
 				<image :src="imgHost + '/statics/images/no-thing.png'" mode=""></image>
-				<view class="fontimg">{{$t(`暂无商品，去看点别的吧`)}}</view>
+				<view class="fontimg">{{$t(`暂无服务服务，去看点别的吧`)}}</view>
 			</view>
 			<view class="footer">
 				<view class="body-title">
@@ -51,10 +51,10 @@
 						<image class="icon-sty" src="./static/go-shoping.png" mode=""></image>
 						<view class="list-left-right">
 							<view class="title">
-								{{$t(`购买商品`)}}
+								{{$t(`购买服务服务`)}}
 							</view>
 							<view class="trip">
-								{{$t(`购买商品可获得积分奖励`)}}
+								{{$t(`购买服务服务可获得积分奖励`)}}
 							</view>
 						</view>
 					</view>
@@ -174,7 +174,7 @@
 					this.goodList = res.data.list
 				})
 			},
-			// 去商品详情
+			// 去服务服务详情
 			goGoodsDetail(item) {
 				goShopDetail(item).then(res => {
 					uni.navigateTo({

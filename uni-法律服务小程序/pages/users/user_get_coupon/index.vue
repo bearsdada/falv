@@ -20,7 +20,7 @@
 						<view class="name line2">
 							<view class="line-title" :class="item.is_use == true || item.is_use == 2 ? 'bg-color-huic' : ''" v-if="item.type === 0">{{$t(`通用劵`)}}</view>
 							<view class="line-title" :class="item.is_use == true || item.is_use == 2 ? 'bg-color-huic' : ''" v-else-if="item.type === 1">{{$t(`品类券`)}}</view>
-							<view class="line-title" :class="item.is_use == true || item.is_use == 2 ? 'bg-color-huic' : ''" v-else>{{$t(`商品券`)}}</view>
+							<view class="line-title" :class="item.is_use == true || item.is_use == 2 ? 'bg-color-huic' : ''" v-else>{{$t(`服务服务券`)}}</view>
 							<image v-if="item.receive_type === 4" class="pic" src="/static/images/fvip.png"></image>
 							{{ $t(item.title) }}
 						</view>
@@ -101,7 +101,7 @@
 					},
 					{
 						type: 2,
-						name: this.$t(`商品券`),
+						name: this.$t(`服务服务券`),
 						count: 0
 					},
 				],
