@@ -41,11 +41,16 @@
 				<text class="text">年休假</text>
 			</view>
 		</view>
+		<tabBar v-if="!is_diy" :pagePath="'/pages/calculator/index'"></tabBar>
 	</view>
 </template>
 
 <script>
+	import tabBar from "@/pages/index/visualization/components/tabBar.vue";
 	export default {
+		components:{
+			tabBar
+		},
 		data() {
 			return {
 				
