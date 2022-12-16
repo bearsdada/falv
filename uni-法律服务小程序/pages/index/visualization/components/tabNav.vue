@@ -12,7 +12,7 @@
 							:style='"width:"+"max-content"' :data-index="index" :class="index===tabClick?'click':''"
 							v-for="(item,index) in tabTitle" :key="index" :id="'id'+index"
 							@click="longClick(item,index)">
-							{{$t(item.cate_name)}}
+							{{item.cate_name}}
 						</view>
 						<!-- 		<view class="underlineBox" :style='"transform:translateX("+isLeft+"px);width:"+isWidth+"px"'>
 							<view class="underline"></view>
@@ -34,7 +34,7 @@
 							:style='"width:"+isWidth+"px"' :data-index="index" :class="index===tabClick?'click':''"
 							v-for="(item,index) in tabTitle" :key="index" :id="'id'+index"
 							@click="longClick(item,index)">
-							{{$t(item.cate_name)}}
+							{{item.cate_name}}
 						</view>
 						<view class="underlineBox" :style='"transform:translateX("+isLeft+"px);width:"+isWidth+"px"'>
 							<view class="underline"></view>
@@ -45,7 +45,7 @@
 		</view>
 		<view class='index-wrapper' v-else-if="isIframe && !tabTitle.length">
 			<view class='scroll-product'>
-				<view class="empty-img">{{$t(`暂无数据，请先添加分类`)}}</view>
+				<view class="empty-img">暂无数据，请先添加分类</view>
 			</view>
 		</view>
 	</view>

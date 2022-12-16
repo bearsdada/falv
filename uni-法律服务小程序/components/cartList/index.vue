@@ -17,7 +17,7 @@
 						<view v-if="item.attrStatus && item.status">
 							<view class="info" v-if="item.productInfo.attrInfo">{{item.productInfo.attrInfo.suk}}</view>
 							<view class="bottom acea-row row-between-wrapper">
-								<view class="money">{{$t(`￥`)}}<text class="num">{{item.truePrice}}</text></view>
+								<view class="money">￥<text class="num">{{item.truePrice}}</text></view>
 								<view class="cartNum acea-row row-middle">
 									<view class="reduce iconfont icon-jianhao1" @click="leaveCart(index)"></view>
 									<view class="num">{{item.cart_num}}</view>

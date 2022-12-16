@@ -9,14 +9,14 @@
 					<view class='text acea-row row-between'>
 						<view class='name line2'>{{item.productInfo.store_name}}</view>
 						<view class='money'>
-							<view>{{$t(`￥`)}}{{item.truePrice}}</view>
+							<view>￥{{item.truePrice}}</view>
 							<view class='num'>x{{item.cart_num}}</view>
 						</view>
 					</view>
 				</view>
 				<view class='list'>
 					<view class='item acea-row row-between-wrapper' v-if="expressList.length">
-						<view>{{$t(`快递公司`)}}</view>
+						<view>快递公司</view>
 						<picker class='num' @change="bindPickerChange" :value="seIndex" :range="expressList" range-key="name">
 							<view class="picker acea-row row-between-wrapper">
 								<view class='reason'>{{expressList[seIndex].name}}</view>
@@ -25,21 +25,21 @@
 						</picker>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>{{$t(`快递单号`)}}</view>
-						<input type="text" :placeholder="$t(`填写快递单号`)" placeholder-class='placeholder' v-model="refundInfo.refund_express" />
+						<view>快递单号</view>
+						<input type="text" placeholder="填写快递单号" placeholder-class='placeholder' v-model="refundInfo.refund_express" />
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>{{$t(`联系电话`)}}</view>
-						<input type="number" :placeholder="$t(`请输入手机号`)" placeholder-class='placeholder' v-model="refundInfo.refund_phone" />
+						<view>联系电话</view>
+						<input type="number" placeholder="请输入手机号" placeholder-class='placeholder' v-model="refundInfo.refund_phone" />
 					</view>
 					<view class='item textarea acea-row row-between'>
-						<view>{{$t(`备注说明`)}}</view>
-						<textarea :placeholder='$t(`填写备注信息，100字以内`)' class='num' v-model="refundInfo.refund_explain"></textarea>
+						<view>备注说明</view>
+						<textarea placeholder='填写备注信息，100字以内' class='num' v-model="refundInfo.refund_explain"></textarea>
 					</view>
 				  <view class='item acea-row row-between'>
 						<view class='title acea-row row-between-wrapper'>
-							<view>{{$t(`上传图片`)}}</view>
-							<view class='tip'>{{$t(`最多可上传3张`)}}</view>
+							<view>上传图片</view>
+							<view class='tip'>最多可上传3张</view>
 						</view>
 						<view class='upload acea-row row-middle'>
 							<view class='pictrue' v-for="(item,index) in refund_reason_wap_img" :key="index">
@@ -49,12 +49,12 @@
 							<view class='pictrue acea-row row-center-wrapper row-column' @tap='uploadpic'
 								v-if="refund_reason_wap_img.length < 3">
 								<text class='iconfont icon-icon25201'></text>
-								<view>{{$t(`上传图片`)}}</view>
+								<view>上传图片</view>
 							</view>
 						</view>
 					</view>
 				</view>
-				<button class='returnBnt bg-color' form-type="submit">{{$t(`提交`)}}</button>
+				<button class='returnBnt bg-color' form-type="submit">提交</button>
 			</view>
 		</form>
 	</view>
@@ -112,13 +112,13 @@
 			subRefund: function(e) {
 				let that = this
 				if (!that.refundInfo.refund_express) return this.$util.Tips({
-					title: that.$t(`填写快递单号`)
+					title: '填写快递单号'
 				});
 				if (!that.refundInfo.refund_phone) return this.$util.Tips({
-					title: that.$t(`请输入手机号`)
+					title: '请输入手机号'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.refundInfo.refund_phone)) return this.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
 				that.refundInfo.refund_express_name = that.expressList[that.seIndex].name;
 				that.refundInfo.refund_img = that.refund_reason_wap_img.join(',');

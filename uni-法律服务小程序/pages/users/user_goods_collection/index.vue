@@ -2,8 +2,8 @@
 	<view :style="colorStyle">
 		<view class='collectionGoods' v-if="collectProductList.length">
 			<view class="title-admin">
-				<view>{{$t(`当前共`)}} <text class="text"> {{count}} </text> {{$t(`件服务服务`)}}</view>
-				<view class="admin" @click="showRadio">{{checkbox_show?$t(`取消`):$t(`管理`)}}</view>
+				<view>当前共 <text class="text"> {{count}} </text> 件服务服务</view>
+				<view class="admin" @click="showRadio">{{checkbox_show?'取消':'管理'}}</view>
 			</view>
 			<checkbox-group @change="checkboxChange">
 				<view class='item acea-row' v-for="(item,index) in collectProductList" :key="index">
@@ -16,7 +16,7 @@
 					<view class='text acea-row row-column-between' @click="jump(item)">
 						<view class='name line2'>{{item.store_name}}</view>
 						<view class='acea-row row-between-wrapper'>
-							<view class='money font-color'>{{$t(`￥`)}}{{item.price}}</view>
+							<view class='money font-color'>￥{{item.price}}</view>
 							<!-- <view class='delete' @click.stop='delCollection(item.pid,index)'>删除</view> -->
 						</view>
 					</view>
@@ -37,11 +37,11 @@
 			<view>
 				<checkbox-group @change="checkboxAllChange">
 					<checkbox value="all" :checked="!!isAllSelect" />
-					<text class='checkAll'>{{$t(`全选`)}}({{ids.length}})</text>
+					<text class='checkAll'>全选({{ids.length}})</text>
 				</checkbox-group>
 			</view>
 			<view class='button acea-row row-middle'>
-				<button class='bnt' formType="submit" @click="subDel">{{$t(`取关`)}}</button>
+				<button class='bnt' formType="submit" @click="subDel">取关</button>
 			</view>
 		</view>
 		<!-- #ifdef MP -->
@@ -87,7 +87,7 @@
 				ids: [],
 				hostProduct: [],
 				checkbox_show: false,
-				loadTitle: this.$t(`加载更多`),
+				loadTitle: '加载更多',
 				loading: false,
 				loadend: false,
 				collectProductList: [],
@@ -152,7 +152,7 @@
 					});
 				} else {
 					return that.$util.Tips({
-						title: that.$t(`请选择服务服务`)
+						title: '请选择服务服务'
 					});
 				}
 
@@ -228,13 +228,13 @@
 						.collectProductList);
 					that.$set(that, 'collectProductList', that.collectProductList);
 					that.loadend = loadend;
-					that.loadTitle = loadend ? that.$t(`我也是有底线的`) : that.$t(`加载更多`);
+					that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
 					if (!that.collectProductList.length && that.page == 1) this.get_host_product();
 					that.page = that.page + 1;
 					that.loading = false;
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = that.$t(`加载更多`);
+					that.loadTitle = '加载更多';
 				});
 			},
 			/**

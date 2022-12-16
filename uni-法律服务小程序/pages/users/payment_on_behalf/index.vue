@@ -6,7 +6,7 @@
 			</view>
 			<!-- paid: 0 未支付 1 已支付 type:0 本人 1 好友-->
 			<view class="order-status" v-if="!resData.paid && !resData.type">
-				{{$t(`代付订单创建成功，发给好友帮你付款吧~`)}}
+				代付订单创建成功，发给好友帮你付款吧~
 			</view>
 		</view>
 		<view class="head-other" v-else>
@@ -21,58 +21,58 @@
 					{{resData.paid && !resData.type && resData.pay_uid === $store.state.app.uid ? resData.pay_nickname : resData.nickname}}
 				</view>
 				<view class="head-other-trip" v-if="!resData.paid && resData.type">
-					{{$t(`帮我付一下这件服务服务了，谢谢~`)}}
+					帮我付一下这件服务服务了，谢谢~
 				</view>
 				<view class="head-other-trip"
 					v-if="resData.pay_uid !== $store.state.app.uid && resData.paid && resData.type">
-					{{$t(`已经有人替我代付，谢谢啦~`)}}
+					已经有人替我代付，谢谢啦~
 				</view>
 				<view class="head-other-trip"
 					v-if="resData.pay_uid === $store.state.app.uid && resData.paid && resData.type">
-					{{$t(`谢谢你帮我支付，么么哒~`)}}
+					谢谢你帮我支付，么么哒~
 				</view>
 				<view class="head-other-trip" v-if="resData.pay_uid !== resData.uid  && resData.paid && !resData.type">
-					{{$t(`我已为你代付成功，商家正在努力发货中~`)}}
+					我已为你代付成功，商家正在努力发货中~
 				</view>
 			</view>
 		</view>
 		<view class="order-msg">
 			<view class="pay-success" v-if="resData.paid && !resData.type">
-				{{$t(`好友代付成功，商家正在努力发货中~`)}}
+				好友代付成功，商家正在努力发货中~
 			</view>
 			<view v-else class="pay--box">
 				<view class="order-top">
-					{{$t(`代付金额`)}}
+					代付金额
 				</view>
 				<view class="order-num">
-					<text class="icon">{{$t(`￥`)}}</text>
+					<text class="icon">￥</text>
 					{{resData.pay_price}}
 				</view>
 			</view>
 			<!-- #ifdef APP-PLUS -->
 			<view v-if="!resData.paid && !resData.type" class="order-btn" @click="appShare('WXSceneSession')">
-				{{$t(`发送给微信好友`)}}
+				发送给微信好友
 			</view>
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
 			<view v-if="!resData.paid && !resData.type" class="order-btn" @click="shareFriend">
-				{{$t(`发送给微信好友`)}}
+				发送给微信好友
 			</view>
 			<!-- #endif -->
 			<!-- #ifdef MP -->
 			<button v-if="!resData.paid && !resData.type" class="order-btn" open-type="share" hover-class="none"
 				@click="shareModal = false">
-				{{$t(`发送给微信好友`)}}
+				发送给微信好友
 			</button>
 			<!-- #endif -->
 			<button v-if="!resData.paid && !resData.type" class="order-btn detail" @click="goOrderDetail()">
-				{{$t(`查看订单详情`)}}
+				查看订单详情
 			</button>
-			<button class="order-btn" v-if="!resData.paid && resData.type" @tap='payOpen()'>{{$t(`立即付款`)}}</button>
-			<button class="order-btn on-pay" v-if="resData.paid && resData.type">{{$t(`订单已支付`)}}</button>
-			<button class="order-btn" v-if="resData.paid && !resData.type" @tap='goOrderDetail()'>{{$t(`查看订单详情`)}}</button>
+			<button class="order-btn" v-if="!resData.paid && resData.type" @tap='payOpen()'>立即付款</button>
+			<button class="order-btn on-pay" v-if="resData.paid && resData.type">订单已支付</button>
+			<button class="order-btn" v-if="resData.paid && !resData.type" @tap='goOrderDetail()'>查看订单详情</button>
 			<view class="order-trip" v-if="resData.pay_uid === $store.state.app.uid && resData.type">
-				{{$t(`如果订单申请退款，已支付金额将原路退还给您`)}}
+				如果订单申请退款，已支付金额将原路退还给您
 			</view>
 		</view>
 		<view class="order-list">
@@ -122,10 +122,10 @@
 				cartInfo: [],
 				resData: {},
 				payMode: [{
-						name: this.$t(`微信支付`),
+						name: '微信支付',
 						icon: "icon-weixinzhifu",
 						value: 'weixin',
-						title: this.$t(`使用微信快捷支付`),
+						title: '使用微信快捷支付',
 						payStatus: true,
 					},
 					// #ifdef H5 || APP-PLUS
@@ -210,8 +210,8 @@
 				let href = location.href;
 				if (this.$wechat.isWeixin()) {
 					let configAppMessage = {
-						desc: this.$t(`帮我付一下这件服务服务了，谢谢~`),
-						title: this.$t(`好友代付`),
+						desc: '帮我付一下这件服务服务了，谢谢~',
+						title:'好友代付',
 						link: href,
 						imgUrl: data.avatar,
 					};
@@ -240,20 +240,20 @@
 					scene: scene,
 					type: 0,
 					href: `${HTTP_REQUEST_URL}${curRoute}`,
-					title: that.$t(`好友代付`),
-					summary: that.$t(`帮我付一下这件服务服务了，谢谢~`),
+					title: '好友代付',
+					summary: '帮我付一下这件服务服务了，谢谢~',
 					imageUrl: that.resData.paid && !that.resData.type && that.resData.pay_uid === that.$store.state
 						.app.uid ? that.resData.pay_avatar : that.resData.avatar,
 					success: function(res) {
 						uni.showToast({
-							title: that.$t(`分享成功`),
+							title: '分享成功',
 							icon: "success",
 							duration: 2000,
 						});
 					},
 					fail: function(err) {
 						uni.showToast({
-							title: that.$t(`分享失败`),
+							title: '分享失败',
 							icon: "none",
 							duration: 2000,
 						});

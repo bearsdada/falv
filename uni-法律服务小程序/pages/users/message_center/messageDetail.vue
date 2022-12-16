@@ -1,14 +1,14 @@
 <template>
 	<view class="msg-det">
 		<view class="title">
-			{{$t(msgData.title)}}
+			{{msgData.title}}
 		</view>
 
 		<view class="content">
 			{{msgData.content}}
 		</view>
 		<view class="add-time">
-			{{$t(`通知于`)}}{{msgData.add_time}}
+			通知于{{msgData.add_time}}
 		</view>
 		<!-- #ifndef MP -->
 		<home></home>
@@ -36,7 +36,7 @@
 		methods: {
 			getMsgDetails(id) {
 				uni.showLoading({
-					title: this.$t(`加载中`)
+					title: '加载中'
 				});
 				getMsgDetails(id).then(res => {
 					uni.hideLoading();

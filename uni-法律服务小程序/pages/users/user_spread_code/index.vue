@@ -20,12 +20,12 @@
 				</block>
 			</swiper>
 			<!-- #ifndef H5  -->
-			<view class='keep bg-color' @click='savePosterPathMp(posterImage[swiperIndex])'>{{$t(`保存海报`)}}</view>
+			<view class='keep bg-color' @click='savePosterPathMp(posterImage[swiperIndex])'>保存海报</view>
 			<!-- #endif -->
 			<!-- #ifndef MP || APP-PLUS -->
 			<div class="preserve acea-row row-center-wrapper">
 				<div class="line"></div>
-				<div class="tip">{{$t(`长按保存图片`)}}</div>
+				<div class="tip">长按保存图片</div>
 				<div class="line"></div>
 			</div>
 			<!-- #endif -->
@@ -174,7 +174,7 @@
 		// #ifdef MP
 		onShareAppMessage() {
 			return {
-				title: this.userInfo.nickname + '-' + this.$t(`分销海报`),
+				title: this.userInfo.nickname + '-' + '分销海报',
 				imageUrl: this.spreadList[0],
 				path: '/pages/index/index?spread=' + this.userInfo.uid,
 			};
@@ -203,7 +203,7 @@
 				let mpUrl = await this.downloadFilestoreImage(this.mpUrl)
 				// #endif
 				uni.showLoading({
-					title: this.$t(`海报生成中`),
+					title: '海报生成中',
 					mask: true
 				});
 				// #ifdef H5
@@ -231,7 +231,7 @@
 						// #ifdef MP
 						if (!that.posterImage.length) {
 							return that.$util.Tips({
-								title: that.$t(`小程序二维码需要发布正式版后才能获取到`)
+								title:'小程序二维码需要发布正式版后才能获取到'
 							});
 						}
 						// #endif
@@ -281,13 +281,13 @@
 										filePath: url,
 										success: function(res) {
 											that.$util.Tips({
-												title: that.$t(`保存成功`),
+												title: '保存成功',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: that.$t(`保存失败`),
+												title: '保存失败',
 											});
 										}
 									});
@@ -298,13 +298,13 @@
 								filePath: url,
 								success: function(res) {
 									that.$util.Tips({
-										title: that.$t(`保存成功`),
+										title: '保存成功',
 										icon: 'success'
 									});
 								},
 								fail: function(res) {
 									that.$util.Tips({
-										title: that.$t(`保存失败`),
+										title: '保存失败',
 									});
 								}
 							});
@@ -320,13 +320,13 @@
 					filePath: url,
 					success: function(res) {
 						that.$util.Tips({
-							title: that.$t(`保存成功`),
+							title: '保存成功',
 							icon: 'success'
 						});
 					},
 					fail: function(res) {
 						that.$util.Tips({
-							title: that.$t(`保存失败`),
+							title: '保存失败',
 						});
 					}
 				});
@@ -354,8 +354,8 @@
 					if (this.isLogin) {
 						getUserInfo().then(res => {
 							let configAppMessage = {
-								desc: this.$t(`分销海报`),
-								title: res.data.nickname + '-' + this.$t(`分销海报`),
+								desc: '分销海报',
+								title: res.data.nickname + '-' + '分销海报',
 								link: '/pages/index/index?spread=' + res.data.uid,
 								imgUrl: this.spreadList[0]
 							};
@@ -371,7 +371,7 @@
 			userSpreadBannerList: function() {
 				let that = this;
 				uni.showLoading({
-					title: that.$t(`获取中`),
+					title: '获取中',
 					mask: true,
 				})
 				spreadBanner().then(res => {

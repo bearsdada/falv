@@ -6,7 +6,7 @@
 		<view class='header acea-row row-center-wrapper'>
 			<view class='acea-row row-between-wrapper input'>
 				<text class='iconfont icon-sousuo'></text>
-				<input type='text' :placeholder="$t('搜索服务名称')" @confirm="searchSubmitValue" confirm-type='search'
+				<input type='text' placeholder="搜索服务名称" @confirm="searchSubmitValue" confirm-type='search'
 					name="search" placeholder-class='placeholder'></input>
 			</view>
 		</view>
@@ -15,7 +15,7 @@
 				<scroll-view scroll-y="true" scroll-with-animation='true' style="height: calc(100% - 100rpx)">
 					<view class='item acea-row row-center-wrapper' :class='index==navActive?"on":""'
 						v-for="(item,index) in productList" :key="index" @click='tap(index,"b"+index)'>
-						<text>{{$t(item.cate_name)}}</text>
+						<text>{{item.cate_name}}</text>
 					</view>
 					<!-- #ifdef APP-PLUS -->
 					<view class="item" v-if="newData.status && newData.status.status"></view>
@@ -31,7 +31,7 @@
 						<view class='listw' :id="'b'+index">
 							<view class='title acea-row row-center-wrapper'>
 								<view class='line'></view>
-								<view class='name'>{{$t(item.cate_name)}}</view>
+								<view class='name'>{{item.cate_name}}</view>
 								<view class='line'></view>
 							</view>
 							<view class='list acea-row'>
@@ -43,7 +43,7 @@
 											<image :src='itemn.pic' v-if="itemn.pic"></image>
 											<image src="/static/images/sort-img.png" v-else></image>
 										</view>
-										<view class='name line1'>{{$t(itemn.cate_name)}}</view>
+										<view class='name line1'>{{itemn.cate_name}}</view>
 									</navigator>
 								</block>
 							</view>
@@ -208,7 +208,7 @@
 					})
 				else
 					return this.$util.Tips({
-						title: this.$t(`搜索服务名称`)
+						title: '搜索服务名称'
 					});
 			},
 		}

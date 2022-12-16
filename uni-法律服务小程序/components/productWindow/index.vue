@@ -28,12 +28,12 @@
 			<view class="rollTop">
 				<view class="productWinList">
 					<view class="item" v-for="(item, indexw) in attr.productAttr" :key="indexw">
-						<view class="title">{{ $t(item.attr_name) }}</view>
+						<view class="title">{{ item.attr_name }}</view>
 						<view class="listn acea-row row-middle">
 							<view class="itemn" :class="item.index === itemn.attr ? 'on' : ''"
 								v-for="(itemn, indexn) in item.attr_value" @click="tapAttr(indexw, indexn)"
 								:key="indexn">
-								{{ $t(itemn.attr) }}
+								{{ itemn.attr }}
 							</view>
 						</view>
 					</view>

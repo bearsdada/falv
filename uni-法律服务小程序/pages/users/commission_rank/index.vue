@@ -2,14 +2,14 @@
 	<view>
 		<view class="CommissionRank" :style="colorStyle">
 			<view class="header">
-				<view class="rank" v-if="position">{{$t(`您目前的排名`)}}<text class="num">{{position}}</text></view>
-				<view class="rank" v-else>{{$t(`您目前暂无排名`)}}</view>
+				<view class="rank" v-if="position">您目前的排名<text class="num">{{position}}</text></view>
+				<view class="rank" v-else>您目前暂无排名</view>
 			</view>
 			<view class="wrapper">
 				<view class="nav acea-row row-around">
 					<view class="item" :class="active == index ? 'fontcolor' : ''" v-for="(item,index) in navList"
 						:key="index" @click="switchTap(index)">
-						{{ $t(item) }}
+						{{ item }}
 					</view>
 				</view>
 				<view class="list">
@@ -24,14 +24,14 @@
 							<view class="pictrue">
 								<image :src="item.avatar"></image>
 							</view>
-							<view class="text line1">{{$t(item.nickname)}}</view>
+							<view class="text line1">{{item.nickname}}</view>
 						</view>
-						<view class="people font-color">{{$t(`￥`)}}{{item.brokerage_price}}</view>
+						<view class="people font-color">￥{{item.brokerage_price}}</view>
 					</view>
 				</view>
 			</view>
 			<view v-if="rankList.length == 0">
-				<emptyPage v-if="!loading" :title="$t(`暂无排名~`)"></emptyPage>
+				<emptyPage v-if="!loading" title="暂无排名~"></emptyPage>
 				<view class="loadingicon acea-row row-center-wrapper">
 					<text class="loading iconfont icon-jiazai" :hidden="loading == false"></text>
 				</view>
@@ -68,14 +68,14 @@
 		mixins: [colors],
 		data() {
 			return {
-				navList: [this.$t(`周排行`), this.$t(`月排行`)],
+				navList: ['周排行', '月排行'],
 				active: 0,
 				rankList: [],
 				page: 1,
 				limit: 20,
 				loadend: false,
 				loading: false,
-				loadTitle: this.$t(`加载更多`),
+				loadTitle: '加载更多',
 				type: 'week',
 				position: 0,
 				isAuto: false, //没有授权的不会自动授权
@@ -131,13 +131,13 @@
 					this.rankList.push.apply(this.rankList, list);
 					this.loading = false;
 					this.loadend = loadend;
-					this.loadTitle = loadend ? this.$t(`我也是有底线的`) : this.$t(`加载更多`);
+					this.loadTitle = loadend ? '我也是有底线的' :'加载更多';
 					this.$set(this, 'rankList', this.rankList);
 					this.position = res.data.position;
 					this.page += 1
 				}).catch(err => {
 					this.loading = false;
-					this.loadTitle = this.$t(`加载更多`);
+					this.loadTitle = '加载更多';
 				})
 			}
 		},

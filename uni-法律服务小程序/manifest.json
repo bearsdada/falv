@@ -194,7 +194,10 @@
         "usingComponents" : true
     },
     "mp-toutiao" : {
-        "usingComponents" : true
+        "usingComponents" : true,
+        "setting" : {
+            "urlCheck" : false
+        }
     },
     "h5" : {
         "devServer" : {

@@ -2,14 +2,14 @@
 	<view class="aleart" v-if="aleartStatus">
 		<image src="../../../../static/images/poster-close.png" class="close" @click="posterImageClose"></image>
 		<view class="title">
-			{{$t(aleartData.title)}}
+			{{aleartData.title}}
 		</view>
 		<view class="aleart-body">
 			<image v-if="aleartData.img" class="goods-img" :src="aleartData.img" mode=""></image>
-			<text class="msg">{{$t(aleartData.msg)}}</text>
+			<text class="msg">{{aleartData.msg}}</text>
 		</view>
 		<view class="btn" @click="posterImageClose()">
-			{{$t('我知道了')}}
+			我知道了
 		</view>
 	</view>
 </template>

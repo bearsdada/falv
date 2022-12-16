@@ -59,7 +59,7 @@
 								@click="changeSort(item, index)" :class="{ on: curSort == index }">
 								<image :src="item.pic" mode="" v-if="item.pic"></image>
 								<image src="/static/images/sort-img.png" mode="" v-else></image>
-								<view class="txt">{{ $t(item.cate_name) }}</view>
+								<view class="txt">{{ item.cate_name }}</view>
 							</view>
 						</view>
 					</scroll-view>
@@ -67,15 +67,15 @@
 						<view class="product-item" v-for="(item, index) in goodList" @click="goGoodsDetail(item)">
 							<image :src="item.image"></image>
 							<span class="pictrue_log_big pictrue_log_class"
-								v-if="item.activity && item.activity.type === '1'">{{$t(`秒杀`)}}</span>
+								v-if="item.activity && item.activity.type === '1'">秒杀</span>
 							<span class="pictrue_log_big pictrue_log_class"
-								v-if="item.activity && item.activity.type === '2'">{{$t(`砍价`)}}</span>
+								v-if="item.activity && item.activity.type === '2'">砍价</span>
 							<span class="pictrue_log_big pictrue_log_class"
-								v-if="item.activity && item.activity.type === '3'">{{$t(`拼团`)}}</span>
+								v-if="item.activity && item.activity.type === '3'">拼团</span>
 							<view class="info">
 								<view class="title line1">{{ item.store_name }}</view>
 								<view class="price-box">
-									<text>{{$t(`￥`)}}</text>
+									<text>￥</text>
 									{{ item.price }}
 								</view>
 							</view>
@@ -85,7 +85,7 @@
 					<view class="" v-if="goodList.length == 0 && loaded">
 						<view class="emptyBox">
 							<image :src="imgHost + '/statics/images/no-thing.png'"></image>
-							<view class="tips">{{$t(`暂无服务服务，去看点别的吧`)}}</view>
+							<view class="tips">暂无服务服务，去看点别的吧</view>
 						</view>
 						<recommend :hostProduct="hostProduct"></recommend>
 					</view>
@@ -99,7 +99,7 @@
 								@click="changeSort(item, index)" :class="{ on: curSort == index }">
 								<image :src="item.pic" mode="" v-if="item.pic"></image>
 								<image src="/static/images/sort-img.png" mode="" v-else></image>
-								<view class="txt">{{ $t(item.cate_name) }}</view>
+								<view class="txt">{{item.cate_name }}</view>
 							</view>
 						</view>
 					</scroll-view>
@@ -107,16 +107,16 @@
 						<view class="product-item" v-for="(item, index) in goodList" @click="goGoodsDetail(item)">
 							<image :src="item.image"></image>
 							<span class="pictrue_log_big pictrue_log_class"
-								v-if="item.activity && item.activity.type === '1'">{{$t(`秒杀`)}}</span>
+								v-if="item.activity && item.activity.type === '1'">秒杀</span>
 							<span class="pictrue_log_big pictrue_log_class"
-								v-if="item.activity && item.activity.type === '2'">{{$t(`砍价`)}}</span>
+								v-if="item.activity && item.activity.type === '2'">砍价</span>
 							<span class="pictrue_log_big pictrue_log_class"
-								v-if="item.activity && item.activity.type === '3'">{{$t(`拼团`)}}</span>
-							<span class="pictrue_log_big pictrue_log_class" v-if="item.checkCoupon">{{$t(`券`)}}</span>
+								v-if="item.activity && item.activity.type === '3'">拼团</span>
+							<span class="pictrue_log_big pictrue_log_class" v-if="item.checkCoupon">券</span>
 							<view class="info">
 								<view class="title line2">{{ item.store_name }}</view>
 								<view class="price-box">
-									<text>{{$t(`￥`)}}</text>
+									<text>￥</text>
 									{{ item.price }}
 								</view>
 							</view>
@@ -126,7 +126,7 @@
 					<view class="" v-if="goodList.length == 0 && loaded">
 						<view class="emptyBox">
 							<image :src="imgHost + '/statics/images/no-thing.png'"></image>
-							<view class="tips">{{$t(`暂无数据`)}}</view>
+							<view class="tips">暂无数据</view>
 						</view>
 						<recommend :hostProduct="hostProduct"></recommend>
 					</view>
@@ -151,28 +151,28 @@
 		<view v-else>
 			<view class="error-network">
 				<image :src="imgHost + '/statics/images/error-network.png'"></image>
-				<view class="title">{{$t(`网络连接断开`)}}</view>
+				<view class="title">网络连接断开</view>
 				<view class="con">
-					<view class="label">{{$t(`请检查情况：`)}}：</view>
-					<view class="item">· {{$t(`在设置中是否已开启网络权限：`)}}</view>
-					<view class="item">· {{$t(`当前是否处于弱网环境`)}}</view>
-					<view class="item">· {{$t(`版本是否过低，升级试试吧`)}}</view>
+					<view class="label">请检查情况：：</view>
+					<view class="item">· 在设置中是否已开启网络权限：</view>
+					<view class="item">· 当前是否处于弱网环境</view>
+					<view class="item">· 版本是否过低，升级试试吧</view>
 				</view>
-				<view class="btn" @click="reconnect">{{$t(`重新连接`)}}</view>
+				<view class="btn" @click="reconnect">重新连接</view>
 			</view>
 		</view>
 		<!-- #ifdef APP-PLUS -->
 		<app-update v-if="!privacyStatus" ref="appUpdate" :force="true" :tabbar="false"></app-update>
 		<view class="privacy-wrapper" v-if="privacyStatus">
 			<view class="privacy-box">
-				<view class="title">{{$t(`服务协议与隐私政策`)}}</view>
+				<view class="title">服务协议与隐私政策</view>
 				<view class="content">
-					{{$t(`请务必审慎阅读、充分理解“服务协议与 隐私政策”各条款，包括但不限于：为了 向你提供即时通讯、内容分享等服务，我 们需要收集你的设备信息、操作日志等个 人信息。你可以在“设置”中查看、变更、删除个人信息并管理你的授权。`)}}<br>
-					{{$t(`你可以阅读`)}}<navigator url="/pages/users/privacy/index?type=3">{{$t(`《服务协议与隐私政策》`)}}</navigator>{{$t(`了解详细信息。如你同意，请点击“我同意”开始接受我们的服务。`)}}
+					请务必审慎阅读、充分理解“服务协议与 隐私政策”各条款，包括但不限于：为了 向你提供即时通讯、内容分享等服务，我 们需要收集你的设备信息、操作日志等个 人信息。你可以在“设置”中查看、变更、删除个人信息并管理你的授权。<br>
+					你可以阅读<navigator url="/pages/users/privacy/index?type=3">《服务协议与隐私政策》</navigator>了解详细信息。如你同意，请点击“我同意”开始接受我们的服务。
 				</view>
 				<view class="btn-box">
-					<view class="btn-item" @click="confirmApp">{{$t(`我同意`)}}</view>
-					<view class="btn" @click="closeModel">{{$t(`残忍拒绝`)}}</view>
+					<view class="btn-item" @click="confirmApp">我同意</view>
+					<view class="btn" @click="closeModel">残忍拒绝</view>
 				</view>
 			</view>
 		</view>
@@ -299,7 +299,7 @@
 				goodType: 3,
 				loading: false,
 				loadend: false,
-				loadTitle: this.$t(`下拉加载更多`), //提示语
+				loadTitle: '下拉加载更多', //提示语
 				page: 1,
 				limit: this.$config.LIMIT,
 				iSshowH: false,
@@ -461,7 +461,7 @@
 			// 重新链接
 			reconnect() {
 				uni.showLoading({
-					title: this.$t(`加载中`)
+					title: '加载中'
 				})
 				this.diyData();
 				this.getIndexData();
@@ -721,7 +721,7 @@
 						uni.hideLoading()
 						if (that.errorNetwork) {
 							uni.showToast({
-								title: this.$t(`连接失败`),
+								title: '连接失败',
 								icon: 'none',
 								duration: 2000
 							})
@@ -774,13 +774,13 @@
 						let tempArr = that.$util.SplitArray(list, that.tempArr);
 						that.$set(that, 'tempArr', tempArr.slice(0, this.numConfig));
 						that.loadend = loadend;
-						that.loadTitle = loadend ? that.$t(`没有更多内容啦~`) : that.$t(`加载更多`);
+						that.loadTitle = loadend ? '没有更多内容啦~' : '加载更多';
 						that.page = that.page + 1;
 						that.loading = false;
 					})
 					.catch(res => {
 						that.loading = false;
-						that.loadTitle = that.$t(`加载更多`);
+						that.loadTitle = '加载更多';
 					});
 			},
 			goRouter(item) {

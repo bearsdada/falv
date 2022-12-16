@@ -7,7 +7,7 @@
 		         <view class='listn'>
 		            <view class='itemn acea-row row-between-wrapper' v-for="(itemn,indexn) in item.list" :key="indexn">
 		               <view>
-		                  <view class='name line1'>{{$t(itemn.title)}}</view>
+		                  <view class='name line1'>{{itemn.title}}</view>
 		                  <view>{{itemn.add_time}}</view>
 		               </view>
 		               <view class='num font-color'>+{{itemn.number}}</view>
@@ -18,7 +18,7 @@
 		    <view class='loadingicon acea-row row-center-wrapper' v-if="signList.length > 0">
 		        <text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadtitle}}
 		    </view>
-			<view v-if="signList.length == 0"><emptyPage :title="$t(`暂无签到记录~`)"></emptyPage></view>
+			<view v-if="signList.length == 0"><emptyPage title="暂无签到记录~"></emptyPage></view>
 		</view>
 		<!-- #ifdef MP -->
 		<!-- <authorize @onLoadFun="onLoadFun" :isAuto="isAuto" :isShowAuth="isShowAuth" @authColse="authColse"></authorize> -->
@@ -45,7 +45,7 @@
 			return {
 				loading:false,
 				    loadend:false,
-				    loadtitle:this.$t(`加载更多`),
+				    loadtitle:'加载更多',
 				    page:1,
 				    limit:8,
 				    signList:[],
@@ -102,10 +102,10 @@
 					that.$set(that,'signList',that.signList);
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadtitle = loadend ? that.$t(`我也是有底线的`) : that.$t(`加载更多`);
+					that.loadtitle = loadend ? '我也是有底线的' : '加载更多';
 			      }).catch(err=>{
 					that.loading = false;
-					that.loadtitle = that.$t(`加载更多`);
+					that.loadtitle = '加载更多';
 			      });
 			    },
 		}

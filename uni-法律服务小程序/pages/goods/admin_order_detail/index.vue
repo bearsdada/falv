@@ -107,7 +107,7 @@
 				<view class='conter'>￥{{orderInfo.pay_postage}}</view>
 			</view>
 			<view class="actualPay acea-row row-right">
-				{{$t(`real_payment`)}}：<span class="money">￥{{ orderInfo.pay_price }}</span>
+				实付：<span class="money">￥{{ orderInfo.pay_price }}</span>
 			</view>
 		</view>
 		<view class="wrapper" v-if="

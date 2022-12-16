@@ -4,7 +4,7 @@
 			<view class="section-hd">支付金额</view>
 			<view class="section-bd">
 				<view class="input-group">
-					{{$t(`￥`)}}
+					￥
 					<input v-model.number="money" class="input" name="money" type="digit" @input="inputChange" placeholder="0.00" />
 				</view>
 				<view v-if="payPrice" class="discount">会员优惠价：￥{{ payPrice }}</view>

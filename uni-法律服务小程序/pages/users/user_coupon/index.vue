@@ -1,37 +1,37 @@
 <template>
 	<view :style="colorStyle">
 		<view class="navbar acea-row row-around">
-			<view class="item acea-row row-center-wrapper" :class="{ on: navOn === 1 }" @click="onNav(1)">{{$t(`未使用`)}}</view>
-			<view class="item acea-row row-center-wrapper" :class="{ on: navOn === 2 }" @click="onNav(2)">{{$t(`已使用/过期`)}}</view>
+			<view class="item acea-row row-center-wrapper" :class="{ on: navOn === 1 }" @click="onNav(1)">未使用</view>
+			<view class="item acea-row row-center-wrapper" :class="{ on: navOn === 2 }" @click="onNav(2)">已使用/过期</view>
 		</view>
 		<view class='coupon-list' v-if="couponsList.length">
 			<view class='item acea-row row-center-wrapper' v-for='(item,index) in couponsList' :key="index"
 				:class="{svip: item.receive_type === 4}" @click="useCoupon(item)">
 				<view class="moneyCon acea-row row-center-wrapper">
 					<view class='money' :class='item._type == 0 ? "moneyGray" : ""'>
-						<view>{{$t(`￥`)}}<text class='num'>{{item.coupon_price}}</text></view>
-						<view class="pic-num" v-if="item.use_min_price > 0">{{$t(`满`)}}{{item.use_min_price}}{{$t(`元可用`)}}</view>
-						<view class="pic-num" v-else>{{$t(`无门槛券`)}}</view>
+						<view>￥<text class='num'>{{item.coupon_price}}</text></view>
+						<view class="pic-num" v-if="item.use_min_price > 0">满{{item.use_min_price}}元可用</view>
+						<view class="pic-num" v-else>无门槛券</view>
 					</view>
 				</view>
 				<view class='text'>
 					<view class='condition'>
 						<view class="name line2">
 							<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'"
-								v-if="item.applicable_type === 0">{{$t(`通用劵`)}}</view>
+								v-if="item.applicable_type === 0">通用劵</view>
 							<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'"
-								v-else-if="item.applicable_type === 1">{{$t(`品类券`)}}</view>
+								v-else-if="item.applicable_type === 1">品类券</view>
 							<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'"
-								v-else>{{$t(`服务服务券`)}}</view>
+								v-else>服务服务券</view>
 							<image src="../../../static/images/fvip.png" class="pic" v-if="item.receive_type===4">
 							</image>
-							<text>{{$t(item.coupon_title)}}</text>
+							<text>{{item.coupon_title}}</text>
 						</view>
 					</view>
 					<view class='data acea-row row-between-wrapper'>
 						<view>{{item.add_time}}-{{item.end_time}}</view>
-						<view class='bnt gray' v-if="item._type==0">{{$t(item._msg)}}</view>
-						<view class='bnt bg-color' v-else>{{$t(item._msg)}}</view>
+						<view class='bnt gray' v-if="item._type==0">{{item._msg}}</view>
+						<view class='bnt bg-color' v-else>{{item._msg}}</view>
 					</view>
 				</view>
 			</view>
@@ -161,7 +161,7 @@
 				}
 				that.loading = true;
 				uni.showLoading({
-					title: that.$t(`正在加载…`)
+					title: '正在加载…'
 				});
 				getUserCoupons(this.navOn, {
 					page: this.page,

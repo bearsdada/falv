@@ -47,7 +47,7 @@
 							<view class='vip-money' v-if="item.vip_price && item.vip_price > 0">￥{{item.vip_price}}
 								<image src='../../../static/images/vip.png'></image>
 							</view>
-							<view>已售 {{item.sales}}{{$t(item.unit_name) || '件'}}</view>
+							<view>已售 {{item.sales}}{{item.unit_name || '件'}}</view>
 						</view>
 					</view>
 				</view>

@@ -9,7 +9,7 @@
 			<navigator url="/pages/goods/goods_search/index" class="input acea-row row-middle skeleton-rect"
 				:class="[boxStyle?'':'fillet',logoConfig?'':'on',txtStyle?'row-center':'']" hover-class="none"><text
 					class="iconfont icon-sousuo"></text>
-				{{$t(`搜索服务`)}}</navigator>
+				搜索服务</navigator>
 		</view>
 	</view>
 	<!-- #endif -->
@@ -23,7 +23,7 @@
 			<navigator url="/pages/goods/goods_search/index" class="input acea-row row-middle skeleton-rect"
 				:class="[boxStyle?'':'fillet',logoConfig?'':'on',txtStyle?'row-center':'']" hover-class="none"><text
 					class="iconfont icon-sousuo"></text>
-				{{$t(`搜索服务名称`)}}</navigator>
+				搜索服务名称</navigator>
 		</view>
 	</view>
 	<view v-else>
@@ -38,7 +38,7 @@
 					<navigator url="/pages/goods/goods_search/index" class="input acea-row row-middle skeleton-rect"
 						:class="[boxStyle?'':'fillet',logoConfig?'':'on',txtStyle?'row-center':'']" hover-class="none">
 						<text class="iconfont icon-sousuo"></text>
-						{{$t(`搜索服务名称`)}}
+						搜索服务名称
 					</navigator>
 				</view>
 			</view>

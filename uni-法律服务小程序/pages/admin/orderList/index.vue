@@ -60,7 +60,7 @@
 						</view>
 						<view class="money">
 							<view class="x-money">
-								{{$t(`￥`)}}{{ val.cart_info.productInfo.attrInfo?val.cart_info.productInfo.attrInfo.price:val.cart_info.productInfo.price }}
+								￥{{ val.cart_info.productInfo.attrInfo?val.cart_info.productInfo.attrInfo.price:val.cart_info.productInfo.price }}
 							</view>
 							<view class="num">x{{ val.cart_info.cart_num }}</view>
 							<view class="info" v-if="val.cart_info.refund_num && item._status._type !=-2">
@@ -70,8 +70,8 @@
 					</view>
 				</view>
 				<view class="public-total">
-					{{$t(`共`)}}{{ item.total_num }}件服务服务，实付款
-					<span class="money">{{$t(`￥`)}}{{ item.pay_price }}</span> ( 邮费 ￥{{
+					共{{ item.total_num }}件服务服务，实付款
+					<span class="money">￥{{ item.pay_price }}</span> ( 邮费 ￥{{
 	            item.pay_postage
 	          }}
 					)

@@ -12,7 +12,7 @@
 					<view :url="'/pages/goods/goods_list/index?cid='+item.id+'&title='+item.cate_name" class="longItem"
 						:style='"width:"+isWidth+"px"' :data-index="index" :class="index===tabClick?'click':''"
 						v-for="(item,index) in tabTitle" :key="index" :id="'id'+index" @click="longClick(item,index)">
-						{{$t(item.cate_name)}}
+						{{item.cate_name}}
 					</view>
 					<view class="underlineBox" :style='"transform:translateX("+isLeft+"px);width:"+isWidth+"px"'>
 						<view class="underline"></view>

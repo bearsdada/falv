@@ -7,7 +7,7 @@
 					<image class="mask-swiper-img" :src="src.image" mode="widthFix" />
 					<view class="mask_sku">
 						<text class="sku_name">{{src.suk}}</text>
-						<text class="sku_price">{{$t(`￥`)}}{{src.price}}</text>
+						<text class="sku_price">￥{{src.price}}</text>
 					</view>
 				</swiper-item>
 			</swiper>

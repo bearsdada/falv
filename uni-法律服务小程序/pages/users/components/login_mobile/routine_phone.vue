@@ -4,11 +4,11 @@
 		<view class="mobile-mask animated" :class="{slideInUp:isUp}">
 			<view class="info-box">
 				<image :src="logoUrl"></image>
-				<view class="title">{{$t(`获取授权`)}}</view>
-				<view class="txt">{{$t(`获取微信的手机号授权`)}}</view>
+				<view class="title">获取授权</view>
+				<view class="txt">获取微信的手机号授权</view>
 			</view>
 			<button class="sub_btn" open-type="getPhoneNumber"
-				@getphonenumber="getphonenumber">{{$t(`获取微信手机号`)}}</button>
+				@getphonenumber="getphonenumber">获取微信手机号</button>
 		</view>
 	</view>
 </template>
@@ -55,7 +55,7 @@
 			// 小程序获取手机号码
 			getphonenumber(e) {
 				uni.showLoading({
-					title: this.$t(`正在登录中`)
+					title: '正在登录中'
 				});
 				Routine.getCode()
 					.then(code => {

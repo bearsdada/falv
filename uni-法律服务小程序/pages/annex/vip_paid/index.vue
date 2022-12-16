@@ -64,7 +64,7 @@
 			<scroll-view class="section-bd" scroll-x="true">
 				<view v-for="item in memberCoupons" :key="item.id" class="item acea-row row-center-wrapper"
 					:class="{gray: item.is_fail || item.status === '已使用'}">
-					<view class="money">{{$t(`￥`)}}<text class="num">{{item.coupon_price | moneyFormat}}</text></view>
+					<view class="money">￥<text class="num">{{item.coupon_price | moneyFormat}}</text></view>
 					<view class="text">
 						<view class="name">{{item.coupon_title}}</view>
 						<view v-if="item.use_min_price === '0.00'" class="mark">无门槛券</view>
@@ -682,7 +682,7 @@
 				data.from = 'routine';
 				// #endif
 				uni.showLoading({
-					title: this.$t(`active`)
+					title: '加载中'
 				});
 				memberCardDraw(data).then(res => {
 					let that = this;

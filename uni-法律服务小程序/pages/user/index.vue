@@ -5,7 +5,7 @@
 			<view class="sys-head">
 				<view class="sys-bar" :style="{height:sysHeight}"></view>
 				<!-- #ifdef MP -->
-				<view class="sys-title" :style="member_style==3?'color:#333':''">{{$t('个人中心')}}</view>
+				<view class="sys-title" :style="member_style==3?'color:#333':''">个人中心</view>
 				<!-- #endif -->
 				<view class="bg" :style="member_style==3?'background:#f5f5f5':''"></view>
 			</view>
@@ -23,7 +23,7 @@
 								<!-- <button class="bntImg" v-if="userInfo.is_complete == 0 && isWeixin"
 									@click="getWechatuserinfo">
 									<image class="avatar" src='/static/images/f.png'></image>
-									<view class="avatarName">{{$t('获取头像')}}</view>
+									<view class="avatarName">获取头像</view>
 								</button> -->
 								<!-- #endif -->
 								<!-- #ifndef APP-PLUS -->
@@ -55,13 +55,13 @@
 								<!-- #ifdef MP -->
 								<view class="name" v-if="!userInfo.uid" @click="openAuto"
 									style="height: 100%; display: flex; align-items: center;">
-									{{$t('请点击授权')}}
+									请点击授权
 								</view>
 								<!-- #endif -->
 								<!-- #ifdef H5 -->
 								<view class="name" v-if="!userInfo.uid && isWeixin" @click="openAuto"
 									style="height: 100%; display: flex; align-items: center;">
-									{{$t('请点击授权')}}
+									请点击授权
 								</view>
 								<!-- #endif -->
 								<view class="name" v-if="userInfo.uid">
@@ -78,7 +78,7 @@
 									</view> -->
 								</view>
 								<view class="phone" v-if="!userInfo.phone && isLogin" @tap="bindPhone">
-									{{$t('绑定手机号')}}
+									绑定手机号
 								</view>
 							</view>
 							<view class="message">
@@ -103,39 +103,39 @@
 							<view class="num-item" v-if="userInfo.balance_func_status"
 								@click="goMenuPage('/pages/users/user_money/index')">
 								<text class="num">{{userInfo.now_money || 0}}</text>
-								<view class="txt">{{$t('余额')}}</view>
+								<view class="txt">余额</view>
 							</view>
 							<view class="num-item" v-else
 								@click="goMenuPage('/pages/users/user_goods_collection/index')">
 								<text class="num">{{userInfo.collectCount || 0}}</text>
-								<view class="txt">{{$t('收藏')}}</view>
+								<view class="txt">收藏</view>
 							</view>
 							<view class="num-item" @click="goMenuPage('/pages/users/user_coupon/index')">
 								<text class="num">{{userInfo.couponCount || 0}}</text>
-								<view class="txt">{{$t('优惠券')}}</view>
+								<view class="txt">优惠券</view>
 							</view>
 							<view class="num-item" @click="goMenuPage('/pages/users/user_integral/index')">
 								<text class="num">{{userInfo.integral || 0}}</text>
-								<view class="txt">{{$t('积分')}}</view>
+								<view class="txt">积分</view>
 							</view>
 						</view>
 						<!-- <view class="sign" @click="goSignIn">签到</view> -->
 						<view class="cardVipA acea-row row-between-wrapper"
 							v-if="userInfo.svip_open && member_style==1">
 							<view class="left-box">
-								<view v-if="userInfo.vip_status == 1" class="small">{{$t('永久')}}</view>
-								<view v-else-if="userInfo.vip_status == 3" class="small">{{$t('会员到期')}}
+								<view v-if="userInfo.vip_status == 1" class="small">永久</view>
+								<view v-else-if="userInfo.vip_status == 3" class="small">会员到期
 									{{ userInfo.overdue_time | dateFormat }}
 								</view>
-								<view v-else-if="userInfo.vip_status == -1" class="small">{{$t('已过期')}}</view>
-								<view v-else-if="userInfo.vip_status == 2" class="small">{{$t('未开通会员')}}
+								<view v-else-if="userInfo.vip_status == -1" class="small">已过期</view>
+								<view v-else-if="userInfo.vip_status == 2" class="small">未开通会员
 								</view>
 							</view>
 							<view class="acea-row row-middle">
 								<navigator v-if="userInfo.vip_status == 1" url="/pages/annex/vip_paid/index"
-									hover-class="none" class="btn">{{$t('查看会员权益')}}</navigator>
+									hover-class="none" class="btn">查看会员权益</navigator>
 								<navigator v-else url="/pages/annex/vip_paid/index" hover-class="none" class="btn">
-									{{ userInfo.overdue_time ? $t('立即续费') : $t('立即激活') }}
+									{{ userInfo.overdue_time ? '立即续费' : '立即激活' }}
 								</navigator>
 								<text class="iconfont icon-xiangyou"></text>
 							</view>
@@ -145,19 +145,19 @@
 								<view class="pictrue">
 									<image src="../../static/images/member01.png"></image>
 								</view>
-								<view v-if="userInfo.vip_status == 1" class="small">{{$t('永久')}}</view>
-								<view v-else-if="userInfo.vip_status == 3" class="small">{{$t('会员到期')}}
+								<view v-if="userInfo.vip_status == 1" class="small">永久</view>
+								<view v-else-if="userInfo.vip_status == 3" class="small">会员到期
 									{{ userInfo.overdue_time | dateFormat }}
 								</view>
-								<view v-else-if="userInfo.vip_status == -1" class="small">{{$t('已过期')}}</view>
-								<view v-else-if="userInfo.vip_status == 2" class="small">{{$t('未开通会员')}}
+								<view v-else-if="userInfo.vip_status == -1" class="small">已过期</view>
+								<view v-else-if="userInfo.vip_status == 2" class="small">未开通会员
 								</view>
 							</view>
 							<view class="acea-row">
 								<navigator v-if="userInfo.vip_status == 1" url="/pages/annex/vip_paid/index"
-									hover-class="none" class="btn">{{$t('会员可享多项权益')}}</navigator>
+									hover-class="none" class="btn">会员可享多项权益</navigator>
 								<navigator v-else url="/pages/annex/vip_paid/index" hover-class="none" class="btn">
-									{{ userInfo.overdue_time ? $t('立即续费') : $t('立即激活') }}
+									{{ userInfo.overdue_time ? '立即续费' : '立即激活' }}
 								</navigator>
 								<text class="iconfont icon-xiangyou btn"></text>
 							</view>
@@ -165,27 +165,27 @@
 					</view>
 					<view class="card-vip" v-if="userInfo.svip_open && member_style==2">
 						<view class="left-box">
-							<view class="big">{{$t('会员可享多项权益')}}</view>
-							<view v-if="userInfo.vip_status == 1" class="small">{{$t('永久')}}</view>
-							<view v-else-if="userInfo.vip_status == 3" class="small">{{$t('会员到期')}}
+							<view class="big">会员可享多项权益</view>
+							<view v-if="userInfo.vip_status == 1" class="small">永久</view>
+							<view v-else-if="userInfo.vip_status == 3" class="small">会员到期
 								{{ userInfo.overdue_time | dateFormat }}
 							</view>
-							<view v-else-if="userInfo.vip_status == -1" class="small">{{$t('已过期')}}</view>
-							<view v-else-if="userInfo.vip_status == 2" class="small">{{$t('未开通会员')}}
+							<view v-else-if="userInfo.vip_status == -1" class="small">已过期</view>
+							<view v-else-if="userInfo.vip_status == 2" class="small">未开通会员
 							</view>
 						</view>
 						<navigator v-if="userInfo.vip_status == 1" url="/pages/annex/vip_paid/index" hover-class="none"
-							class="btn">{{$t('查看会员权益')}}</navigator>
+							class="btn">查看会员权益</navigator>
 						<navigator v-else url="/pages/annex/vip_paid/index" hover-class="none" class="btn">
-							{{ userInfo.overdue_time ? $t('立即续费') : $t('立即激活') }}
+							{{ userInfo.overdue_time ? '立即续费' : '立即激活' }}
 						</navigator>
 					</view>
 					<view class="order-wrapper" :class="userInfo.svip_open?'':'height'">
 						<view class="order-hd flex">
-							<view class="left">{{$t('订单中心')}}</view>
+							<view class="left">订单中心</view>
 							<navigator class="right flex" hover-class="none" url="/pages/goods/order_list/index"
 								open-type="navigate">
-								{{$t('查看全部')}}
+								查看全部
 								<text class="iconfont icon-xiangyou"></text>
 							</navigator>
 						</view>
@@ -197,7 +197,7 @@
 										<text class="iconfont" :class="item.img"></text>
 										<text class="order-status-num" v-if="item.num > 0">{{ item.num }}</text>
 									</view>
-									<view class="txt">{{$t(item.title)}}</view>
+									<view class="txt">{{item.title}}</view>
 								</navigator>
 							</block>
 						</view>
@@ -219,14 +219,14 @@
 				</view>
 				<!-- 会员菜单 -->
 				<view class="user-menus" style="margin-top: 20rpx;">
-					<view class="menu-title">{{$t('我的服务')}}</view>
+					<view class="menu-title">我的服务</view>
 					<view class="list-box">
 						<!-- #ifdef APP-PLUS || H5 -->
 						<block v-for="(item,index) in MyMenus" :key="index">
 							<view class="item" v-if="item.url!='#' && item.url!='/pages/service/index'"
 								@click="goMenuPage(item.url, item.name)">
 								<image :src="item.pic"></image>
-								<text>{{$t(item.name)}}</text>
+								<text>{{item.name}}</text>
 							</view>
 						</block>
 						<!-- #endif -->
@@ -238,32 +238,32 @@
 								|| (item.url=='/pages/extension/customer_list/chat' && routineContact == 0)"
 								@click="goMenuPage(item.url, item.name)">
 								<image :src="item.pic"></image>
-								<text>{{$t(item.name)}}</text>
+								<text>{{item.name}}</text>
 							</view>
 						</block>
 
 						<button class="item" open-type='contact' v-if="routineContact == 1">
 							<image src="/static/images/contact.png"></image>
-							<text>{{$t('联系客服')}}</text>
+							<text>联系客服</text>
 						</button>
 						<!-- #endif -->
 						<!-- #ifdef APP-PLUS -->
 						<view class="item" hover-class="none" @click="goMenuPage('/pages/users/privacy/index?type=3')">
 							<image src="/static/images/menu.png"></image>
-							<text>{{$t('隐私协议')}}</text>
+							<text>隐私协议</text>
 						</view>
 						<!-- #endif -->
 					</view>
 				</view>
 				<view class="user-menus" style="margin-top: 20rpx;" v-if="storeMenu.length">
-					<view class="menu-title">{{$t('商家管理')}}</view>
+					<view class="menu-title">商家管理</view>
 					<view class="list-box">
 						<block v-for="(item,index) in storeMenu" :key="index">
 							<view class="item" :url="item.url" hover-class="none"
 								v-if="item.url!='#' && item.url!='/pages/service/index'"
 								@click="goMenuPage(item.url, item.name)">
 								<image :src="item.pic"></image>
-								<text>{{$t(item.name)}}</text>
+								<text>{{item.name}}</text>
 							</view>
 						</block>
 					</view>
@@ -325,7 +325,7 @@
 				var rest = setTime - nowTime.getTime()
 				var day = parseInt(rest / (60 * 60 * 24 * 1000))
 				// var hour = parseInt(rest/(60*60*1000)%24) //小时
-				return day + this.$t('day')
+				return day + '天'
 			},
 			dateFormat: function(value) {
 				return dayjs(value * 1000).format('YYYY-MM-DD');
@@ -472,7 +472,7 @@
 					userInfo: e.detail.userInfo
 				}).then(res => {
 					this.getUserInfo();
-					return this.$util.Tips(this.$t('更新用户信息成功'));
+					return this.$util.Tips('更新用户信息成功');
 				}).catch(res => {
 
 				})

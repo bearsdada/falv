@@ -1378,10 +1378,10 @@ export default {
         { tit: '其他设置', name: '6' },
       ],
       virtual: [
+        { tit: '虚拟商品', id: 3, tit2: '虚拟发货' },
         { tit: '普通商品', id: 0, tit2: '物流发货' },
         { tit: '卡密/网盘', id: 1, tit2: '自动发货' },
         { tit: '优惠卷', id: 2, tit2: '自动发货' },
-        { tit: '虚拟商品', id: 3, tit2: '虚拟发货' },
       ],
       seletVideo: 0, //选择视频类型
       customBtn: false, //自定义留言开关
@@ -1643,7 +1643,7 @@ export default {
         is_postage: 0,
         is_sub: [],
         recommend_list: [],
-        virtual_type: 0,
+        virtual_type: 3,
         // is_sub: 0,
         id: 0,
         spec_type: 0,

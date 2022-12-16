@@ -22,7 +22,7 @@
 								class='iconfont'
 								:class="item.index >= indexn? 'icon-shitixing font-num':'icon-kongxinxing'"></text>
 						</view>
-						<text class='evaluate'>{{item.index === -1 ? "" : item.index + 1 + $t(`星`)}}</text>
+						<text class='evaluate'>{{item.index === -1 ? "" : item.index + 1 + '星'}}</text>
 					</view>
 					<view class='textarea'>
 						<textarea placeholder='服务服务满足你的期待么？说说你的想法，分享给想买的他们吧' name="comment"

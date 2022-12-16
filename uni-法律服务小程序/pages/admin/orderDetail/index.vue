@@ -51,9 +51,9 @@
 					</view>
 				</view>
 				<view class="money">
-					<view class="x-money">{{$t(`￥`)}}{{ item.productInfo.price }}</view>
+					<view class="x-money">￥{{ item.productInfo.price }}</view>
 					<view class="num">x{{ item.cart_num }}</view>
-					<view class="y-money">{{$t(`￥`)}}{{ item.productInfo.ot_price }}</view>
+					<view class="y-money">￥{{ item.productInfo.ot_price }}</view>
 				</view>
 			</navigator>
 		</view>

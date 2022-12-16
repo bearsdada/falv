@@ -4,17 +4,17 @@
 			<view class='addAddress'>
 				<view class='list'>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>{{$t(`姓名`)}}</view>
-						<input type='text' :placeholder='$t(`请输入姓名`)' name='real_name' :value="userAddress.real_name"
+						<view class='name'>姓名</view>
+						<input type='text' placeholder='请输入姓名' name='real_name' :value="userAddress.real_name"
 							placeholder-class='placeholder'></input>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>{{$t(`联系电话`)}}</view>
-						<input type='number' :placeholder='$t(`请输入联系电话`)' name="phone" :value='userAddress.phone'
+						<view class='name'>联系电话</view>
+						<input type='number' placeholder='请输入联系电话' name="phone" :value='userAddress.phone'
 							placeholder-class='placeholder' pattern="\d*"></input>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>{{$t(`所在地区`)}}</view>
+						<view class='name'>所在地区</view>
 						<view class="address">
 							<picker mode="multiSelector" @change="bindRegionChange"
 								@columnchange="bindMultiPickerColumnChange" :value="valueRegion" :range="multiArray">
@@ -26,23 +26,23 @@
 						</view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>{{$t(`详细地址`)}}</view>
-						<input type='text' :placeholder='$t(`请填写具体地址`)' name='detail' placeholder-class='placeholder'
+						<view class='name'>详细地址</view>
+						<input type='text' placeholder='请填写具体地址' name='detail' placeholder-class='placeholder'
 							:value='userAddress.detail'></input>
 					</view>
 				</view>
 				<view class='default acea-row row-middle' @click='ChangeIsDefault'>
 					<checkbox-group>
-						<checkbox :checked="userAddress.is_default ? true : false" />{{$t(`设置为默认地址`)}}
+						<checkbox :checked="userAddress.is_default ? true : false" />设置为默认地址
 					</checkbox-group>
 				</view>
 
-				<button class='keepBnt bg-color' form-type="submit">{{$t(`立即保存`)}}</button>
+				<button class='keepBnt bg-color' form-type="submit">立即保存</button>
 				<!-- #ifdef MP -->
-				<view class="wechatAddress" v-if="!id" @click="getWxAddress">{{$t(`导入微信地址`)}}</view>
+				<view class="wechatAddress" v-if="!id" @click="getWxAddress">导入微信地址</view>
 				<!-- #endif -->
 				<!-- #ifdef H5 -->
-				<view class="wechatAddress" v-if="this.$wechat.isWeixin() && !id" @click="getAddress">{{$t(`导入微信地址`)}}</view>
+				<view class="wechatAddress" v-if="this.$wechat.isWeixin() && !id" @click="getAddress">导入微信地址</view>
 				<!-- #endif -->
 			</view>
 		</form>
@@ -85,7 +85,7 @@
 		mixins: [colors],
 		data() {
 			return {
-				regionDval: [this.$t(`浙江省`), this.$t(`杭州市`), this.$t(`滨江区`)],
+				regionDval: ['浙江省', '杭州市', '滨江区'],
 				cartId: '', //购物车id
 				pinkId: 0, //拼团id
 				couponId: 0, //优惠券id
@@ -93,7 +93,7 @@
 				userAddress: {
 					is_default: false
 				}, //地址详情
-				region: [this.$t(`省`), this.$t(`市`), this.$t(`区`)],
+				region: ['省', '市', '区'],
 				valueRegion: [0, 0, 0],
 				isAuto: false, //没有授权的不会自动授权
 				isShowAuth: false, //是否隐藏授权
@@ -101,7 +101,7 @@
 				multiArray: [],
 				multiIndex: [0, 0, 0],
 				cityId: 0,
-				defaultRegion: [this.$t(`广东省`), this.$t(`广州市`), this.$t(`番禺区`)],
+				defaultRegion: ['广东省', '广州市', '番禺区'],
 				defaultRegionCode: '110101',
 				news: '',
 				noCoupon: 0
@@ -127,7 +127,7 @@
 				this.noCoupon = options.noCoupon || 0;
 				this.news = options.new || '';
 				uni.setNavigationBarTitle({
-					title: options.id ? this.$t(`修改地址`) : this.$t(`添加地址`)
+					title: options.id ? '修改地址' : '添加地址'
 				})
 				this.getUserAddress();
 				this.getCityList();
@@ -328,7 +328,7 @@
 										}
 									}, 1000);
 									return that.$util.Tips({
-										title: this.$t(`添加成功`),
+										title: '添加成功',
 										icon: 'success'
 									});
 								}).catch(err => {
@@ -340,15 +340,15 @@
 							fail: function(res) {
 								if (res.errMsg == 'chooseAddress:cancel') return that.$util
 									.Tips({
-										title: this.$t(`取消选择`)
+										title: '取消选择'
 									});
 							},
 						})
 					},
 					fail: function(res) {
 						uni.showModal({
-							title: this.$t(`您已拒绝导入微信地址权限`),
-							content: this.$t(`是否进入权限管理，调整授权？`),
+							title:'您已拒绝导入微信地址权限',
+							content: '是否进入权限管理，调整授权？',
 							success(res) {
 								if (res.confirm) {
 									uni.openSetting({
@@ -356,7 +356,7 @@
 									});
 								} else if (res.cancel) {
 									return that.$util.Tips({
-										title: that.$t(`已取消！`)
+										title: '已取消！'
 									});
 								}
 							}
@@ -409,14 +409,14 @@
 							}, 1000);
 							// close();
 							that.$util.Tips({
-								title: that.$t(`添加成功`),
+								title:'添加成功',
 								icon: 'success'
 							});
 						})
 						.catch(err => {
 							// close();
 							return that.$util.Tips({
-								title: err || that.$t(`添加失败`)
+								title: err || '添加失败'
 							});
 						});
 				}).catch(err => {});
@@ -429,19 +429,19 @@
 				let that = this,
 					value = e.detail.value;
 				if (!value.real_name.trim()) return that.$util.Tips({
-					title: that.$t(`请填写收货人姓名`)
+					title: '请填写收货人姓名'
 				});
 				if (!value.phone) return that.$util.Tips({
-					title: that.$t(`请填写联系电话`)
+					title: '请填写联系电话'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
-				if (that.region[0] == that.$t(`省`)) return that.$util.Tips({
-					title: that.$t(`请选择所在地区`)
+				if (that.region[0] == '省') return that.$util.Tips({
+					title:'请选择所在地区'
 				});
 				if (!value.detail.trim()) return that.$util.Tips({
-					title: that.$t(`请填写详细地址`)
+					title: '请填写详细地址'
 				});
 				value.id = that.id;
 				let regionArray = that.region;
@@ -454,18 +454,18 @@
 				value.is_default = that.userAddress.is_default ? 1 : 0;
 
 				uni.showLoading({
-					title: that.$t(`保存中`),
+					title: '保存中',
 					mask: true
 				})
 				editAddress(value).then(res => {
 					if (that.id)
 						that.$util.Tips({
-							title: that.$t(`修改成功`),
+							title: '修改成功',
 							icon: 'success'
 						});
 					else
 						that.$util.Tips({
-							title: that.$t(`添加成功`),
+							title: '添加成功',
 							icon: 'success'
 						});
 					setTimeout(function() {

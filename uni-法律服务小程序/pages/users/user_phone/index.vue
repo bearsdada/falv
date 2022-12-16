@@ -4,16 +4,16 @@
 			<view class="ChangePassword">
 				<view class="list">
 					<view class="item">
-						<input type='number' :placeholder='$t(`填写手机号码`)' placeholder-class='placeholder' v-model="phone"></input>
+						<input type='number' placeholder='填写手机号码' placeholder-class='placeholder' v-model="phone"></input>
 					</view>
 					<view class="item acea-row row-between-wrapper">
-						<input type='number' :placeholder='$t(`填写验证码`)' placeholder-class='placeholder' class="codeIput" v-model="captcha"></input>
+						<input type='number' placeholder='填写验证码' placeholder-class='placeholder' class="codeIput" v-model="captcha"></input>
 						<button class="code font-num" :class="disabled === true ? 'on' : ''" :disabled='disabled' @click="code">
 							{{ text }}
 						</button>
 					</view>
 				</view>
-				<button form-type="submit" class="confirmBnt bg-color">{{$t(`确认绑定`)}}</button>
+				<button form-type="submit" class="confirmBnt bg-color">确认绑定</button>
 			</view>
 		</form>
 
@@ -83,13 +83,13 @@
 			editPwd: function() {
 				let that = this;
 				if (!that.phone) return that.$util.Tips({
-					title: that.$t(`请填写手机号码`)
+					title: '请填写手机号码'
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
 				if (!that.captcha) return that.$util.Tips({
-					title: that.$t(`请填写验证码`)
+					title: '请填写验证码'
 				});
 				if(this.type == 0){
 					bindingUserPhone({
@@ -98,9 +98,9 @@
 					}).then(res => {
 						if (res.data !== undefined && res.data.is_bind) {
 							uni.showModal({
-								title: that.$t(`是否绑定账号`),
+								title: '是否绑定账号',
 								content: res.msg,
-								confirmText: that.$t(`绑定`),
+								confirmText: '绑定',
 								success(res) {
 									if (res.confirm) {
 										bindingUserPhone({
@@ -122,7 +122,7 @@
 										})
 									} else if (res.cancel) {
 										return that.$util.Tips({
-											title: that.$t(`您已取消绑定！`)
+											title: '您已取消绑定！'
 										}, {
 											tab: 5,
 											url: '/pages/users/user_info/index'
@@ -132,7 +132,7 @@
 							});
 						} else
 							return that.$util.Tips({
-								title: that.$t(`绑定成功`),
+								title: '绑定成功',
 								icon: 'success'
 							}, {
 								tab: 5,
@@ -186,10 +186,10 @@
 			async code() {
 				let that = this;
 				if (!that.phone) return that.$util.Tips({
-					title: that.$t(`请填写手机号码`)
+					title: '请填写手机号码'
 				});
 				if (!(/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.phone))) return that.$util.Tips({
-					title: that.$t(`请输入正确的手机号码`)
+					title: '请输入正确的手机号码'
 				});
 				this.$refs.verify.show();
 				return ;

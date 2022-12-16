@@ -2,9 +2,9 @@
 	<view :style="colorStyle">
 		<view class='bill-details'>
 			<view class='nav acea-row'>
-				<view class='item' :class='type==0 ? "on":""' @click='changeType(0)'>{{$t(`全部`)}}</view>
-				<view class='item' :class='type==1 ? "on":""' @click='changeType(1)'>{{$t(`消费`)}}</view>
-				<view class='item' :class='type==2 ? "on":""' @click='changeType(2)'>{{$t(`充值`)}}</view>
+				<view class='item' :class='type==0 ? "on":""' @click='changeType(0)'>全部</view>
+				<view class='item' :class='type==1 ? "on":""' @click='changeType(1)'>消费</view>
+				<view class='item' :class='type==2 ? "on":""' @click='changeType(2)'>充值</view>
 			</view>
 			<view class='sign-record'>
 				<view class='list' v-for="(item,index) in userBillList" :key="index">
@@ -13,7 +13,7 @@
 						<view class='listn'>
 							<view class='itemn acea-row row-between-wrapper' v-for="(vo,indexn) in item.child" :key="indexn">
 								<view>
-									<view class='name line1'>{{$t(vo.title)}}</view>
+									<view class='name line1'>{{vo.title}}</view>
 									<view>{{vo.add_time}}</view>
 								</view>
 								<view class='num' v-if="vo.pm">+{{vo.number}}</view>
@@ -26,7 +26,7 @@
 					<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadTitle}}
 				</view>
 				<view v-if="userBillList.length == 0">
-					<emptyPage :title="$t(`暂无账单的记录哦～`)"></emptyPage>
+					<emptyPage title="暂无账单的记录哦～"></emptyPage>
 				</view>
 			</view>
 		</view>
@@ -64,7 +64,7 @@
 		mixins: [colors],
 		data() {
 			return {
-				loadTitle: this.$t(`加载更多`),
+				loadTitle: '加载更多',
 				loading: false,
 				loadend: false,
 				page: 1,
@@ -142,12 +142,12 @@
 					}
 					let loadend = res.data.list.length < that.limit;
 					that.loadend = loadend;
-					that.loadTitle = loadend ? that.$t(`我也是有底线的`) : that.$t(`加载更多`);
+					that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
 					that.page += 1;
 					that.loading = false;
 				}).catch(err=>{
 					that.loading = false;
-					that.loadTitle = that.$t(`加载更多`);
+					that.loadTitle = '加载更多';
 				})
 			},
 			/**

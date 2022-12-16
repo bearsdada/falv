@@ -3,9 +3,9 @@
 	<view>
 		<view class="record" :style="colorStyle" v-if="visitList.length">
 			<view class="nav acea-row row-between-wrapper">
-				<view class="left">{{$t(`共`)}} <text class="num">{{count}}</text>{{$t(`件服务服务`)}}</view>
-				<view class="font-num" v-if="!isShowChecked" @click="switchTap">{{$t(`管理`)}}</view>
-				<view v-else @click="switchTap">{{$t(`取消`)}}</view>
+				<view class="left">共 <text class="num">{{count}}</text>件服务服务</view>
+				<view class="font-num" v-if="!isShowChecked" @click="switchTap">管理</view>
+				<view v-else @click="switchTap">取消</view>
 			</view>
 			<view class="list">
 				<checkbox-group @change="checkboxChange">
@@ -23,12 +23,12 @@
 										<checkbox v-if="isShowChecked" :value="(j.id).toString()" :checked="j.checked" class="checkbox" />
 										<view class="masks acea-row row-center-wrapper" v-if="!isShowChecked && j.stock<=0">
 											<view class="bg">
-												<view>{{$t(`已售罄`)}}</view>
+												<view>已售罄</view>
 											</view>
 										</view>
 										<view class="masks acea-row row-center-wrapper" v-if="!isShowChecked && !j.is_show">
 											<view class="bg">
-												<view>{{$t(`已下架`)}}</view>
+												<view>已下架</view>
 											</view>
 										</view>
 									</view>
@@ -45,11 +45,11 @@
 			<view class="footer acea-row row-between-wrapper" v-if="isShowChecked">
 				<checkbox-group @change="checkboxAllChange">
 					<checkbox value="all" :checked="isAllSelect" />
-					<text class='checkAll'>{{$t(`全选`)}}</text>
+					<text class='checkAll'>全选</text>
 				</checkbox-group>
 				<view class="acea-row row-middle">
-					<view class="bnt acea-row row-center-wrapper" @click="collect">{{$t(`收藏`)}}</view>
-					<view class="bnt on acea-row row-center-wrapper" @click="del">{{$t(`删除`)}}</view>
+					<view class="bnt acea-row row-center-wrapper" @click="collect">收藏</view>
+					<view class="bnt on acea-row row-center-wrapper" @click="del">删除</view>
 				</view>
 			</view>
 		</view>
@@ -57,7 +57,7 @@
 			<view class='pictrue'>
 				<image :src="imgHost + '/statics/images/no-thing.png'"></image>
 			</view>
-			<view class="acea-row row-center-wrapper tip">{{$t(`暂无数据`)}}</view>
+			<view class="acea-row row-center-wrapper tip">暂无数据</view>
 			<recommend :hostProduct="hostProduct"></recommend>
 		</view>
 	</view>
@@ -92,7 +92,7 @@
 				times: [],
 				isAllSelect: false,
 				hostProduct: [],
-				loadTitle: this.$t(`加载更多`),
+				loadTitle: '加载更多',
 				loading: false,
 				loadend: false,
 				visitList: [],
@@ -308,12 +308,12 @@
 					}
 					let loadend = res.data.list.length < that.limit;
 					that.loadend = loadend;
-					that.loadTitle = loadend ? that.$t(`没有更多内容啦~`) : that.$t(`加载更多`);
+					that.loadTitle = loadend ? '没有更多内容啦~' : '加载更多';
 					that.page = that.page + 1;
 					that.loading = false;
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = that.$t(`加载更多`);
+					that.loadTitle = '加载更多';
 				});
 			},
 			/**

@@ -3,30 +3,30 @@
 		<!-- #ifdef H5 -->
 		<view v-if="!this.$wechat.isWeixin()">
 			<view class="text-section">
-				<view>{{ $t(content) }}</view>
+				<view>content</view>
 			</view>
 			<view class="alipaysubmit" v-html="formContent"></view>
 		</view>
 		<!-- #endif -->
 		<view v-else>
 			<view class="text-section">
-				<view>{{$t(`点击复制网址去浏览器中打开`)}}</view>
+				<view>点击复制网址去浏览器中打开</view>
 				<view class="link">{{ link }}</view>
 			</view>
 			<view class="button-section">
 				<!-- #ifdef H5 -->
-				<button class="button copy" :data-clipboard-text="link">{{$t(`点击复制`)}}</button>
+				<button class="button copy" :data-clipboard-text="link">点击复制</button>
 				<!-- #endif -->
 				<!-- #ifdef MP -->
-				<button class="button copy" @click="copyLink">{{$t(`点击复制`)}}</button>
+				<button class="button copy" @click="copyLink">点击复制</button>
 				<!-- #endif -->
-				<button class="button off" @click="goDetail">{{$t(`完成支付`)}}</button>
+				<button class="button off" @click="goDetail">完成支付</button>
 			</view>
 		</view>
 		<!-- #ifdef H5 -->
 		<view v-show="hintShow" class="hint" @click="hintShow = false">
-			<view>{{$t(`点击右上角`)}}<text class="iconfont icon-gengduo"></text></view>
-			<view>{{$t(`选择 在浏览器 打开，去支付宝支付`)}}</view>
+			<view>点击右上角<text class="iconfont icon-gengduo"></text></view>
+			<view>选择 在浏览器 打开，去支付宝支付</view>
 		</view>
 		<!-- #endif -->
 		<home></home>
@@ -59,7 +59,7 @@
 				orderId: '',
 				link: '',
 				pay_key: '',
-				content: this.$t(`正在支付中`),
+				content: '正在支付中',
 				formContent: ''
 			};
 		},
@@ -74,9 +74,9 @@
 			if (option.from) this.from = option.from || '';
 			if (!this.$wechat.isWeixin()) {
 				if (!this.payKey) {
-					this.content = this.$t(`支付订单不存在,页面将在2秒后自动关闭`);
+					this.content = '支付订单不存在,页面将在2秒后自动关闭';
 					uni.showToast({
-						title: this.$t(`支付订单不存在,页面将在2秒后自动关闭`),
+						title: '支付订单不存在,页面将在2秒后自动关闭',
 						icon: 'none'
 					});
 					setTimeout(() => {
@@ -86,7 +86,7 @@
 					}, 2000);
 				}
 				uni.showLoading({
-					title: this.$t(`正在支付中`)
+					title: '正在支付中'
 				});
 				aliPay(this.payKey, location.protocol + '//' + window.location.host + '/pages/index/index')
 					.then(res => {
@@ -116,7 +116,7 @@
 				const clipboard = new ClipboardJS(".copy");
 				clipboard.on("success", () => {
 					uni.showToast({
-						title: this.$t(`复制成功`)
+						title: '复制成功'
 					});
 				});
 				// #endif
@@ -129,13 +129,13 @@
 					data: this.link,
 					success() {
 						uni.showToast({
-							title: this.$t(`复制成功`),
+							title: '复制成功',
 							icon: 'success'
 						});
 					},
 					fail() {
 						uni.showToast({
-							title: this.$t(`复制失败`),
+							title: '复制失败',
 							icon: 'none'
 						});
 					}

@@ -12,7 +12,7 @@
 			</view>
 		</view>
 		<view class="customerService borderService" :style="'top:'+topConfig" v-if="!logoConfig && isIframe">
-			<view class="pictrue">{{$t(`客服`)}}</view>
+			<view class="pictrue">客服</view>
 		</view>
 		<!-- #endif -->
 		<!-- #ifdef MP -->

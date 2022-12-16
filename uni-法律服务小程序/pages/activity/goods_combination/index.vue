@@ -40,8 +40,8 @@
 					<view class="name line2">{{item.title}}</view>
 					<view class="bottom acea-row row-between row-bottom">
 						<view class="y_money">
-							<view class="price">{{$t(`￥`)}}{{item.product_price}}</view>
-							<view class="money">{{$t(`￥`)}}<text class="num">{{item.price}}</text></view>
+							<view class="price">￥{{item.product_price}}</view>
+							<view class="money">￥<text class="num">{{item.price}}</text></view>
 						</view>
 						<view class="bnt acea-row row-center-wrapper" v-if="item.stock>0&&item.quota>0">
 							<view class="light">
