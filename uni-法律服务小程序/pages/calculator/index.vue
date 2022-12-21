@@ -53,7 +53,7 @@
 		},
 		data() {
 			return {
-				
+				is_diy:false
 			}
 		},
 		methods: {
